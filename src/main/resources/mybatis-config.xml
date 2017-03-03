@@ -50,5 +50,6 @@
 		<mapper resource="mapper/resources/ResourcesMapper.xml" />
 		<mapper resource="mapper/role/RoleMapper.xml" />
 		<mapper resource="mapper/user/UserMapper.xml" />
+		<mapper resource="mapper/tenant/TenantMapper.xml" />
 	</mappers>
 </configuration>
