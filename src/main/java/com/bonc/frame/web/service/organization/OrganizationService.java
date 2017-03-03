@@ -17,7 +17,7 @@ public interface OrganizationService {
 	 * 查询所有的组织机构
 	 * @return
 	 */
-	public List<Map<String,String>> selectAll();
+	public List<Map<String,Object>> selectAll();
 	
 	/**
 	 * 查询树状所有的组织机构

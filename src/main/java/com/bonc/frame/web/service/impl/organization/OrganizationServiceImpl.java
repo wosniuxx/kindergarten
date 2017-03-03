@@ -34,7 +34,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
 	@Override
 	//查询所有的组织机构
-	public List<Map<String, String>> selectAll() {
+	public List<Map<String, Object>> selectAll() {
 		return daoHelper.queryForList(orgMapperNameSpace+"selectAll");
 	}
 

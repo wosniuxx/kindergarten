@@ -35,7 +35,7 @@ public class OrganizationController {
 
 	@ResponseBody
 	@RequestMapping("/selectAll")
-	public List<Map<String,String>> selectAll(){
+	public List<Map<String,Object>> selectAll(){
 		return organizationService.selectAll();
 	}
 	
