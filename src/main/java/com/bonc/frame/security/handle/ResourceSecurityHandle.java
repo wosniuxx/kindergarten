@@ -1,5 +1,7 @@
 package com.bonc.frame.security.handle;
 
+import org.springframework.stereotype.Component;
+
 import com.bonc.frame.security.exception.AuthCheckException;
 import com.bonc.frame.security.wrap.SecurityRequestWrap;
 import com.bonc.frame.util.RequestUtil;
@@ -9,9 +11,10 @@ import com.bonc.frame.util.RequestUtil;
  * @date 2017年1月9日 下午9:24:26 
  * @version 版本: 1.0
  */
+@Component
 public class ResourceSecurityHandle implements ISecurityHandle{
 	
-	private String deniedUri;
+	private String deniedUri = "/resources/errors/503_error.jsp";
 
 	@Override
 	public void successHandle(SecurityRequestWrap securityRequestWrap) {

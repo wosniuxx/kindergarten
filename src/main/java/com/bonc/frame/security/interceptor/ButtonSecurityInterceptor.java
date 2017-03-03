@@ -2,6 +2,10 @@ package com.bonc.frame.security.interceptor;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+
 import com.bonc.frame.security.util.Constant;
 import com.bonc.frame.security.wrap.SecurityRequestWrap;
 import com.bonc.frame.web.entity.resources.Resources;
@@ -12,6 +16,7 @@ import com.bonc.frame.web.entity.resources.Resources;
  * @version 版本: 1.0
  * 按钮链接拦截器类
  */
+@Component
 public class ButtonSecurityInterceptor extends AbstractSecurityInterceptor{
 
 	@Override

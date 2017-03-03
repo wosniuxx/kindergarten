@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.bonc.frame.security.util.AntUrlPathMatcher;
 import com.bonc.frame.security.util.Constant;
 import com.bonc.frame.security.util.UrlMatcher;
@@ -16,6 +18,7 @@ import com.bonc.frame.web.entity.resources.Resources;
  * @version 版本: 1.0
  * 资源拦截器类
  */
+@Component
 public class ResourceSecurityInterceptor extends AbstractSecurityInterceptor{
 	
 	private UrlMatcher urlMatcher = new AntUrlPathMatcher();

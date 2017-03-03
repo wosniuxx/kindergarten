@@ -1,5 +1,7 @@
 package com.bonc.frame.security.interceptor;
 
+import org.springframework.stereotype.Component;
+
 import com.bonc.frame.security.wrap.SecurityRequestWrap;
 
 /**
@@ -8,6 +10,7 @@ import com.bonc.frame.security.wrap.SecurityRequestWrap;
  * @version 版本: 1.0
  * 统计拦截器类
  */
+@Component
 public class CountSecurityInterceptor extends AbstractSecurityInterceptor{
 
 	@Override

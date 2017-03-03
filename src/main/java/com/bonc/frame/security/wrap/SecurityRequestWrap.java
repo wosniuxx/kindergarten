@@ -27,8 +27,6 @@ public class SecurityRequestWrap {
 		return this.req;
 	}
 	
-	
-
 	public HttpServletResponse getResp() {
 		return resp;
 	}	

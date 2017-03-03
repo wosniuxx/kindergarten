@@ -2,6 +2,9 @@ package com.bonc.frame.security.interceptor;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.bonc.frame.security.handle.ISecurityHandle;
 import com.bonc.frame.security.repository.ISecurityRepository;
@@ -14,6 +17,7 @@ import com.bonc.frame.security.wrap.SecurityRequestWrap;
  * @version 版本: 1.0
  * 拦截器父类
  */
+
 public abstract class AbstractSecurityInterceptor implements ISecurityInterceptor{
 	
 	protected Log log = LogFactory.getLog(this.getClass());
@@ -28,8 +32,6 @@ public abstract class AbstractSecurityInterceptor implements ISecurityIntercepto
 	public void doInterceptor(SecurityRequestWrap securityRequestWrap) throws Exception{
 		this.doValidation(securityRequestWrap);
 	}
-	
-	
 	
 	//处理成功后调用下一个interceptor
 	@Override
@@ -62,20 +64,19 @@ public abstract class AbstractSecurityInterceptor implements ISecurityIntercepto
 		return securityInterceptor;
 	}
 
-
-
 	public void setSecurityInterceptor(ISecurityInterceptor securityInterceptor) {
 		this.securityInterceptor = securityInterceptor;
 	}
+	
 
-
+	public AbstractSecurityInterceptor() {
+		super();
+	}
 
 	public ISecurityHandle getSecurityHandle() {
 		return securityHandle;
 	}
-
-
-
+	
 	public void setSecurityHandle(ISecurityHandle securityHandle) {
 		this.securityHandle = securityHandle;
 	}

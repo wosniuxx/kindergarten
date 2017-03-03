@@ -2,6 +2,8 @@ package com.bonc.frame.security.handle;
 
 import java.io.IOException;
 
+import org.springframework.stereotype.Component;
+
 import com.bonc.frame.security.exception.LoginTimeoutException;
 import com.bonc.frame.security.wrap.SecurityRequestWrap;
 import com.bonc.frame.util.RequestUtil;
@@ -11,9 +13,10 @@ import com.bonc.frame.util.RequestUtil;
  * @date 2017年1月9日 下午9:24:20 
  * @version 版本: 1.0
  */
+@Component
 public class LoginCheckHandle implements ISecurityHandle{
 	
-	private String loginPageUri;
+	private String loginPageUri = "/login/toLogin";
 	
 	@Override
 	public void successHandle(SecurityRequestWrap securityRequestWrap) {

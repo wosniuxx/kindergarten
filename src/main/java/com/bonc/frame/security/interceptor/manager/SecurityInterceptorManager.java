@@ -1,14 +1,20 @@
 package com.bonc.frame.security.interceptor.manager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
+import com.bonc.frame.security.interceptor.ButtonSecurityInterceptor;
 import com.bonc.frame.security.interceptor.ISecurityInterceptor;
+import com.bonc.frame.security.interceptor.LoginCheckInterceptor;
+import com.bonc.frame.security.interceptor.ResourceSecurityInterceptor;
 import com.bonc.frame.security.wrap.SecurityRequestWrap;
 
 /** 
@@ -18,10 +24,11 @@ import com.bonc.frame.security.wrap.SecurityRequestWrap;
 */
 public class SecurityInterceptorManager {
 	
-	private List<ISecurityInterceptor> securityInterceptors;
-	
 	private ISecurityInterceptor rootSecurityInterceptor;
-
+	
+	List<ISecurityInterceptor> securityInterceptors = new ArrayList<ISecurityInterceptor>();
+	
+	
 	public SecurityInterceptorManager(List<ISecurityInterceptor> securityInterceptors) {
 		super();
 		this.securityInterceptors = securityInterceptors;
@@ -36,6 +43,26 @@ public class SecurityInterceptorManager {
 			tempSecurityInterceptor = securityInterceptor;
 		}
 	}
+	
+	public SecurityInterceptorManager() {
+		super();
+		securityInterceptors.add(new LoginCheckInterceptor());
+		securityInterceptors.add(new ResourceSecurityInterceptor());
+		securityInterceptors.add(new ButtonSecurityInterceptor());
+		
+		ISecurityInterceptor tempSecurityInterceptor = null;
+		for(ISecurityInterceptor securityInterceptor:securityInterceptors){
+			if(tempSecurityInterceptor == null){
+				tempSecurityInterceptor = securityInterceptor;
+				rootSecurityInterceptor = tempSecurityInterceptor;
+				continue;
+			}
+			tempSecurityInterceptor.setChildInterceptor(securityInterceptor);
+			tempSecurityInterceptor = securityInterceptor;
+		}
+	}
+	
+	
 
 	public void doInterceptor(HttpServletRequest request,
 			HttpServletResponse response) throws Exception{
@@ -50,10 +77,6 @@ public class SecurityInterceptorManager {
 
 	public void setSecurityInterceptors(List<ISecurityInterceptor> securityInterceptors) {
 		this.securityInterceptors = securityInterceptors;
-	}
-
-	public SecurityInterceptorManager() {
-		super();
 	}
 
 	public SecurityInterceptorManager(List<ISecurityInterceptor> securityInterceptors,
