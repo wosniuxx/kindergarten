@@ -26,7 +26,7 @@ import com.bonc.frame.web.exception.LoginException;
  * 登录控制器
  */
 @Controller      
-@RequestMapping(value={"/login","/"})
+@RequestMapping(value={"/login"})
 public class LoginController {
 	
 	@Resource
@@ -39,10 +39,10 @@ public class LoginController {
 	}
 	
 	
-	@RequestMapping(value={"/",""})
+	/*@RequestMapping(value={"/",""})
 	public String toLogin(){
 		return "redirect:login/toLogin";
-	}
+	}*/
 	
 	@RequestMapping(value="/logout")
 	public String logout(HttpServletRequest request){
