@@ -5,7 +5,7 @@
 <script src="<%=request.getContextPath() %>/resources/plugin/jquery/jquery-1.10.2.js"></script>
 <script src="<%=request.getContextPath() %>/resources/plugin/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 <script src="<%=request.getContextPath() %>/resources/plugin/bootstrap-menu/BootstrapMenu.min.js"></script>
-<script src="<%=request.getContextPath() %>/resources/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/plugin/datatables/media/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 	$.extend( $.fn.dataTable.defaults, {
 		"searching": false,

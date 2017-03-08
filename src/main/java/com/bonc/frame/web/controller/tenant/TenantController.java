@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bonc.frame.util.IdUtil;
 import com.bonc.frame.util.JsonUtils;
-import com.bonc.frame.web.entity.role.Role;
 import com.bonc.frame.web.entity.tenant.Tenant;
 import com.bonc.frame.web.service.tenant.TenantService;
 
@@ -30,6 +29,7 @@ public class TenantController {
 	@ResponseBody
 	@RequestMapping("/selectPage")
 	public Map selectPage(String start, String length, String jsonStr) {
+		System.out.println(start+"   "+length+"   "+jsonStr);
 		Map<String, Object> paramMap = JsonUtils.stringToCollect(jsonStr);
 		return tenantService.selectAll(start, length, paramMap);
 	}
