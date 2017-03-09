@@ -43,6 +43,7 @@ public class UrlExplainController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
 	public String insert(Model model) {
+		System.out.println("---------------------"+envService.findAll().size());
 		model.addAttribute("envnames", envService.findAll());
 		model.addAttribute("targeturls", targetUrlService.findAll());
 		model.addAttribute("geturls", getUserUrlSerice.findAll());

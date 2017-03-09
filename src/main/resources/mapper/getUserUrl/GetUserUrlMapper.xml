@@ -4,7 +4,7 @@
 	<resultMap type="com.bonc.sso.model.GetUserUrl" id="BaseResultMap">
 		<id column="id" jdbcType="VARCHAR" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
-		<result column="getuserurl" jdbcType="VARCHAR" property="getuserurl" />
+		<result column="getUserUrl" jdbcType="VARCHAR" property="getUserUrl" />
 		<result column="method" jdbcType="VARCHAR" property="method" />
 	</resultMap>
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
    String webpath = request.getContextPath();
 %>
@@ -22,6 +23,12 @@
 		  height: 80px;
 		  border: 1px solid #ccc;
 		}
+		.conurl{   
+			font: 15px Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, Tahoma, Arial, sans-serif;
+		    padding: 35px;
+		    line-height: 24px;
+		    letter-spacing: 2px;
+		}
 	</style>
 </head> 
 <body>
@@ -35,30 +42,32 @@
   									<div class="form-group">
     									<label for="urlEnv">接口环境:</label>
     									<select id="envname" name="envname" class="form-control">  
-                                			<c:forEach var="envnames" items="${envname}">  
-                                				<option value="${envname}">${envname}</option>  
+                                			<c:forEach var="e" items="${envnames }">  
+                                				<option value="${e.service}">${e.envname}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
   									<div class="form-group">
+    									<label for="urlEnv">接口标识:</label>
+    									<input type="text" class="form-control input-sm" id="sign"/>
+  									</div>
+  									<div class="form-group">
     									<label for="targetUrl">目标地址:</label>
     									<select id="targeturl" name="targeturl" class="form-control">  
-                                			<c:forEach var="targeturls" items="${targeturl}">  
-                                				<option value="${targetUrl}">${targetUrl}</option>  
+                                			<c:forEach var="t" items="${targeturls}">  
+                                				<option value="${t.targetUrl}">${t.name}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
   									<div class="form-group">
     									<label for="getUserUrl">获得用户地址:</label>
     									<select id="geturl" name="geturl" class="form-control">  
-                                			<c:forEach var="geturls" items="${getUserUrl}">  
-                                				<option value="${getUserUrl}">${getUserUrl}</option>  
+                                			<c:forEach var="g" items="${geturls}">  
+                                				<option value="${g.getUserUrl}">${g.name}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
-  									<button type="button" class="b-redBtn btn-i" id="searchBtn"><i class="iconfont">&#xe67a;</i>查询</button>
-  									<button type="button" class="b-redBtn btn-i" id="resetBtn"><i class="iconfont">&#xe647;</i>重置</button>
-  									<button type="button" class="b-redBtn btn-i" id="addUrlBtn"><i class="iconfont">&#xe635;</i>接口注册</button>
+  									<button type="button" class="b-redBtn btn-i" id="getUrlBtn"><i class="iconfont">&#xe635;</i>接口预览</button>
 								</form>
 	               			</div>
   					</div>
@@ -67,6 +76,6 @@
 	</div>
 	
 	<%@ include file="../common-js.jsp"%>
-	<script src="<%=webpath %>/resources/js/sso/urlexplain_manage.js"></script>
+	<script src="<%=webpath %>/resources/js/sso/urlexplain_add.js"></script>
 </body>
 </html>
