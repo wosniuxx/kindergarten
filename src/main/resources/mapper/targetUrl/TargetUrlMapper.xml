@@ -4,8 +4,7 @@
 	<resultMap type="com.bonc.sso.model.TargetUrl" id="BaseResultMap">
 		<id column="id" jdbcType="VARCHAR" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
-		<result column="targeturl" jdbcType="VARCHAR" property="targeturl" />
-		<result column="envname" jdbcType="VARCHAR" property="envname" />
+		<result column="targetUrl" jdbcType="VARCHAR" property="targetUrl" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
@@ -24,5 +23,11 @@
 	  from SSO_TARGERURL
 	  where id = #{id,jdbcType=VARCHAR}
 	</select>
+	
+	<select id="findAll" resultMap="BaseResultMap">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from SSO_TARGERURL WHERE 1=1
+  	</select>
    
 </mapper>

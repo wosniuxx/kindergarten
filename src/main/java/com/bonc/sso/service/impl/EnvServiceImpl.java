@@ -1,5 +1,6 @@
 package com.bonc.sso.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -29,6 +30,11 @@ public class EnvServiceImpl implements EnvService{
 	@Override
 	public Env selectByEnvName(String envname) {
 		return (Env)daoHelper.queryOne("com.bonc.frame.web.mapper.env.EnvMapper.selectByEnvName", envname);
+	}
+
+	@Override
+	public List<Env> findAll() {
+		return daoHelper.queryForList("com.bonc.frame.web.mapper.env.EnvMapper.findAll");
 	}
 
 }

@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 	<%@ include file="../common-head.jsp"%>
-	<title>租户管理</title>
+	<title>接口注册</title>
 	<%@ include file="../common-layer-ext.jsp"%>
 	<%@ include file="../common-body-css.jsp"%>
 	<style type="text/css">
@@ -33,30 +33,34 @@
    							<div class="searchWrap">
 	                    		<form class="form-inline" id="urlexplainSearchForm">
   									<div class="form-group">
-    									<label for="tenantName">接口名称:</label>
-    									<input type="text" class="form-control input-sm" name="urlexplainName" />
+    									<label for="urlEnv">接口环境:</label>
+    									<select id="envname" name="envname" class="form-control">  
+                                			<c:forEach var="envnames" items="${envname}">  
+                                				<option value="${envname}">${envname}</option>  
+                                			</c:forEach>  
+                            			</select>  
   									</div>
   									<div class="form-group">
-    									<label for="state">接口状态:</label>
-    									<input type="text" class="form-control input-sm" name="state"/>
+    									<label for="targetUrl">目标地址:</label>
+    									<select id="targeturl" name="targeturl" class="form-control">  
+                                			<c:forEach var="targeturls" items="${targeturl}">  
+                                				<option value="${targetUrl}">${targetUrl}</option>  
+                                			</c:forEach>  
+                            			</select>  
+  									</div>
+  									<div class="form-group">
+    									<label for="getUserUrl">获得用户地址:</label>
+    									<select id="geturl" name="geturl" class="form-control">  
+                                			<c:forEach var="geturls" items="${getUserUrl}">  
+                                				<option value="${getUserUrl}">${getUserUrl}</option>  
+                                			</c:forEach>  
+                            			</select>  
   									</div>
   									<button type="button" class="b-redBtn btn-i" id="searchBtn"><i class="iconfont">&#xe67a;</i>查询</button>
   									<button type="button" class="b-redBtn btn-i" id="resetBtn"><i class="iconfont">&#xe647;</i>重置</button>
   									<button type="button" class="b-redBtn btn-i" id="addUrlBtn"><i class="iconfont">&#xe635;</i>接口注册</button>
 								</form>
 	               			</div>
-	               			
-	               			<table id="urlexplainTable">  
-                        		<thead>
-            						<tr>
-                						<th>接口名称</th>
-                						<th>接口</th>
-               							<th>环境</th>
-               							<th>状态</th>
-                						<th>操作</th>
-            						</tr>
-        						</thead>
-                    		</table>  
   					</div>
 			 </div>
 	     </div>

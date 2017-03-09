@@ -5,10 +5,11 @@
 		<id column="id" jdbcType="VARCHAR" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
 		<result column="getuserurl" jdbcType="VARCHAR" property="getuserurl" />
+		<result column="method" jdbcType="VARCHAR" property="method" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-	id, name, getuserurl
+	id, name, getuserurl,method
 	</sql>
 	
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
@@ -23,5 +24,11 @@
 	  from SSO_GETUSERURL
 	  where id = #{id,jdbcType=VARCHAR}
 	</select>
+	
+	<select id="findAll" resultMap="BaseResultMap">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from SSO_GETUSERURL WHERE 1=1
+  	</select>
    
 </mapper>

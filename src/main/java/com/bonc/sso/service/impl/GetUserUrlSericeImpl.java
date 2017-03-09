@@ -1,5 +1,6 @@
 package com.bonc.sso.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -23,6 +24,11 @@ public class GetUserUrlSericeImpl implements GetUserUrlService{
 	@Override
 	public GetUserUrl selectByEnvId(String id) {
 		return (GetUserUrl)daoHelper.queryOne("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.selectByPrimaryKey", id);
+	}
+
+	@Override
+	public List<GetUserUrl> findAll() {
+		return daoHelper.queryForList("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.findAll");
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.bonc.sso.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -23,6 +24,11 @@ public class TargetUrlServiceImpl implements TargetUrlService {
 	@Override
 	public TargetUrl selectByEnvId(String id) {
 		return (TargetUrl)daoHelper.queryOne("com.bonc.frame.web.mapper.targetUrl.TargetUrlMapper.selectByPrimaryKey", id);
+	}
+
+	@Override
+	public List<TargetUrl> findAll() {
+		return daoHelper.queryForList("com.bonc.frame.web.mapper.targetUrl.TargetUrlMapper.findAll");
 	}
 
 }

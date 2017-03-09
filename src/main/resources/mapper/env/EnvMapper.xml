@@ -31,4 +31,10 @@
 	  where envname = #{envname,jdbcType=VARCHAR}
 	</select>
 	
+	<select id="findAll" resultMap="BaseResultMap">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from SSO_ENV WHERE 1=1
+  	</select>
+	
 </mapper>

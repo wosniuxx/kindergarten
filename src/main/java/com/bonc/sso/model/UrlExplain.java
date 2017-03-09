@@ -1,5 +1,7 @@
 package com.bonc.sso.model;
 
+import java.sql.Date;
+
 /**
  * 接口配置
  * @author ZY
@@ -36,6 +38,10 @@ public class UrlExplain {
 	 * 最后的拼接url
 	 */
 	private String finalUrl;
+	/**
+	 * 创建时间
+	 */
+	private Date createDate;
 	public String getId() {
 		return id;
 	}
@@ -84,8 +90,11 @@ public class UrlExplain {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 	
-	
-	
-
 }

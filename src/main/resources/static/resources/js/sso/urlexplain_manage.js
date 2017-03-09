@@ -3,7 +3,7 @@ $(document).ready(function(){
 	
 	$("#searchBtn").bind("click",reloadTableData);
 	$("#resetBtn").bind("click",resetForm);
-	$("#addTenantBtn").bind("click",addTenant);
+	$("#addUrlBtn").bind("click",addUrl);
 	resourceTree.init();
 	
 	// 为datatable外的父级设置高度
@@ -88,34 +88,12 @@ function resetForm(){
 }
 
 //添加角色
-function addTenant(){
-	var formObj = $("#addTenantForm");
-	form.clear(formObj);
-//	form.cleanValidator(formObj);
-	layer.open({
-		type: 1,
-        title:'<i class="iconfont">&#xe641;</i>&nbsp;新增租户',
-        area: ['300px', '240px'],
-        content: $("#addTenant"),
-        btn: ['确定','取消'],
-        btn1: function(index, layero){//确定按钮回调
-        	//if(form.isValidator(formObj)){
-        		$.ajax({
-    				"url":webpath+"/tenant/insert",
-    				"type":"POST",
-    				dataType:"json",
-    				data:form.serializeJson(formObj),
-    				success:function(data){
-    					layer.close(index);
-    					reloadTableData(true);
-    				}
-    			});
-        	//}
-	    },
-	    btn2: function(index, layero){//确定按钮回调
-        	layer.close(index);
-	    }
-    });
+function addUrl(){
+	location.href = webpath+'/urlExplain/insert';
+	/*$.ajax({
+		type:'GET',
+		url:webpath+'/urlExplain/insert'
+	});*/
 }
 
 //修改租户
@@ -286,6 +264,7 @@ var resourceTree ={
 			});
 		}
 }
+
 
 
 var resourceTypeIcon = {

@@ -15,6 +15,12 @@ public class GetUserUrl {
 	 * 获取用户接口
 	 */
 	private String getUserUrl;
+	/**
+	 * 获取用户数据类型
+	 * json或者xml
+	 * @return
+	 */
+	private String method;
 	public String getId() {
 		return id;
 	}
@@ -33,6 +39,13 @@ public class GetUserUrl {
 	public void setGetUserUrl(String getUserUrl) {
 		this.getUserUrl = getUserUrl;
 	}
+	public String getMethod() {
+		return method;
+	}
+	public void setMethod(String method) {
+		this.method = method;
+	}
+	
 	
 	
 

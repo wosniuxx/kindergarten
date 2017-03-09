@@ -1,5 +1,6 @@
 package com.bonc.sso.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.bonc.sso.model.Env;
@@ -7,7 +8,7 @@ import com.bonc.sso.model.Env;
 public interface EnvService {
 
 	/**
-	 * 查询所有环境信息
+	 * 分页查询所有环境信息
 	 * @return
 	 */
 	public Map selectAll(String start,String length,Map<String,Object>paramMap);
@@ -25,5 +26,11 @@ public interface EnvService {
 	 * @return
 	 */
 	public Env selectByEnvName(String envname);
+	
+	/**
+	 * 查询所有环境信息
+	 * @return
+	 */
+	public List<Env> findAll();
 
 }

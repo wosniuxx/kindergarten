@@ -1,5 +1,6 @@
 package com.bonc.sso.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.bonc.sso.model.GetUserUrl;
@@ -7,7 +8,7 @@ import com.bonc.sso.model.GetUserUrl;
 public interface GetUserUrlService {
 
 	/**
-	 * 查询所有环境信息
+	 * 分页查询所有获取用户信息
 	 * @return
 	 */
 	public Map selectAll(String start,String length,Map<String,Object>paramMap);
@@ -18,4 +19,10 @@ public interface GetUserUrlService {
 	 * @return
 	 */
 	public GetUserUrl selectByEnvId(String id);
+	
+	/**
+	 * 查询所有获取用户信息
+	 * @return
+	 */
+	public List<GetUserUrl> findAll();
 }
