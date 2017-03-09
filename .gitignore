@@ -5,11 +5,12 @@ src/test/
 
 ### STS ###
 .apt_generated
-###.classpath
+.classpath
 .factorypath
-###.project
-###.settings
+.project
+.settings
 .springBeans
+
 
 ### IntelliJ IDEA ###
 .idea
