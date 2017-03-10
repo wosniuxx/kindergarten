@@ -102,7 +102,7 @@
   									<button type="button" class="b-redBtn btn-i" id="getUrlBtn"><i class="iconfont">&#xe635;</i>接口预览</button>
 								</form>
 	               			</div>
-	               			<img src="<%=webpath %>/resources/img/sso/red_down_arrow.jpg" class="arrowimg">
+	               			<img src="<%=webpath %>/resources/img/sso/Red2.jpg" class="arrowimg">
 	               			<div class="showUrl">
 	               			 	<div class="conurl"></div>
 	               			 	<button type="button" class="b-redBtn btn-i" id="okbtn"><i class="iconfont">&#xe8c1;</i>确定</button>
