@@ -40,6 +40,17 @@ function getUrl(){
         "-moz-transform": "translate3d(0, 0, 0)",
         "opacity": 1
     });
+	var smstime = setTimeout(function(){
+		$(".arrowimg").css({
+	        "transform": "translate3d(0, 50px, 0)",
+	        "-ms-transform": "translate3d(0,  50px, 0)",
+	        "-o-transform": "translate3d(0,  50px, 0)",
+	        "-webkit-transform": "translate3d(0,  50px, 0)",
+	        "-moz-transform": "translate3d(0,  50px, 0)",
+	        "opacity": 0
+	    });
+		
+	}, 1000 )
 	$("#okbtn").show();
 	$(".conurl").text(content);
 	$("#okbtn").click(function(){
