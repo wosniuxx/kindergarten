@@ -21,6 +21,10 @@ public class GetUserUrl {
 	 * @return
 	 */
 	private String method;
+	/**
+	 * 是否需要提供token,1为是
+	 */
+	private String isToken;
 	public String getId() {
 		return id;
 	}
@@ -45,6 +49,13 @@ public class GetUserUrl {
 	public void setMethod(String method) {
 		this.method = method;
 	}
+	public String getIsToken() {
+		return isToken;
+	}
+	public void setIsToken(String isToken) {
+		this.isToken = isToken;
+	}
+	
 	
 	
 	
