@@ -1,6 +1,6 @@
 package com.bonc.sso.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * 接口配置
