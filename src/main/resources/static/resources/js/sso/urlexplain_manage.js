@@ -1,9 +1,9 @@
 $(document).ready(function(){
-	initUrlexplainTable();
+	initurlexplainTable();
 	
 	$("#searchBtn").bind("click",reloadTableData);
 	$("#resetBtn").bind("click",resetForm);
-	$("#addurlexplainBtn").bind("click",addUrlexplain);
+	$("#addUrlBtn").bind("click",addUrl);
 	resourceTree.init();
 	
 	// 为datatable外的父级设置高度
@@ -16,17 +16,13 @@ $(document).ready(function(){
 
 
 //初始化用户列表表格
-function initUrlexplainTable(){
+function initurlexplainTable(){
 	$("#urlexplainTable").width("100%").dataTable({
 		"columns":[
-		           { "data": "id" },
-		            { "data": "introduce" },
+		           { "data": "introduce" },
+		            { "data": "finalUrl" },
 		            { "data": "envname" },
-		            { "data": "getUserUrl" },
-		            { "data": "targetUrl" },
-		            { "data": "status" },
-		            { "data": "sign" },
-		            { "data": "createdate" },
+		            { "data": "status" }
 		 ],
 		 ajax: {
 		     url:webpath+'/urlExplain/selectPage',
@@ -42,130 +38,42 @@ function initUrlexplainTable(){
 		           return json.data;
 		     }
 		},
-		columnDefs:[{
-			"targets" : 0,//目标地址id
+		
+		columnDefs:[
+		{
+			"targets" : 1,//操作按钮目标列
 			"data" : null,
-			"width" : '10%',
+			"width" : 500
+		},
+		{
+			"targets" : 3,//操作按钮目标列
+			"data" : null,
 			"render" : function(data, type,row) {
 				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无内容';
+				  if(data=="1"){
+					  html += '<span style="color:green;">启用</span>';
 				  }else{
-					  html += data;
+					  html += '<span style="color:red;">停用</span>';
 				  }
 			      return html;
 			   }
 		},
 		{
-			"targets" : 1,//目标地址对接说明
-			"data" : null,
-			"render" : function(data, type,row) {
-				var html = '';
-				if(data==null||data==""){
-					html += '暂无环境名称';
-				}else{
-					html += data;
-				}
-				return html;
-			}
-		},
-		{
-			"targets" : 2,//目标地址名称
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 3,//获取用户地址
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 4,//目标地址
-			"data" : null,
-			"width" : '12%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 5,//状态
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				var html = '';
-				if(data=="1"){
-					html += '<span style="color:green;">正常</span>';
-				}else{
-					html += '<span style="color:red;">异常</span>';
-				}
-				return html;
-			}
-		},
-		{
-			"targets" : 6,//标识
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 7,//创建日期
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			  "targets" : 8,//操作按钮目标列
+			  "targets" : 4,//操作按钮目标列
 			  "data" : null,
 			  "render" : function(data, type,row) {
-				  var id = row.id;
-				  var html =  '<a href="javascript:void(0);" onclick="updateUrlexplain(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe628;</i></a>';
+				  var id = row.userId;
+				  var html =  '<a href="javascript:void(0);" onclick="updateUser(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe66f;</i></a>';
 				      html += '&nbsp;&nbsp;';
-				      html +=  '<a href="javascript:void(0);" onclick="deleteUrlexplain(\''+id+'\')" class="icon-wrap" title="删除"><i class="iconfont i-btn">&#xe614;</i></a>';
+				      html +=  '<a href="javascript:void(0);" onclick="deleteUser(\''+id+'\')" class="icon-wrap" title="删除"><i class="iconfont i-btn">&#xe614;</i></a>';
+				      html += '&nbsp;&nbsp;';
 				      return html;
 			   }
-		}]
+		}
+	]
 	});
 }
+
 
 
 //刷新数据  true  整个刷新      false 保留当前页刷新
@@ -176,74 +84,45 @@ function reloadTableData(isCurrentPage){
 
 //重置查询条件
 function resetForm(){
-	form.clear($("#urlexplainSearchForm"));
+	form.clear($("#tenantSearchForm"));
 }
 
-//添加目标地址配置
-function addUrlexplain(){
-	var formObj = $("#addurlexplainForm");
-	form.clear(formObj);
-//	form.cleanValidator(formObj);
-	layer.open({
-		type: 1,
-        title:'<i class="iconfont">&#xe641;</i>&nbsp;新增目标地址配置',
-        area: ['300px', '450px'],
-        content: $("#addurlexplain"),
-        btn: ['确定','取消'],
-        btn1: function(index, layero){//确定按钮回调
-        	//if(form.isValidator(formObj)){
-        		$.ajax({
-    				"url":webpath+"/urlExplain/insert",
-    				"type":"POST",
-    				dataType:"json",
-    				data:form.serializeJson(formObj),
-    				success:function(data){
-    					layer.close(index);
-    					reloadTableData(true);
-    				}
-    			});
-        	//}
-	    },
-	    btn2: function(index, layero){//确定按钮回调
-        	layer.close(index);
-	    }
-    });
+//添加角色
+function addUrl(){
+	location.href = webpath+'/urlExplain/insert';
+	/*$.ajax({
+		type:'GET',
+		url:webpath+'/urlExplain/insert'
+	});*/
 }
 
-//修改目标地址配置
-function updateUrlexplain(id){
+//修改租户
+function updateTenant(id){
 	$.ajax({
-		"url":webpath+"/urlExplain/getUrlExplainById",
+		"url":webpath+"/tenant/getTenantById",
 		"type":"POST",
 		dataType:"json",
 		data:{
-			id:id
+			tenantId:id
 		},
 		success:function(data){
-			console.log(data.urlexplainname);
-			var formObj = $("#updateurlexplainForm");
+			var formObj = $("#updateTenantForm");
 			//form.clear(formObj);
 			//form.cleanValidator(formObj);
 			form.load(formObj,data);
-			//var vals='',ids='';
-			$("[name=id]").val(data.id);
-			$("[name=introduce]").val(data.introduce);
-			$("[name=envname]").val(data.envname);
-			$("[name=getuserUrl]").val(data.getuserUrl);
-			$("[name=targetUrl]").val(data.targetUrl);
-			$("[name=status]").val(data.status);
-			$("[name=sign]").val(data.sign);
-			
+			var ids='',vals='';
+			formObj.find('input[name="orgName"]').val(vals);
+			formObj.find('input[name="orgIds"]').val(ids);
 			layer.open({
 				type: 1,
-		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改目标地址配置',
-		        area: ['300px', '450px'],
-		        content: $("#updateurlexplain"),
+		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改角色',
+		        area: ['300px', '240px'],
+		        content: $("#updateTenant"),
 		        btn: ['确定','取消'],
 		        btn1: function(index, layero){//确定按钮回调
 		        	//if(form.isValidator(formObj)){
 		        		$.ajax({
-		    				"url":webpath+"/urlExplain/update",
+		    				"url":webpath+"/tenant/update",
 		    				"type":"POST",
 		    				dataType:"json",
 		    				data:form.serializeJson(formObj),
@@ -261,18 +140,18 @@ function updateUrlexplain(id){
 		   }
     });
 }
-//删除目标地址配置
-function deleteUrlexplain(id){
+//删除角色
+function deleteTenant(id){
 	layer.confirm('删除该角色？（删除后不可恢复）', {
         icon: 3,
         btn: ['是','否'] //按钮
   	  }, function(index, layero){
   		  $.ajax({//初始化组织机构树
-  				"url":webpath+"/urlExplain/delete",
+  				"url":webpath+"/tenant/delete",
   				"type":"POST",
   				dataType:"json",
   				data:{
-                     id:id
+                     tenantId:id
   				},
   				success:function(data){
   					layer.close(index);
@@ -282,6 +161,65 @@ function deleteUrlexplain(id){
   	  });
 }
 
+
+//资源授权
+function resourceAuth(id){
+	$.ajax({//初始化组织机构树
+		"url":webpath+"/role/selectRoleResources",
+		"type":"POST",
+		dataType:"json",
+		data:{
+			roleId:id
+		},
+		success:function(data){
+			resourceTree.treeObj.checkAllNodes(false);
+			for(var i=0;i<data.length;i++){//选中已有的权限
+				var node = resourceTree.treeObj.getNodesByParam("resourcesId", data[i].resourcesId, null);
+				if(node.length>0){
+					resourceTree.treeObj.checkNode(node[0], true, false);
+				}
+			}
+			layer.open({
+				type: 1,
+		        title:'<i class="iconfont">&#xe723;</i>&nbsp;资源授权',
+		        area: ['300px', '340px'],
+		        content: $("#resourceDiv"),
+		        btn: ['确定','取消'],
+		        btn1: function(index, layero){//确定按钮回调
+		        	var nodes = resourceTree.treeObj.getCheckedNodes(true),arr=[];
+		        	for(var n=0;n<nodes.length;n++){
+		        		var node = nodes[n];
+		        		var obj = new Object();
+		        		obj.roleId = id;
+		        		obj.resourcesId = node.resourcesId;
+		        		arr.push(obj);
+		        	}
+		        	$.ajax({//初始化组织机构树
+		  				"url":webpath+"/role/auth",
+		  				"type":"POST",
+		  				dataType:"json",
+		  				data:{
+		                     jsonStr:JSON.stringify(arr),
+		                     roleId:id
+		  				},
+		  				success:function(data){
+		  					layer.close(index);
+		  					layer.msg('授权成功！', {time: 1000, icon:1});
+		  				},
+		  				error:function(data){
+		  					layer.close(index);
+		  					layer.msg(data, {time: 1000, icon:1});
+		  				}
+		  		   });
+			    },
+			    btn2: function(index, layero){//确定按钮回调
+		        	layer.close(index);
+			    }
+		    });
+			$("#resourceDiv").parent().niceScroll({ cursorcolor: "#ccc", horizrailenabled: false});
+		}
+	});
+}
 
 
 
@@ -326,6 +264,7 @@ var resourceTree ={
 			});
 		}
 }
+
 
 
 var resourceTypeIcon = {

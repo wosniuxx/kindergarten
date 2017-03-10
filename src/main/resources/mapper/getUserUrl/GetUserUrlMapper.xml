@@ -6,10 +6,11 @@
 		<result column="name" jdbcType="VARCHAR" property="name" />
 		<result column="getUserUrl" jdbcType="VARCHAR" property="getUserUrl" />
 		<result column="method" jdbcType="VARCHAR" property="method" />
+		<result column="isToken" jdbcType="VARCHAR" property="isToken" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-	id, name, getuserurl,method
+	id, name, getuserurl,method, istoken
 	</sql>
 	
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">

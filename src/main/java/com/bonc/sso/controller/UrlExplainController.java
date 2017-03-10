@@ -42,30 +42,19 @@ public class UrlExplainController {
 		return urlExplainService.selectAll(start, length, paramMap);
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public int delete(String id) {
-		return urlExplainService.deleteByUrlExplainId(id);
+	@RequestMapping(value = "/insert", method = RequestMethod.GET)
+	public String insert(Model model) {
+		model.addAttribute("envnames", envService.findAll());
+		model.addAttribute("targeturls", targetUrlService.findAll());
+		model.addAttribute("geturls", getUserUrlSerice.findAll());
+		return "sso/urlexplainadd";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public int insert(UrlExplain urlExplain) {
-		return urlExplainService.insert(urlExplain);
+	public void insert(UrlExplain urlExplain) {
+		urlExplainService.insert(urlExplain);
+		System.out.println(urlExplain.getEnvname());
 	}
-	
-	@ResponseBody
-	@RequestMapping("/getUrlExplainById")
-	public UrlExplain selectById(String id) {
-		UrlExplain urlExplain = urlExplainService.selectByUrlExplainId(id);
-		return urlExplain;
-	}
-	
 
-	@ResponseBody
-	@RequestMapping(value="/update",method=RequestMethod.POST)
-	public int update(UrlExplain urlExplain){
-		return urlExplainService.update(urlExplain);
-	}
-	
 }

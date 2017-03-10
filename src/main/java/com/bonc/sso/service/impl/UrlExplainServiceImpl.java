@@ -1,15 +1,18 @@
 package com.bonc.sso.service.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.bonc.frame.base.dao.DaoHelper;
-import com.bonc.sso.model.Env;
+import com.bonc.frame.util.DateUtil;
+import com.bonc.frame.util.IdUtil;
 import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
 import com.bonc.sso.service.UrlExplainService;
@@ -26,29 +29,34 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 	
 	@Override
 	public Map selectAll(String start, String length, Map<String, Object> paramMap) {
-		return daoHelper.queryForPageList("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.selectAll", paramMap, start, length);
-	}
-
-	@Override
-	public UrlExplain selectByUrlExplainId(String id) {
-		return (UrlExplain) daoHelper.queryOne("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.selectByPrimaryKey", id);
-	}
-
-	@Override
-	public int deleteByUrlExplainId(String id) {
-		return daoHelper.delete("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.deleteByPrimaryKey", id);
-	}
-
-	@Override
-	public int insert(UrlExplain urlExplain) {
-		return daoHelper.insert("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.insertEUrlExplain", urlExplain);
-	}
-
-	@Override
-	public int update(UrlExplain urlExplain) {
-		return daoHelper.update("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.updateByPrimaryKey", urlExplain);
+		Map<String,Object> map = new HashMap<String, Object>();
+		map = daoHelper.queryForPageList("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.selectAll", paramMap, start, length);
+		Page<UrlExplain> page = (Page) map.get("data");
+		PageInfo<UrlExplain> pageinfo = new PageInfo<UrlExplain>(page);
+		for(UrlExplain urlExplain:pageinfo.getList()){
+			if(envService.selectByEnvName(urlExplain.getEnvname()) != null){
+				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+urlExplain.getSign()+"?return="+
+						urlExplain.getTargetUrl()+"token=";
+				urlExplain.setFinalUrl(finalUrl);
+			}
+			/*System.out.println(urlExplain.getEnvname());
+			String finalUrl = "";*/
+		}
+		map.put("data", pageinfo.getList());
+		return map;
 	}
 	
+	@Override
+	public UrlExplain selectByEnvId(String id) {
+		return (UrlExplain)daoHelper.queryOne("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.selectByPrimaryKey", id);
+	}
+
+	@Override
+	public void insert(UrlExplain urlExplain) {
+		urlExplain.setId(IdUtil.createId());
+		urlExplain.setCreateDate(new Date());
+		daoHelper.insert("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.insert", urlExplain);
+	}
 	
 	
 }

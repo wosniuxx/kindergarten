@@ -66,7 +66,11 @@
   					<div class="panel-heading common-part"><i class="iconfont">&#xe6ca;</i><span>租户列表</span></div>
   					<div class="panel-body common-content">
    							<div class="searchWrap">
-	                    		<form class="form-inline" id="urlexplainSearchForm">
+	                    		<form class="form-inline" id="urlexplainAddForm">
+		                    		<div class="form-group">
+    									<label for="urlEnv">接口名称:</label>
+    									<input type="text" class="form-control input-sm" name="introduce"/>
+	  								</div>
   									<div class="form-group">
     									<label for="urlEnv">接口环境:</label>
     									<select id="envname" name="envname" class="form-control">  
@@ -77,7 +81,7 @@
   									</div>
   									<div class="form-group">
     									<label for="urlEnv">接口标识:</label>
-    									<input type="text" class="form-control input-sm" id="sign"/>
+    									<input type="text" class="form-control input-sm" name="sign" id="sign"/>
   									</div>
   									<div class="form-group">
     									<label for="targetUrl">目标地址:</label>
