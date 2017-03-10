@@ -26,7 +26,12 @@ function getUrl(){
 	var envname = $("#envname").val();
 	var sign = $("#sign").val();
 	var targeturl = $("#targeturl").val();
-	var content = envname+"/epmsso/"+sign+"?return="+targeturl;
+	var istoken = $("#geturl").val();
+	if(istoken == "1"){
+		var content = envname+"/epmsso/"+sign+"?return="+targeturl+"&token=";
+	}else{
+		var content = envname+"/epmsso/"+sign+"?return="+targeturl;
+	}
 	$(".arrowimg").css({
         "transform": "translate3d(0, 0, 0)",
         "-ms-transform": "translate3d(0, 0, 0)",

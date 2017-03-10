@@ -91,7 +91,7 @@
     									<label for="getUserUrl">获得用户地址:</label>
     									<select id="geturl" name="geturl" class="form-control">  
                                 			<c:forEach var="g" items="${geturls}">  
-                                				<option value="${g.getUserUrl}">${g.name}</option>  
+                                				<option value="${g.isToken}">${g.name}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
