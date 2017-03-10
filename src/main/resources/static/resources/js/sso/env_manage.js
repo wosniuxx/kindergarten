@@ -1,39 +1,34 @@
 $(document).ready(function(){
-	initUrlexplainTable();
+	initEnvTable();
 	
 	$("#searchBtn").bind("click",reloadTableData);
 	$("#resetBtn").bind("click",resetForm);
-	$("#addurlexplainBtn").bind("click",addUrlexplain);
+	$("#addenvBtn").bind("click",addEnv);
 	resourceTree.init();
 	
 	// 为datatable外的父级设置高度
-	$('#urlexplainTable_wrapper').css('height', $('.panel-body').height()-60);
+	$('#envTable_wrapper').css('height', $('.panel-body').height()-60);
 	// 动态为表格添加父级
-	$('#urlexplainTable').wrap('<div class="tab-wrapper"></div>');
-	$('.tab-wrapper').css('height', $('#urlexplainTable_wrapper').height()-63);
+	$('#envTable').wrap('<div class="tab-wrapper"></div>');
+	$('.tab-wrapper').css('height', $('#envTable_wrapper').height()-63);
 	$('.tab-wrapper').niceScroll({ cursorcolor: "#ccc", horizrailenabled: false});
 });
 
 
 //初始化用户列表表格
-function initUrlexplainTable(){
-	$("#urlexplainTable").width("100%").dataTable({
+function initEnvTable(){
+	$("#envTable").width("100%").dataTable({
 		"columns":[
 		           { "data": "id" },
-		            { "data": "introduce" },
 		            { "data": "envname" },
-		            { "data": "getUserUrl" },
-		            { "data": "targetUrl" },
-		            { "data": "status" },
-		            { "data": "sign" },
-		            { "data": "createdate" },
+		            { "data": "service" },
 		 ],
 		 ajax: {
-		     url:webpath+'/urlExplain/selectPage',
+		     url:webpath+'/Env/selectPage',
 		     "type": 'POST',
 		     "data": function (d) {//查询参数
 		           return $.extend( {}, d, {
-		              "jsonStr": form.serializeStr($("#urlexplainSearchForm"))
+		              "jsonStr": form.serializeStr($("#envSearchForm"))
 		           });
 		     },
 		     "dataSrc": function (json) {
@@ -43,9 +38,9 @@ function initUrlexplainTable(){
 		     }
 		},
 		columnDefs:[{
-			"targets" : 0,//目标地址id
+			"targets" : 0,//环境id
 			"data" : null,
-			"width" : '10%',
+			"width" : '25%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -57,7 +52,7 @@ function initUrlexplainTable(){
 			   }
 		},
 		{
-			"targets" : 1,//目标地址对接说明
+			"targets" : 1,//环境名称
 			"data" : null,
 			"render" : function(data, type,row) {
 				var html = '';
@@ -68,11 +63,10 @@ function initUrlexplainTable(){
 				}
 				return html;
 			}
-		},
-		{
-			"targets" : 2,//目标地址名称
+		},{
+			"targets" : 2,//环境地址
 			"data" : null,
-			"width" : '10%',
+			"width" : '30%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -82,85 +76,14 @@ function initUrlexplainTable(){
 				  }
 			      return html;
 			   }
-		},
-		{
-			"targets" : 3,//获取用户地址
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 4,//目标地址
-			"data" : null,
-			"width" : '12%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 5,//状态
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				var html = '';
-				if(data=="1"){
-					html += '<span style="color:green;">正常</span>';
-				}else{
-					html += '<span style="color:red;">异常</span>';
-				}
-				return html;
-			}
-		},
-		{
-			"targets" : 6,//标识
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 7,//创建日期
-			"data" : null,
-			"width" : '10%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无地址';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			  "targets" : 8,//操作按钮目标列
+		},{
+			  "targets" : 3,//操作按钮目标列
 			  "data" : null,
 			  "render" : function(data, type,row) {
 				  var id = row.id;
-				  var html =  '<a href="javascript:void(0);" onclick="updateUrlexplain(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe628;</i></a>';
+				  var html =  '<a href="javascript:void(0);" onclick="updateEnv(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe628;</i></a>';
 				      html += '&nbsp;&nbsp;';
-				      html +=  '<a href="javascript:void(0);" onclick="deleteUrlexplain(\''+id+'\')" class="icon-wrap" title="删除"><i class="iconfont i-btn">&#xe614;</i></a>';
+				      html +=  '<a href="javascript:void(0);" onclick="deleteEnv(\''+id+'\')" class="icon-wrap" title="删除"><i class="iconfont i-btn">&#xe614;</i></a>';
 				      return html;
 			   }
 		}]
@@ -170,30 +93,30 @@ function initUrlexplainTable(){
 
 //刷新数据  true  整个刷新      false 保留当前页刷新
 function reloadTableData(isCurrentPage){
-	$("#urlexplainTable").dataTable().fnDraw(isCurrentPage==null?true:isCurrentPage);
+	$("#envTable").dataTable().fnDraw(isCurrentPage==null?true:isCurrentPage);
 }
 
 
 //重置查询条件
 function resetForm(){
-	form.clear($("#urlexplainSearchForm"));
+	form.clear($("#envSearchForm"));
 }
 
-//添加目标地址配置
-function addUrlexplain(){
-	var formObj = $("#addurlexplainForm");
+//添加环境
+function addEnv(){
+	var formObj = $("#addEnvForm");
 	form.clear(formObj);
 //	form.cleanValidator(formObj);
 	layer.open({
 		type: 1,
-        title:'<i class="iconfont">&#xe641;</i>&nbsp;新增目标地址配置',
-        area: ['300px', '450px'],
-        content: $("#addurlexplain"),
+        title:'<i class="iconfont">&#xe641;</i>&nbsp;新增环境',
+        area: ['300px', '240px'],
+        content: $("#addenv"),
         btn: ['确定','取消'],
         btn1: function(index, layero){//确定按钮回调
         	//if(form.isValidator(formObj)){
         		$.ajax({
-    				"url":webpath+"/urlExplain/insert",
+    				"url":webpath+"/Env/insert",
     				"type":"POST",
     				dataType:"json",
     				data:form.serializeJson(formObj),
@@ -210,40 +133,36 @@ function addUrlexplain(){
     });
 }
 
-//修改目标地址配置
-function updateUrlexplain(id){
+//修改环境
+function updateEnv(id){
 	$.ajax({
-		"url":webpath+"/urlExplain/getUrlExplainById",
+		"url":webpath+"/Env/getEnvById",
 		"type":"POST",
 		dataType:"json",
 		data:{
 			id:id
 		},
 		success:function(data){
-			console.log(data.urlexplainname);
-			var formObj = $("#updateurlexplainForm");
+			console.log(data.envname);
+			var formObj = $("#updateEnvForm");
 			//form.clear(formObj);
 			//form.cleanValidator(formObj);
 			form.load(formObj,data);
-			//var vals='',ids='';
+			var vals='',ids='';
 			$("[name=id]").val(data.id);
-			$("[name=introduce]").val(data.introduce);
 			$("[name=envname]").val(data.envname);
-			$("[name=getuserUrl]").val(data.getuserUrl);
-			$("[name=targetUrl]").val(data.targetUrl);
-			$("[name=status]").val(data.status);
-			$("[name=sign]").val(data.sign);
+			$("[name=service]").val(data.service);
 			
 			layer.open({
 				type: 1,
-		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改目标地址配置',
-		        area: ['300px', '450px'],
-		        content: $("#updateurlexplain"),
+		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改环境',
+		        area: ['300px', '240px'],
+		        content: $("#updateenv"),
 		        btn: ['确定','取消'],
 		        btn1: function(index, layero){//确定按钮回调
 		        	//if(form.isValidator(formObj)){
 		        		$.ajax({
-		    				"url":webpath+"/urlExplain/update",
+		    				"url":webpath+"/Env/update",
 		    				"type":"POST",
 		    				dataType:"json",
 		    				data:form.serializeJson(formObj),
@@ -261,14 +180,14 @@ function updateUrlexplain(id){
 		   }
     });
 }
-//删除目标地址配置
-function deleteUrlexplain(id){
-	layer.confirm('删除该角色？（删除后不可恢复）', {
+//删除环境
+function deleteEnv(id){
+	layer.confirm('删除该环境？（删除后不可恢复）', {
         icon: 3,
         btn: ['是','否'] //按钮
   	  }, function(index, layero){
   		  $.ajax({//初始化组织机构树
-  				"url":webpath+"/urlExplain/delete",
+  				"url":webpath+"/Env/delete",
   				"type":"POST",
   				dataType:"json",
   				data:{

@@ -1,5 +1,6 @@
 package com.bonc.sso.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.bonc.frame.base.dao.DaoHelper;
 import com.bonc.sso.model.Env;
+import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 
 @Service
 public class EnvServiceImpl implements EnvService{
@@ -17,6 +21,9 @@ public class EnvServiceImpl implements EnvService{
 	@Resource
 	private DaoHelper daoHelper;
 	
+	@Resource
+	private EnvService envService;
+
 	@Override
 	public Map selectAll(String start, String length, Map<String, Object> paramMap) {
 		return daoHelper.queryForPageList("com.bonc.frame.web.mapper.env.EnvMapper.selectAll", paramMap, start, length);
@@ -35,6 +42,21 @@ public class EnvServiceImpl implements EnvService{
 	@Override
 	public List<Env> findAll() {
 		return daoHelper.queryForList("com.bonc.frame.web.mapper.env.EnvMapper.findAll");
+	}
+
+	@Override
+	public int deleteByEnvId(String EnvId) {
+		return daoHelper.delete("com.bonc.frame.web.mapper.env.EnvMapper.deleteByPrimaryKey", EnvId);
+	}
+
+	@Override
+	public int insert(Env env) {
+		return daoHelper.insert("com.bonc.frame.web.mapper.env.EnvMapper.insertEnv", env);
+	}
+
+	@Override
+	public int update(Env env) {
+		return daoHelper.update("com.bonc.frame.web.mapper.env.EnvMapper.updateByPrimaryKey", env);
 	}
 
 }

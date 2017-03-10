@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bonc.frame.util.JsonUtils;
+import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
 import com.bonc.sso.service.GetUserUrlService;
 import com.bonc.sso.service.TargetUrlService;
@@ -41,13 +42,30 @@ public class UrlExplainController {
 		return urlExplainService.selectAll(start, length, paramMap);
 	}
 	
-	@RequestMapping(value = "/insert", method = RequestMethod.GET)
-	public String insert(Model model) {
-		System.out.println("---------------------"+envService.findAll().size());
-		model.addAttribute("envnames", envService.findAll());
-		model.addAttribute("targeturls", targetUrlService.findAll());
-		model.addAttribute("geturls", getUserUrlSerice.findAll());
-		return "sso/urlexplainadd";
+	@ResponseBody
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public int delete(String id) {
+		return urlExplainService.deleteByUrlExplainId(id);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
+	public int insert(UrlExplain urlExplain) {
+		return urlExplainService.insert(urlExplain);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getUrlExplainById")
+	public UrlExplain selectById(String id) {
+		UrlExplain urlExplain = urlExplainService.selectByUrlExplainId(id);
+		return urlExplain;
+	}
+	
 
+	@ResponseBody
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public int update(UrlExplain urlExplain){
+		return urlExplainService.update(urlExplain);
+	}
+	
 }

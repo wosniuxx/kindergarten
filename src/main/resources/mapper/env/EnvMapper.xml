@@ -6,35 +6,82 @@
 		<result column="envname" jdbcType="VARCHAR" property="envname" />
 		<result column="service" jdbcType="VARCHAR" property="service" />
 	</resultMap>
-	
+
 	<sql id="Base_Column_List">
-	id, envname, service
+		id, envname, service
 	</sql>
-	
+
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
-	    select 
-	    <include refid="Base_Column_List" />
-	    from SSO_ENV WHERE 1=1
-  	</select>
-  	
-	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-	  select 
-	  <include refid="Base_Column_List" />
-	  from SSO_ENV
-	  where id = #{id,jdbcType=VARCHAR}
+		select
+		<include refid="Base_Column_List" />
+		from SSO_ENV where 1=1
 	</select>
-	
-	<select id="selectByEnvName" parameterType="java.lang.String" resultMap="BaseResultMap">
-	  select 
-	  <include refid="Base_Column_List" />
-	  from SSO_ENV
-	  where envname = #{envname,jdbcType=VARCHAR}
+
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from SSO_ENV
+		where id = #{id,jdbcType=VARCHAR}
 	</select>
-	
+
+	<select id="selectByEnvName" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from SSO_ENV
+		where envname = #{envname,jdbcType=VARCHAR}
+	</select>
+
 	<select id="findAll" resultMap="BaseResultMap">
-	    select 
-	    <include refid="Base_Column_List" />
-	    from SSO_ENV WHERE 1=1
-  	</select>
-	
+		select
+		<include refid="Base_Column_List" />
+		from SSO_ENV WHERE 1=1
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		SSO_ENV
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+
+	<insert id="insertEnv" parameterType="com.bonc.sso.model.Env">
+		insert into SSO_ENV
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="envname != null">
+				envname,
+			</if>
+			<if test="service != null">
+				service,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="envname != null">
+				#{envname,jdbcType=VARCHAR},
+			</if>
+			<if test="service != null">
+				#{service,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterType="com.bonc.sso.model.Env">
+		update SSO_ENV
+		<set>
+			<if test="envname != null">
+				envname = #{envname,jdbcType=VARCHAR},
+			</if>
+			<if test="service != null">
+				service = #{service,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
 </mapper>

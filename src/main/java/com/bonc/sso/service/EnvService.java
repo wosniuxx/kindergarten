@@ -3,6 +3,7 @@ package com.bonc.sso.service;
 import java.util.List;
 import java.util.Map;
 
+import com.bonc.frame.web.entity.tenant.Tenant;
 import com.bonc.sso.model.Env;
 
 public interface EnvService {
@@ -32,5 +33,26 @@ public interface EnvService {
 	 * @return
 	 */
 	public List<Env> findAll();
-
+	
+	/**
+	 * 根据环境Id删除该租户
+	 * @param tenantId 租户Id
+	 * @return
+	 */
+	public int deleteByEnvId(String EnvId);
+	
+	/**
+	 * 新增租户信息
+	 * @param resource 租户对象
+	 * @return
+	 */
+	public int insert(Env env);
+	
+	/**
+	 * 更新租户信息
+	 * @param tenant 租户对象
+	 * @return
+	 */
+	public int update(Env env);
+	
 }
