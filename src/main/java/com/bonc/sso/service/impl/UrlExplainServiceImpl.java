@@ -58,5 +58,4 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 		daoHelper.insert("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.insert", urlExplain);
 	}
 	
-	
 }

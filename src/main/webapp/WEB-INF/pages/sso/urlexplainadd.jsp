@@ -69,13 +69,13 @@
 	                    		<form class="form-inline" id="urlexplainAddForm">
 		                    		<div class="form-group">
     									<label for="urlEnv">接口名称:</label>
-    									<input type="text" class="form-control input-sm" name="introduce"/>
+    									<input type="text" class="form-control input-sm" name="introduce" id="introduce"/>
 	  								</div>
   									<div class="form-group">
     									<label for="urlEnv">接口环境:</label>
     									<select id="envname" name="envname" class="form-control">  
                                 			<c:forEach var="e" items="${envnames }">  
-                                				<option value="${e.service}">${e.envname}</option>  
+                                				<option value="${e.service}" eoname="${e.envname}">${e.envname}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
@@ -85,24 +85,24 @@
   									</div>
   									<div class="form-group">
     									<label for="targetUrl">目标地址:</label>
-    									<select id="targeturl" name="targeturl" class="form-control">  
+    									<select id="targeturl" name="targetUrl" class="form-control">  
                                 			<c:forEach var="t" items="${targeturls}">  
-                                				<option value="${t.targetUrl}">${t.name}</option>  
+                                				<option value="${t.targetUrl}" toname="${t.name}">${t.name}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
   									<div class="form-group">
     									<label for="getUserUrl">获得用户地址:</label>
-    									<select id="geturl" name="geturl" class="form-control">  
+    									<select id="geturl" name="getUserUrl" class="form-control">  
                                 			<c:forEach var="g" items="${geturls}">  
-                                				<option value="${g.isToken}">${g.name}</option>  
+                                				<option value="${g.isToken}" ogname="${g.name}">${g.name}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
   									<button type="button" class="b-redBtn btn-i" id="getUrlBtn"><i class="iconfont">&#xe635;</i>接口预览</button>
 								</form>
 	               			</div>
-	               			<img src="<%=webpath %>/resources/img/sso/red_down_arrow.jpg" class="arrowimg">
+	               			<img src="<%=webpath %>/resources/img/sso/Red2.jpg" class="arrowimg">
 	               			<div class="showUrl">
 	               			 	<div class="conurl"></div>
 	               			 	<button type="button" class="b-redBtn btn-i" id="okbtn"><i class="iconfont">&#xe8c1;</i>确定</button>

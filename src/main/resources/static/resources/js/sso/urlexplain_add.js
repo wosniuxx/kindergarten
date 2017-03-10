@@ -22,12 +22,11 @@ $(document).ready(function(){
 //添加角色
 function getUrl(){
 
-//	var envname = $("select[@name=items] option[@selected]").text();
-	var envname  = $("#envname").val();
+	var envnameservice  = $("#envname option:selected").attr("eoname");
+	var envname = $("#envname").val();
 	var sign = $("#sign").val();
 	var targeturl = $("#targeturl").val();
 	var istoken = $("#geturl").val();
-	console.log(envname);
 	if(istoken == "1"){
 		var content = envname+"/epmsso/"+sign+"?return="+targeturl+"&token=";
 	}else{
@@ -45,14 +44,24 @@ function getUrl(){
 	$(".conurl").text(content);
 	$("#okbtn").click(function(){
 		var formObj = $("#urlexplainAddForm");
-		console.log(form.serializeJson(formObj));
-		//if(form.isValidator(formObj)){
-		/*$.ajax({
+		var introduce = $("introduce").val();
+		var getUserUrlName = $("#geturl option:selected").attr("ogname");
+		var targetUrlName = $("#targeturl option:selected").attr("toname");
+		
+		var data = form.serializeJson(formObj);
+		var datall = new Object();
+		datall=data;
+		datall.envname=envnameservice;
+		datall.targetUrl=targetUrlName;
+		datall.getUserUrl=getUserUrlName;
+		console.log(datall);
+		
+		$.ajax({
 			"url":webpath+"/urlExplain/insert",
 			"type":"POST",
 			dataType:"json",
-			data:form.serializeJson(formObj)
-		});*/
+			data: datall
+		});
 	})
 	/*layer.open({
 		type: 1,
