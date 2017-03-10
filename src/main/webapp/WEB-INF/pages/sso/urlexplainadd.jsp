@@ -23,12 +23,40 @@
 		  height: 80px;
 		  border: 1px solid #ccc;
 		}
-		.conurl{   
+		
+		.showUrl{
+		    position: absolute;
+    		top: 350px;
+		}
+		.arrowimg{
+		    position: absolute;
+    		left:400px;
+    		top:120px;
+    		transform: translate3d(0, -50px,0);
+		    -ms-transform: translate3d(0, -50px, 0);
+		    -webkit-transform: translate3d(0, -50px, 0);
+		    -o-transform: translate3d(0, -50px, 0);
+		    -moz-transform: translate3d(0, -50px, 0);
+		    opacity: 0;
+		    transition: transform 1s ease 0s, opacity 1s ease 0s;
+		    -moz-transition: -moz-transform 1s ease 0s, opacity 1s ease 0s;
+		    -webkit-transition: -webkit-transform 1s ease 0s, opacity 1s ease 0s;
+		    -o-transition: -o-transform 1s ease 0s, opacity 1s ease 0s;
+		    -ms-transition: -ms-transform 1s ease 0s, opacity 1s ease 0s;
+				    
+		}
+		.showUrl .conurl{   
 			font: 15px Microsoft YaHei, Helvetica Neue, Helvetica, PingFang SC, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, Tahoma, Arial, sans-serif;
 		    padding: 35px;
 		    line-height: 24px;
 		    letter-spacing: 2px;
 		}
+		.showUrl button{
+			display:none;
+			float:right;
+			margin-right:100px;
+		}
+		
 	</style>
 </head> 
 <body>
@@ -69,6 +97,11 @@
   									</div>
   									<button type="button" class="b-redBtn btn-i" id="getUrlBtn"><i class="iconfont">&#xe635;</i>接口预览</button>
 								</form>
+	               			</div>
+	               			<img src="<%=webpath %>/resources/img/sso/red_down_arrow.jpg" class="arrowimg">
+	               			<div class="showUrl">
+	               			 	<div class="conurl"></div>
+	               			 	<button type="button" class="b-redBtn btn-i" id="okbtn"><i class="iconfont">&#xe8c1;</i>确定</button>
 	               			</div>
   					</div>
 			 </div>

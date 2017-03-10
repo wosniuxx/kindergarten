@@ -22,16 +22,34 @@ $(document).ready(function(){
 
 //添加角色
 function getUrl(){
-	//location.href = webpath+'/urlExplain/insert';
-	/*$.ajax({
-		type:'GET',
-		url:webpath+'/urlExplain/insert'
-	});*/
+
 	var envname = $("#envname").val();
 	var sign = $("#sign").val();
 	var targeturl = $("#targeturl").val();
 	var content = envname+"/epmsso/"+sign+"?return="+targeturl;
-	layer.open({
+	$(".arrowimg").css({
+        "transform": "translate3d(0, 0, 0)",
+        "-ms-transform": "translate3d(0, 0, 0)",
+        "-o-transform": "translate3d(0, 0, 0)",
+        "-webkit-transform": "translate3d(0, 0, 0)",
+        "-moz-transform": "translate3d(0, 0, 0)",
+        "opacity": 1
+    });
+	$("#okbtn").show();
+	$(".conurl").text(content);
+	$("#okbtn").click(function(){
+		//if(form.isValidator(formObj)){
+		$.ajax({
+			"url":webpath+"/tenant/update",
+			"type":"POST",
+			dataType:"json",
+			data:$(".conurl").text(),
+			success:function(data){
+				alert("111");
+			}
+		});
+	})
+	/*layer.open({
 		type: 1,
         title:'<i class="iconfont">&#xe633;</i>&nbsp;接口预览',
         area: ['900px', '200px'],
@@ -54,7 +72,7 @@ function getUrl(){
 	    btn2: function(index, layero){//确定按钮回调
         	layer.close(index);
 	    }
-    });
+    });*/
 	
 	console.log(envname+"/epmsso/"+sign+"?return="+targeturl);
 }
