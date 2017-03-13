@@ -28,6 +28,7 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 	@Resource
 	private EnvService envService;
 	
+	@Resource
 	private TargetUrlService targetUrlService;
 	
 	@Override
@@ -37,9 +38,12 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 		Page<UrlExplain> page = (Page) map.get("data");
 		PageInfo<UrlExplain> pageinfo = new PageInfo<UrlExplain>(page);
 		for(UrlExplain urlExplain:pageinfo.getList()){
-			if(envService.selectByEnvName(urlExplain.getEnvname()) != null){
+			Map<String,Object> nmap = new HashMap<String, Object>();
+			nmap.put("name",urlExplain.getTargetUrl());
+			nmap.put("envname", urlExplain.getEnvname());
+			if(null != envService.selectByEnvName(urlExplain.getEnvname()) && null != targetUrlService.selectByTargetUrlname(nmap).getTargetUrl()){
 				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+urlExplain.getSign()+"?return="+
-						targetUrlService.selectByTargetUrlname(urlExplain.getTargetUrl()).getTargetUrl()+"token=";
+						targetUrlService.selectByTargetUrlname(nmap).getTargetUrl()+"token=";
 				urlExplain.setFinalUrl(finalUrl);
 			}
 			/*System.out.println(urlExplain.getEnvname());

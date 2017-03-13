@@ -51,5 +51,5 @@ public interface TargetUrlService {
 	/**
 	 * 根据名称查询
 	 */
-	public TargetUrl selectByTargetUrlname(String name);
+	public TargetUrl selectByTargetUrlname(Map nmap);
 }
