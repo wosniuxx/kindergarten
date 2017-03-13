@@ -16,31 +16,34 @@
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from SSO_TARGERURL WHERE 1=1
+		from SSO_TARGETURL WHERE 1=1
+		<if test="name !=null and name != ''">
+		AND name LIKE '%${name}%'
+		</if>
 	</select>
 
 	<select id="selectByPrimaryKey" parameterType="java.lang.String"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from SSO_TARGERURL
+		from SSO_TARGETURL
 		where id = #{id,jdbcType=VARCHAR}
 	</select>
 
 	<select id="findAll" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from SSO_TARGERURL WHERE 1=1
+		from SSO_TARGETURL WHERE 1=1
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from
-		SSO_TARGERURL
+		SSO_TARGETURL
 		where id = #{id,jdbcType=VARCHAR}
 	</delete>
-	
+
 	<insert id="insertTargetUrl" parameterType="com.bonc.sso.model.TargetUrl">
-		insert into SSO_TARGERURL
+		insert into SSO_TARGETURL
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
@@ -78,7 +81,7 @@
 	</insert>
 
 	<update id="updateByPrimaryKey" parameterType="com.bonc.sso.model.TargetUrl">
-		update SSO_TARGERURL
+		update SSO_TARGETURL
 		<set>
 			<if test="name != null">
 				name = #{name,jdbcType=VARCHAR},
@@ -95,12 +98,5 @@
 		</set>
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
-	
-	<select id="selectByTargetUrlname" parameterType="java.lang.String" resultMap="BaseResultMap">
-	    select 
-	    <include refid="Base_Column_List" />
-	    from SSO_TARGERURL 
-	    where name = #{name,jdbcType=VARCHAR} and envname = #{envname,jdbcType=VARCHAR}
-  	</select>
 
 </mapper>

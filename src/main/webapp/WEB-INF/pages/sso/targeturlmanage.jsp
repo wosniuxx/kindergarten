@@ -37,8 +37,8 @@ body {
 					<div class="searchWrap">
 						<form class="form-inline" id="targeturlSearchForm">
 							<div class="form-group">
-								<label for="targeturlName">名称:</label> <input type="text"
-									class="form-control input-sm" name="targeturlName" />
+								<label for="name">名称:</label> <input type="text"
+									class="form-control input-sm" name="name" />
 							</div>
 							<button type="button" class="b-redBtn btn-i" id="searchBtn">
 								<i class="iconfont">&#xe67a;</i>查询

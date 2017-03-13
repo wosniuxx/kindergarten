@@ -37,8 +37,8 @@ body {
 					<div class="searchWrap">
 						<form class="form-inline" id="envSearchForm">
 							<div class="form-group">
-								<label for="envName">环境名称:</label> <input type="text"
-									class="form-control input-sm" name="envName" />
+								<label for="envname">环境名称:</label> <input type="text"
+									class="form-control input-sm" name="envname" />
 							</div>
 							<button type="button" class="b-redBtn btn-i" id="searchBtn">
 								<i class="iconfont">&#xe67a;</i>查询

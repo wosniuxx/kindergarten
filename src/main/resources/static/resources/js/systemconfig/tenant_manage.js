@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	initTenantTable();
-	
 	$("#searchBtn").bind("click",reloadTableData);
 	$("#resetBtn").bind("click",resetForm);
 	$("#addTenantBtn").bind("click",addTenant);
@@ -133,6 +132,7 @@ function addTenant(){
         content: $("#addTenant"),
         btn: ['确定','取消'],
         btn1: function(index, layero){//确定按钮回调
+        	console.log(form.serializeJson(formObj));
         	//if(form.isValidator(formObj)){
         		$.ajax({
     				"url":webpath+"/tenant/insert",

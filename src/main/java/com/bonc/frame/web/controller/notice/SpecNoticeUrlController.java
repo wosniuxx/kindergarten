@@ -32,7 +32,8 @@ public class SpecNoticeUrlController {
 	@ResponseBody
 	@RequestMapping("/selectUnreadNotice")
 	public Map selectUnreadNotice(HttpServletRequest request){
-		return noticeService.selectUnreadNotice(UserUtil.getLoginUserId(request)); 
+		//noticeService.selectUnreadNotice(UserUtil.getLoginUserId(request)); 
+		return null;
 	}
 
 	@ResponseBody

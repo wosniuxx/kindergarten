@@ -37,8 +37,8 @@ body {
 					<div class="searchWrap">
 						<form class="form-inline" id="getuserurlSearchForm">
 							<div class="form-group">
-								<label for="getuserurlName">接口名称:</label> <input type="text"
-									class="form-control input-sm" name="getuserurlName" />
+								<label for="name">接口名称:</label> <input type="text"
+									class="form-control input-sm" name="name" />
 							</div>
 							<button type="button" class="b-redBtn btn-i" id="searchBtn">
 								<i class="iconfont">&#xe67a;</i>查询
@@ -113,17 +113,20 @@ body {
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<div class="form-group">
-							<label for="isToken">是否需要提供token:</label> <label> <input
-								type="radio" value="1" name="isToken" data-rule="checked(1)">
-								是
-							</label> <label> <input type="radio" value="-1" name="isToken"
-								data-rule="checked(1)"> 否
-							</label>
-						</div>
-					</td>
-				</tr>
+	                <td>
+	                    <div class="form-group">
+						  <label for="isToken">是否需要isToken:</label>
+					      <label>
+						  <input type="radio" value="1" name="isToken" data-rule="checked(1)" >
+						    是
+						  </label>
+						  <label>
+						  <input type="radio" value="-1" name="isToken" data-rule="checked(1)">
+						   否
+						  </label>
+				   		</div>
+	                </td>
+	             </tr>
 			</table>
 		</form>
 	</div>
@@ -172,20 +175,20 @@ body {
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<div class="form-group">
-							<label for="isToken">是否需要提供token:</label> 
-							<label> 
-							<input type="radio" value="1" name="isToken" data-rule="checked(1)">
-								是
-							</label>
-							<label> 
-							<input type="radio" value="-1" name="isToken" data-rule="checked(1)">
-							 否
-							</label>
-						</div>
-					</td>
-				</tr>
+	                <td id="001">
+	                    <div class="form-group">
+						  <label for="isToken">是否需要isToken:</label>
+					      <label>
+						  <input type="radio" value="1" name="isToken" data-rule="checked(1)" checked>
+						    是
+						  </label>
+						  <label>
+						  <input type="radio" value="-1" name="isToken" data-rule="checked(1)" >
+						   否
+						  </label>
+				   		</div>
+	                </td>
+	             </tr>
 			</table>
 		</form>
 	</div>

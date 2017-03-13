@@ -6,6 +6,9 @@ $(document).ready(function(){
 	$("#addgetuserurlBtn").bind("click",addGetUserUrl);
 	resourceTree.init();
 	
+	
+	
+	
 	// 为datatable外的父级设置高度
 	$('#getuserurlTable_wrapper').css('height', $('.panel-body').height()-60);
 	// 动态为表格添加父级
@@ -92,15 +95,15 @@ function initGetUserUrlTable(){
 			      return html;
 			   }
 		},{
-			"targets" : 4,//是否需要提供token
+			"targets" : 4,//是否需要isToken
 			"data" : null,
 			"width" : '17%',
 			"render" : function(data, type,row) {
 				var html = '';
 				if(data=="1"){
-					html += '<span style="color:green;">需要</span>';
+					html += '<span style="color:green;">是</span>';
 				}else{
-					html += '<span style="color:red;">不需要</span>';
+					html += '<span style="color:red;">否</span>';
 				}
 				return html;
 			}
@@ -133,6 +136,7 @@ function resetForm(){
 
 //添加
 function addGetUserUrl(){
+	
 	var formObj = $("#addGetUserUrlForm");
 	form.clear(formObj);
 //	form.cleanValidator(formObj);
@@ -143,6 +147,7 @@ function addGetUserUrl(){
         content: $("#addgetuserurl"),
         btn: ['确定','取消'],
         btn1: function(index, layero){//确定按钮回调
+        	console.log(form.serializeJson(formObj));
         	//if(form.isValidator(formObj)){
         		$.ajax({
     				"url":webpath+"/GetUserUrl/insert",
@@ -172,7 +177,7 @@ function updateGetUserUrl(id){
 			id:id
 		},
 		success:function(data){
-			console.log(data.getuserurlname);
+			//console.log(data.getuserurlname);
 			var formObj = $("#updateGetUserUrlForm");
 			//form.clear(formObj);
 			//form.cleanValidator(formObj);
@@ -182,7 +187,11 @@ function updateGetUserUrl(id){
 			$("[name=name]").val(data.name);
 			$("[name=getUserUrl]").val(data.getUserUrl);
 			$("[name=method]").val(data.method);
-			$("[name=isToken]").val(data.isToken);
+			
+			if($("[name=isToken]:checked").val!=data.isToken){
+				$("[name=isToken]:checked").val(data.isToken);
+			}
+			
 			
 			layer.open({
 				type: 1,
@@ -191,6 +200,8 @@ function updateGetUserUrl(id){
 		        content: $("#updategetuserurl"),
 		        btn: ['确定','取消'],
 		        btn1: function(index, layero){//确定按钮回调
+		        	
+		        	
 		        	//if(form.isValidator(formObj)){
 		        		$.ajax({
 		    				"url":webpath+"/GetUserUrl/update",

@@ -15,6 +15,9 @@
 		select
 		<include refid="Base_Column_List" />
 		from SSO_ENV where 1=1
+		<if test="envname !=null and name != ''">
+		AND envname LIKE '%${envname}%'
+		</if>
 	</select>
 
 	<select id="selectByPrimaryKey" parameterType="java.lang.String"
