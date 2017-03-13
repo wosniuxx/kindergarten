@@ -18,11 +18,32 @@ public interface GetUserUrlService {
 	 * @param tenantId 租户Id
 	 * @return
 	 */
-	public GetUserUrl selectByEnvId(String id);
+	public GetUserUrl selectByGetUserUrlId(String id);
 	
 	/**
 	 * 查询所有获取用户信息
 	 * @return
 	 */
 	public List<GetUserUrl> findAll();
+	
+	/**
+	 * 根据环境Id删除该租户
+	 * @param tenantId 租户Id
+	 * @return
+	 */
+	public int deleteByGetUserUrlId(String GetUserUrlId);
+	
+	/**
+	 * 新增租户信息
+	 * @param resource 租户对象
+	 * @return
+	 */
+	public int insert(GetUserUrl getUserUrl);
+	
+	/**
+	 * 更新租户信息
+	 * @param tenant 租户对象
+	 * @return
+	 */
+	public int update(GetUserUrl getUserUrl);
 }

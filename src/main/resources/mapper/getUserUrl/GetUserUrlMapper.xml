@@ -4,32 +4,96 @@
 	<resultMap type="com.bonc.sso.model.GetUserUrl" id="BaseResultMap">
 		<id column="id" jdbcType="VARCHAR" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
-		<result column="getUserUrl" jdbcType="VARCHAR" property="getUserUrl" />
+		<result column="getuserurl" jdbcType="VARCHAR" property="getUserUrl" />
 		<result column="method" jdbcType="VARCHAR" property="method" />
-		<result column="isToken" jdbcType="VARCHAR" property="isToken" />
+		<result column="istoken" jdbcType="VARCHAR" property="isToken" />
 	</resultMap>
-	
+
 	<sql id="Base_Column_List">
-	id, name, getuserurl,method, istoken
+		id, name, getuserurl,method, istoken
 	</sql>
-	
+
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
-	    select 
-	    <include refid="Base_Column_List" />
-	    from SSO_GETUSERURL WHERE 1=1
-  	</select>
-  	
-	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-	  select 
-	  <include refid="Base_Column_List" />
-	  from SSO_GETUSERURL
-	  where id = #{id,jdbcType=VARCHAR}
+		select
+		<include refid="Base_Column_List" />
+		from SSO_GETUSERURL WHERE 1=1
 	</select>
-	
+
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+	resultMap="BaseResultMap">
+	select
+		<include refid="Base_Column_List" />
+		from SSO_GETUSERURL
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+
 	<select id="findAll" resultMap="BaseResultMap">
-	    select 
-	    <include refid="Base_Column_List" />
-	    from SSO_GETUSERURL WHERE 1=1
-  	</select>
-   
+		select
+		<include refid="Base_Column_List" />
+		from SSO_GETUSERURL WHERE 1=1
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+	delete from
+	SSO_GETUSERURL
+	where id = #{id,jdbcType=VARCHAR}
+	</delete>
+
+	<insert id="insertGetUserUrl" parameterType="com.bonc.sso.model.GetUserUrl">
+		insert into SSO_GETUSERURL
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="getUserUrl != null">
+				getuserurl,
+			</if>
+			<if test="method != null">
+				method,
+			</if>
+			<if test="isToken != null">
+				istoken,
+			</if>
+		</trim>
+		<trim prefix="value(" suffix=")" suffixOverrides=",">
+		 	<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="getUserUrl != null">
+				#{getUserUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="method != null">
+				#{method,jdbcType=VARCHAR},
+			</if>
+			<if test="isToken != null">
+				#{isToken,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.bonc.sso.model.GetUserUrl">
+		update SSO_GETUSERURL
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="getUserUrl != null">
+				getuserurl = #{getUserUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="method != null">
+				method = #{method,jdbcType=VARCHAR},
+			</if>
+			<if test="isToken != null">
+				istoken = #{isToken,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+	
 </mapper>

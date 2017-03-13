@@ -4,30 +4,96 @@
 	<resultMap type="com.bonc.sso.model.TargetUrl" id="BaseResultMap">
 		<id column="id" jdbcType="VARCHAR" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
-		<result column="targetUrl" jdbcType="VARCHAR" property="targetUrl" />
+		<result column="targeturl" jdbcType="VARCHAR" property="targetUrl" />
+		<result column="envname" jdbcType="VARCHAR" property="envname" />
+		<result column="state" jdbcType="VARCHAR" property="state" />
 	</resultMap>
-	
+
 	<sql id="Base_Column_List">
-	id, name, targeturl ,envname
+		id, name, targeturl ,envname,state
 	</sql>
-	
+
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
-	    select 
-	    <include refid="Base_Column_List" />
-	    from SSO_TARGERURL WHERE 1=1
-  	</select>
-  	
-	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-	  select 
-	  <include refid="Base_Column_List" />
-	  from SSO_TARGERURL
-	  where id = #{id,jdbcType=VARCHAR}
+		select
+		<include refid="Base_Column_List" />
+		from SSO_TARGERURL WHERE 1=1
 	</select>
-	
+
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from SSO_TARGERURL
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+
 	<select id="findAll" resultMap="BaseResultMap">
-	    select 
-	    <include refid="Base_Column_List" />
-	    from SSO_TARGERURL WHERE 1=1
-  	</select>
-   
+		select
+		<include refid="Base_Column_List" />
+		from SSO_TARGERURL WHERE 1=1
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		SSO_TARGERURL
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+	
+	<insert id="insertTargetUrl" parameterType="com.bonc.sso.model.TargetUrl">
+		insert into SSO_TARGERURL
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="targetUrl != null">
+				targeturl,
+			</if>
+			<if test="envname != null">
+				envname,
+			</if>
+			<if test="state != null">
+				state,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="targetUrl != null">
+				#{targetUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="envname != null">
+				#{envname,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				#{state,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterType="com.bonc.sso.model.TargetUrl">
+		update SSO_TARGERURL
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="targetUrl != null">
+				targeturl = #{targetUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="envname != null">
+				envname = #{envname,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				state = #{state,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
 </mapper>

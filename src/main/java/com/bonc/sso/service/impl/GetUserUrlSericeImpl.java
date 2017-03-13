@@ -22,13 +22,28 @@ public class GetUserUrlSericeImpl implements GetUserUrlService{
 	}
 	
 	@Override
-	public GetUserUrl selectByEnvId(String id) {
-		return (GetUserUrl)daoHelper.queryOne("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.selectByPrimaryKey", id);
+	public List<GetUserUrl> findAll() {
+		return daoHelper.queryForList("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.findAll");
 	}
 
 	@Override
-	public List<GetUserUrl> findAll() {
-		return daoHelper.queryForList("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.findAll");
+	public GetUserUrl selectByGetUserUrlId(String id) {
+		return (GetUserUrl) daoHelper.queryOne("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.selectByPrimaryKey", id);
+	}
+
+	@Override
+	public int deleteByGetUserUrlId(String GetUserUrlId) {
+		return daoHelper.delete("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.deleteByPrimaryKey", GetUserUrlId);
+	}
+
+	@Override
+	public int insert(GetUserUrl getUserUrl) {
+		return daoHelper.insert("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.insertGetUserUrl", getUserUrl);
+	}
+
+	@Override
+	public int update(GetUserUrl getUserUrl) {
+		return daoHelper.update("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.updateByPrimaryKey", getUserUrl);
 	}
 
 }
