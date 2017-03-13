@@ -47,5 +47,10 @@ public class TargetUrlServiceImpl implements TargetUrlService {
 	public TargetUrl selectByTargetUrlId(String id) {
 		return (TargetUrl) daoHelper.queryOne("com.bonc.frame.web.mapper.targetUrl.TargetUrlMapper.selectByPrimaryKey", id);
 	}
+	
+	@Override
+	public TargetUrl selectByTargetUrlname(String name) {
+		return (TargetUrl) daoHelper.queryOne("com.bonc.frame.web.mapper.targetUrl.TargetUrlMapper.selectByTargetUrlname", name);
+	}
 
 }

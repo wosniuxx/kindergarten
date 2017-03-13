@@ -15,6 +15,7 @@ import com.bonc.frame.util.DateUtil;
 import com.bonc.frame.util.IdUtil;
 import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
+import com.bonc.sso.service.TargetUrlService;
 import com.bonc.sso.service.UrlExplainService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
@@ -27,6 +28,8 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 	@Resource
 	private EnvService envService;
 	
+	private TargetUrlService targetUrlService;
+	
 	@Override
 	public Map selectAll(String start, String length, Map<String, Object> paramMap) {
 		Map<String,Object> map = new HashMap<String, Object>();
@@ -36,7 +39,7 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 		for(UrlExplain urlExplain:pageinfo.getList()){
 			if(envService.selectByEnvName(urlExplain.getEnvname()) != null){
 				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+urlExplain.getSign()+"?return="+
-						urlExplain.getTargetUrl()+"token=";
+						targetUrlService.selectByTargetUrlname(urlExplain.getTargetUrl()).getTargetUrl()+"token=";
 				urlExplain.setFinalUrl(finalUrl);
 			}
 			/*System.out.println(urlExplain.getEnvname());

@@ -95,5 +95,12 @@
 		</set>
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
+	
+	<select id="selectByTargetUrlname" parameterType="java.lang.String" resultMap="BaseResultMap">
+	    select 
+	    <include refid="Base_Column_List" />
+	    from SSO_TARGERURL 
+	    where name = #{name,jdbcType=VARCHAR}
+  	</select>
 
 </mapper>

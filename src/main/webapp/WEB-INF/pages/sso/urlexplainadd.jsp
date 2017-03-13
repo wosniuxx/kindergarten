@@ -26,11 +26,11 @@
 		
 		.showUrl{
 		    position: absolute;
-    		top: 350px;
+    		top: 305px;
 		}
 		.arrowimg{
 		    position: absolute;
-    		left:400px;
+    		left:500px;
     		top:120px;
     		transform: translate3d(0, -50px,0);
 		    -ms-transform: translate3d(0, -50px, 0);
@@ -103,9 +103,9 @@
 								</form>
 	               			</div>
 	               			<img src="<%=webpath %>/resources/img/sso/Red2.jpg" class="arrowimg">
-	               			<div class="showUrl">
+	               			<div class="showUrl" id="showUrl">
 	               			 	<div class="conurl"></div>
-	               			 	<button type="button" class="b-redBtn btn-i" id="okbtn"><i class="iconfont">&#xe8c1;</i>确定</button>
+	               			 	<button type="button" class="b-redBtn btn-i" id="okbtn"><i class="iconfont">&#xe8c1;</i>生成</button>
 	               			</div>
   					</div>
 			 </div>

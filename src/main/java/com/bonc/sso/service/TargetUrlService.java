@@ -48,4 +48,8 @@ public interface TargetUrlService {
 	 */
 	public int update(TargetUrl targetUrl);
 	
+	/**
+	 * 根据名称查询
+	 */
+	public TargetUrl selectByTargetUrlname(String name);
 }

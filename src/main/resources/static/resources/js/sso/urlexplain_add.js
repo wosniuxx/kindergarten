@@ -65,13 +65,16 @@ function getUrl(){
 		datall.envname=envnameservice;
 		datall.targetUrl=targetUrlName;
 		datall.getUserUrl=getUserUrlName;
-		console.log(datall);
 		
 		$.ajax({
 			"url":webpath+"/urlExplain/insert",
 			"type":"POST",
 			dataType:"json",
-			data: datall
+			data: datall,
+			success:function(){
+				//$("#showUrl").hide();
+				location.href = webpath+'/urlExplain/index';
+			}
 		});
 	})
 	/*layer.open({
