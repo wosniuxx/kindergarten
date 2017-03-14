@@ -63,37 +63,39 @@
 	<div class="row">
 	     <div class="col-lg-12 col-md-12 row-tab">
 	         <div id="org-panel" class="panel panel-default common-wrapper">
-  					<div class="panel-heading common-part"><i class="iconfont">&#xe6ca;</i><span>租户列表</span></div>
+  					<div class="panel-heading common-part"><i class="iconfont">&#xe6ca;</i><span>接口注册</span></div>
   					<div class="panel-body common-content">
+  							
    							<div class="searchWrap">
 	                    		<form class="form-inline" id="urlexplainAddForm">
+	                    			<input type="hidden" value="${urlExplain.id }" name="id"/>
 		                    		<div class="form-group">
     									<label for="urlEnv">接口名称:</label>
-    									<input type="text" class="form-control input-sm" name="introduce" id="introduce"/>
+    									<input type="text" class="form-control input-sm" name="introduce" id="introduce" value="${urlExplain.introduce }"/>
 	  								</div>
   									<div class="form-group">
     									<label for="urlEnv">接口环境:</label>
-    									<select id="envname" name="envname" class="form-control">  
+    									<select id="envname" name="envname" class="form-control" value="${urlExplain.envname }">  
                                 			<c:forEach var="e" items="${envnames }">  
                                 				<option value="${e.service}" eoname="${e.envname}">${e.envname}</option>  
                                 			</c:forEach>  
-                            			</select>  
+                            			</select>
   									</div>
   									<div class="form-group">
     									<label for="urlEnv">接口标识:</label>
-    									<input type="text" class="form-control input-sm" name="sign" id="sign"/>
+    									<input type="text" class="form-control input-sm" name="sign" id="sign" value="${urlExplain.sign }"/>
   									</div>
   									<div class="form-group">
     									<label for="targetUrl">目标地址:</label>
-    									<select id="targeturl" name="targetUrl" class="form-control">  
-                                			<c:forEach var="t" items="${targeturls}">  
+    									<select id="targeturl" name="targetUrl" class="form-control" value="${urlExplain.targetUrl }">  
+                                			<c:forEach var="t" items="${targeturls}">
                                 				<option value="${t.targetUrl}" toname="${t.name}">${t.name}</option>  
                                 			</c:forEach>  
                             			</select>  
   									</div>
   									<div class="form-group">
     									<label for="getUserUrl">获得用户地址:</label>
-    									<select id="geturl" name="getUserUrl" class="form-control">  
+    									<select id="geturl" name="getUserUrl" class="form-control" value="${urlExplain.getUserUrl }">  
                                 			<c:forEach var="g" items="${geturls}">  
                                 				<option value="${g.isToken}" ogname="${g.name}">${g.name}</option>  
                                 			</c:forEach>  
@@ -111,8 +113,17 @@
 			 </div>
 	     </div>
 	</div>
-	
+	<input type="hidden" value="${type }" id="type"/>
 	<%@ include file="../common-js.jsp"%>
 	<script src="<%=webpath %>/resources/js/sso/urlexplain_add.js"></script>
+	<script type="text/javascript">
+	if($("#type").val() == "update"){
+		var urlExplain = strToJson('${dtstr}');
+		function strToJson(str) {
+			var json = eval('(' + str + ')');
+			return json;
+		}	
+	}
+	</script>
 </body>
 </html>

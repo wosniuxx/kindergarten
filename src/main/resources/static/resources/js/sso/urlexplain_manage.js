@@ -4,7 +4,6 @@ $(document).ready(function(){
 	$("#searchBtn").bind("click",reloadTableData);
 	$("#resetBtn").bind("click",resetForm);
 	$("#addUrlBtn").bind("click",addUrl);
-	resourceTree.init();
 	
 	// 为datatable外的父级设置高度
 	$('#urlexplainTable_wrapper').css('height', $('.panel-body').height()-60);
@@ -62,10 +61,10 @@ function initurlexplainTable(){
 			  "targets" : 4,//操作按钮目标列
 			  "data" : null,
 			  "render" : function(data, type,row) {
-				  var id = row.userId;
-				  var html =  '<a href="javascript:void(0);" onclick="updateUser(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe66f;</i></a>';
+				  var id = row.id;
+				  var html =  '<a href="javascript:void(0);" onclick="updateUrl(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe66f;</i></a>';
 				      html += '&nbsp;&nbsp;';
-				      html +=  '<a href="javascript:void(0);" onclick="deleteUser(\''+id+'\')" class="icon-wrap" title="删除"><i class="iconfont i-btn">&#xe614;</i></a>';
+				      html +=  '<a href="javascript:void(0);" onclick="deleteUrl(\''+id+'\')" class="icon-wrap" title="删除"><i class="iconfont i-btn">&#xe614;</i></a>';
 				      html += '&nbsp;&nbsp;';
 				      return html;
 			   }
@@ -84,7 +83,7 @@ function reloadTableData(isCurrentPage){
 
 //重置查询条件
 function resetForm(){
-	form.clear($("#tenantSearchForm"));
+	form.clear($("#urlexplainSearchForm"));
 }
 
 //添加角色
@@ -97,61 +96,29 @@ function addUrl(){
 }
 
 //修改租户
-function updateTenant(id){
-	$.ajax({
-		"url":webpath+"/tenant/getTenantById",
-		"type":"POST",
-		dataType:"json",
-		data:{
-			tenantId:id
-		},
-		success:function(data){
-			var formObj = $("#updateTenantForm");
-			//form.clear(formObj);
-			//form.cleanValidator(formObj);
-			form.load(formObj,data);
-			var ids='',vals='';
-			formObj.find('input[name="orgName"]').val(vals);
-			formObj.find('input[name="orgIds"]').val(ids);
-			layer.open({
-				type: 1,
-		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改角色',
-		        area: ['300px', '240px'],
-		        content: $("#updateTenant"),
-		        btn: ['确定','取消'],
-		        btn1: function(index, layero){//确定按钮回调
-		        	//if(form.isValidator(formObj)){
-		        		$.ajax({
-		    				"url":webpath+"/tenant/update",
-		    				"type":"POST",
-		    				dataType:"json",
-		    				data:form.serializeJson(formObj),
-		    				success:function(data){
-		    					layer.close(index);
-		    					reloadTableData(true);
-		    				}
-		    			});
-		        	//}
-			    },
-			    btn2: function(index, layero){//确定按钮回调
-		        	layer.close(index);
-			    }
-		    });
-		   }
-    });
+function updateUrl(id){
+	location.href = webpath+'/urlExplain/update?id='+id+"&type=update";
+	/*$.ajax({//初始化组织机构树
+			"url":webpath+"/urlExplain/updateById",
+			"type":"GET",
+			dataType:"json",
+			data:{
+             id:id
+			}
+	})*/
 }
 //删除角色
-function deleteTenant(id){
+function deleteUrl(id){
 	layer.confirm('删除该角色？（删除后不可恢复）', {
         icon: 3,
         btn: ['是','否'] //按钮
   	  }, function(index, layero){
   		  $.ajax({//初始化组织机构树
-  				"url":webpath+"/tenant/delete",
+  				"url":webpath+"/urlExplain/delete",
   				"type":"POST",
   				dataType:"json",
   				data:{
-                     tenantId:id
+                     id:id
   				},
   				success:function(data){
   					layer.close(index);
@@ -162,114 +129,3 @@ function deleteTenant(id){
 }
 
 
-//资源授权
-function resourceAuth(id){
-	$.ajax({//初始化组织机构树
-		"url":webpath+"/role/selectRoleResources",
-		"type":"POST",
-		dataType:"json",
-		data:{
-			roleId:id
-		},
-		success:function(data){
-			resourceTree.treeObj.checkAllNodes(false);
-			for(var i=0;i<data.length;i++){//选中已有的权限
-				var node = resourceTree.treeObj.getNodesByParam("resourcesId", data[i].resourcesId, null);
-				if(node.length>0){
-					resourceTree.treeObj.checkNode(node[0], true, false);
-				}
-			}
-			layer.open({
-				type: 1,
-		        title:'<i class="iconfont">&#xe723;</i>&nbsp;资源授权',
-		        area: ['300px', '340px'],
-		        content: $("#resourceDiv"),
-		        btn: ['确定','取消'],
-		        btn1: function(index, layero){//确定按钮回调
-		        	var nodes = resourceTree.treeObj.getCheckedNodes(true),arr=[];
-		        	for(var n=0;n<nodes.length;n++){
-		        		var node = nodes[n];
-		        		var obj = new Object();
-		        		obj.roleId = id;
-		        		obj.resourcesId = node.resourcesId;
-		        		arr.push(obj);
-		        	}
-		        	$.ajax({//初始化组织机构树
-		  				"url":webpath+"/role/auth",
-		  				"type":"POST",
-		  				dataType:"json",
-		  				data:{
-		                     jsonStr:JSON.stringify(arr),
-		                     roleId:id
-		  				},
-		  				success:function(data){
-		  					layer.close(index);
-		  					layer.msg('授权成功！', {time: 1000, icon:1});
-		  				},
-		  				error:function(data){
-		  					layer.close(index);
-		  					layer.msg(data, {time: 1000, icon:1});
-		  				}
-		  		   });
-			    },
-			    btn2: function(index, layero){//确定按钮回调
-		        	layer.close(index);
-			    }
-		    });
-			$("#resourceDiv").parent().niceScroll({ cursorcolor: "#ccc", horizrailenabled: false});
-		}
-	});
-}
-
-
-
-var resourceTree ={
-		treeObj:null,
-		setting : {
-			data:{
-				simpleData: {
-					enable:true, 
-					idKey:'resourcesId',
-					pIdKey:'parentId'
-				},
-				key:{
-					name:'resourcesName',
-					url:'xurl'
-				}
-			},
-			check: {
-				enable: true,
-				chkboxType: {"Y":"p", "N":"p"}
-			}
-		},
-		init:function(){
-			if(resourceTree.treeObj!=null){
-				resourceTree.treeObj.destroy()
-			}
-			$.ajax({//初始化组织机构树
-				"url":webpath+"/role/resources",
-				"type":"POST",
-				dataType:"json",
-				success:function(data){
-					if(data!=null&&data.length>0){
-						for(var i=0;i<data.length;i++){
-							data[i].icon=webpath+resourceTypeIcon[data[i].resourcesTypeId];
-						}
-						resourceTree.treeObj = $.fn.zTree.init($("#resourceTree"), resourceTree.setting, data);
-						resourceTree.treeObj.expandAll(true);
-					}else{
-						layer.msg('暂无数据', {time: 1000, icon:5});
-					}
-				}
-			});
-		}
-}
-
-
-
-var resourceTypeIcon = {
-		"0":"/resources/img/icon/16x16/floder1-black.png",
-		"1":"/resources/img/icon/16x16/link1-black.png",
-		"2":"/resources/img/icon/16x16/link-black.png",
-		"3":"/resources/img/icon/16x16/fun-black.png",
-};

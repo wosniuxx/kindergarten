@@ -2,7 +2,6 @@ package com.bonc.sso.service;
 
 import java.util.Map;
 
-import com.bonc.frame.web.entity.tenant.Tenant;
 import com.bonc.sso.model.UrlExplain;
 
 public interface UrlExplainService {
@@ -12,12 +11,6 @@ public interface UrlExplainService {
 	 */
 	public Map selectAll(String start,String length,Map<String,Object>paramMap);
 	
-	/**
-	 * 根据租户Id查询该环境信息
-	 * @param tenantId 租户Id
-	 * @return
-	 */
-	public UrlExplain selectByEnvId(String id);
 	
 	/**
 	 * 添加接口
@@ -25,5 +18,26 @@ public interface UrlExplainService {
 	 * @return
 	 */
 	public void insert(UrlExplain urlExplain);
+
+	/**
+	 * 根据环境Id删除该租户
+	 * @param tenantId 租户Id
+	 * @return
+	 */
+	public int deleteByUrlExplainId(String UrlExplainId);
+	
+	/**
+	 * 根据id查询
+	 * @param id
+	 * @return
+	 */
+	public UrlExplain selectByUrlExplainId(String id);
+	
+	/**
+	 * 更新url信息
+	 * @param tenant 租户对象
+	 * @return
+	 */
+	public int update(UrlExplain urlExplain);
 	
 }

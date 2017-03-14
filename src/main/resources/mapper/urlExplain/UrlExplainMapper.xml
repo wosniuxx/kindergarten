@@ -20,6 +20,12 @@
 	    select 
 	    <include refid="Base_Column_List" />
 	    from SSO_URL WHERE 1=1
+	    <if test="introduce!=null and introduce != ''">
+         AND introduce LIKE '%${introduce}%'
+	    </if>
+	    <if test="envname!=null and envname != ''">
+	         AND envname LIKE '%${envname}%'
+	    </if>
   	</select>
   	
 	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -90,5 +96,36 @@
       </if>
     </trim>
   </insert>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		SSO_URL
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+	
+	<update id="updateByPrimaryKey" parameterType="com.bonc.sso.model.UrlExplain">
+		update SSO_URL
+		<set>
+			<if test="introduce != null">
+				introduce = #{introduce,jdbcType=VARCHAR},
+			</if>
+			<if test="envname != null">
+				envname = #{envname,jdbcType=VARCHAR},
+			</if>
+			<if test="getUserUrl != null">
+				getUserUrl = #{getUserUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="targetUrl != null">
+				targetUrl = #{targetUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="sign != null">
+				sign = #{sign,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
    
 </mapper>

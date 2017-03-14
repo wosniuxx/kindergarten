@@ -8,6 +8,27 @@ $(document).ready(function(){
 	$('#urlexplainTable').wrap('<div class="tab-wrapper"></div>');
 	$('.tab-wrapper').css('height', $('#urlexplainTable_wrapper').height()-63);
 	$('.tab-wrapper').niceScroll({ cursorcolor: "#ccc", horizrailenabled: false});
+	
+	if($("#type").val() == "update"){
+		$("#envname option").each(function(){
+			if($(this).attr("eoname") == urlExplain.envname){
+				$(this).attr("selected","selected");
+			}
+		})
+		
+		$("#targeturl option").each(function(){
+			if($(this).attr("toname") == urlExplain.targetUrl){
+				$(this).attr("selected","selected");
+			}
+		})
+		
+		$("#geturl option").each(function(){
+			if($(this).attr("ogname") == urlExplain.getUserUrl){
+				$(this).attr("selected","selected");
+			}
+		})
+	}
+	
 });
 
 
@@ -21,7 +42,13 @@ $(document).ready(function(){
 
 //添加角色
 function getUrl(){
-
+	
+	if($("#type").val() == "update"){
+		$("#okbtn").html('<i class="iconfont">&#xe8c1;</i>修改');
+		var url = webpath+"/urlExplain/update"
+	}else{
+		var url = webpath+"/urlExplain/insert"
+	}
 	var envnameservice  = $("#envname option:selected").attr("eoname");
 	var envname = $("#envname").val();
 	var sign = $("#sign").val();
@@ -67,7 +94,7 @@ function getUrl(){
 		datall.getUserUrl=getUserUrlName;
 		
 		$.ajax({
-			"url":webpath+"/urlExplain/insert",
+			"url":url,
 			"type":"POST",
 			dataType:"json",
 			data: datall,

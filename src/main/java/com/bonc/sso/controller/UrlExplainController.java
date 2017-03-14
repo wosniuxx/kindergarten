@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.bonc.frame.util.JsonUtils;
 import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
@@ -47,6 +48,7 @@ public class UrlExplainController {
 		model.addAttribute("envnames", envService.findAll());
 		model.addAttribute("targeturls", targetUrlService.findAll());
 		model.addAttribute("geturls", getUserUrlSerice.findAll());
+		model.addAttribute("dtstr", "");
 		return "sso/urlexplainadd";
 	}
 	
@@ -54,7 +56,31 @@ public class UrlExplainController {
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public void insert(UrlExplain urlExplain) {
 		urlExplainService.insert(urlExplain);
-		System.out.println(urlExplain.getEnvname());
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public int delete(String id) {
+		return urlExplainService.deleteByUrlExplainId(id);
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(String id,Model model,String type) {
+		UrlExplain urlExplain = urlExplainService.selectByUrlExplainId(id);
+		model.addAttribute("envnames", envService.findAll());
+		model.addAttribute("targeturls", targetUrlService.findAll());
+		model.addAttribute("geturls", getUserUrlSerice.findAll());
+		model.addAttribute("urlExplain", urlExplain);
+		model.addAttribute("type", type);
+		String JSONStr = JSON.toJSONString(urlExplain);
+		model.addAttribute("dtstr", JSONStr);
+		return "sso/urlexplainadd";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public void update(UrlExplain urlExplain) {
+		urlExplainService.update(urlExplain);
 	}
 
 }
