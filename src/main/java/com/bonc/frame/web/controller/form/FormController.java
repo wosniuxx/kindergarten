@@ -27,6 +27,12 @@ import com.bonc.frame.web.service.form.FormService;
 			return "systemconfig/formmake";
 		}
 		
+		
+		@RequestMapping("/design")
+		public String design() {
+			return "systemconfig/design";
+		}
+		
 		@ResponseBody
 		@RequestMapping("/selectPage")
 		public Map selectPage(String start, String length, String jsonStr) {
