@@ -49,8 +49,8 @@ public class TargetUrlServiceImpl implements TargetUrlService {
 	}
 	
 	@Override
-	public TargetUrl selectByTargetUrlname(Map nmap) {
-		return (TargetUrl) daoHelper.queryOne("com.bonc.frame.web.mapper.targetUrl.TargetUrlMapper.selectByTargetUrlname", nmap);
+	public List<TargetUrl> selectByTargetUrlname(Map nmap) {
+		return (List<TargetUrl>) daoHelper.queryForList("com.bonc.frame.web.mapper.targetUrl.TargetUrlMapper.selectByTargetUrlname", nmap);
 	}
 
 }

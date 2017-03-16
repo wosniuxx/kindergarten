@@ -2,6 +2,7 @@ package com.bonc.sso.service.impl;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.bonc.frame.base.dao.DaoHelper;
 import com.bonc.frame.util.IdUtil;
+import com.bonc.sso.model.TargetUrl;
 import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
 import com.bonc.sso.service.TargetUrlService;
@@ -35,14 +37,18 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 		Page<UrlExplain> page = (Page) map.get("data");
 		PageInfo<UrlExplain> pageinfo = new PageInfo<UrlExplain>(page);
 		for(UrlExplain urlExplain:pageinfo.getList()){
+			String turl = null;
 			Map<String,Object> nmap = new HashMap<String, Object>();
 			nmap.put("name",urlExplain.getTargetUrl());
 			nmap.put("envname", urlExplain.getEnvname());
-			System.out.println(envService.selectByEnvName(urlExplain.getEnvname()));
-			System.out.println(envService.selectByEnvName(targetUrlService.selectByTargetUrlname(nmap).getTargetUrl()));
-			if(null != envService.selectByEnvName(urlExplain.getEnvname()) && null != targetUrlService.selectByTargetUrlname(nmap).getTargetUrl()){
+			List<TargetUrl> targeturls = targetUrlService.selectByTargetUrlname(nmap);
+			for(TargetUrl targeturl:targeturls){
+				turl = targeturl.getTargetUrl();
+			}
+			if(null != envService.selectByEnvName(urlExplain.getEnvname()) && null != turl){
 				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+urlExplain.getSign()+"?return="+
-						targetUrlService.selectByTargetUrlname(nmap).getTargetUrl()+"token=";
+						turl+"token=";
+				System.out.println(finalUrl);
 				urlExplain.setFinalUrl(finalUrl);
 			}
 		}

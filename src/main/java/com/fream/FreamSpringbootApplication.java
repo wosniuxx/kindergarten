@@ -18,9 +18,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.bonc.frame.security.SpringMVCSecurityInterceptor;
 
-@EnableFeignClients
+//@EnableFeignClients
+//@EnableDiscoveryClient
 @SpringBootApplication
-@EnableDiscoveryClient
 @EnableTransactionManagement
 @Configuration
 @ComponentScan(basePackages = "com.bonc")

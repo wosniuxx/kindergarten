@@ -71,7 +71,7 @@
 	                    			<input type="hidden" value="${urlExplain.id }" name="id"/>
 		                    		<div class="form-group">
     									<label for="urlEnv">接口名称:</label>
-    									<input type="text" class="form-control input-sm" name="introduce" id="introduce" value="${urlExplain.introduce }"/>
+    									<input type="text" class="form-control input-sm" style="width:125px"  name="introduce" id="introduce" value="${urlExplain.introduce }"/>
 	  								</div>
   									<div class="form-group">
     									<label for="urlEnv">接口环境:</label>
@@ -83,14 +83,12 @@
   									</div>
   									<div class="form-group">
     									<label for="urlEnv">接口标识:</label>
-    									<input type="text" class="form-control input-sm" name="sign" id="sign" value="${urlExplain.sign }"/>
+    									<input type="text" class="form-control input-sm" style="width:125px" 
+    									name="sign" id="sign" value="${urlExplain.sign }"/>
   									</div>
   									<div class="form-group">
     									<label for="targetUrl">目标地址:</label>
     									<select id="targeturl" name="targetUrl" class="form-control" value="${urlExplain.targetUrl }">  
-                                			<c:forEach var="t" items="${targeturls}">
-                                				<option value="${t.targetUrl}" toname="${t.name}">${t.name}</option>  
-                                			</c:forEach>  
                             			</select>  
   									</div>
   									<div class="form-group">
