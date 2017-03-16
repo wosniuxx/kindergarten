@@ -10,6 +10,7 @@
 
 </head>
 <body>
+
 	<form>
 		<textarea name="editor1" id="editor1" rows="10" cols="80">
              This is my textarea to be replaced with CKEditor.
@@ -21,7 +22,7 @@
 			    uiColor: '#9AB8F3'
 			}); */
 		</script>
-	</form>
+	</form> 
 </body>
 
 </html>
