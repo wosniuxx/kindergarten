@@ -32,11 +32,11 @@
 		    position: absolute;
     		left:500px;
     		top:120px;
-    		transform: translate3d(0, -50px,0);
-		    -ms-transform: translate3d(0, -50px, 0);
-		    -webkit-transform: translate3d(0, -50px, 0);
-		    -o-transform: translate3d(0, -50px, 0);
-		    -moz-transform: translate3d(0, -50px, 0);
+    		transform: translate3d(0, -10px,0);
+		    -ms-transform: translate3d(0, -10px, 0);
+		    -webkit-transform: translate3d(0, -10px, 0);
+		    -o-transform: translate3d(0, -10px, 0);
+		    -moz-transform: translate3d(0, -10px, 0);
 		    opacity: 0;
 		    transition: transform 1s ease 0s, opacity 1s ease 0s;
 		    -moz-transition: -moz-transform 1s ease 0s, opacity 1s ease 0s;
@@ -82,7 +82,7 @@
                             			</select>
   									</div>
   									<div class="form-group">
-    									<label for="urlEnv">接口标识:</label>
+    									<label for="sign">接口标识:</label>
     									<input type="text" class="form-control input-sm" style="width:125px" 
     									name="sign" id="sign" value="${urlExplain.sign }"/>
   									</div>
