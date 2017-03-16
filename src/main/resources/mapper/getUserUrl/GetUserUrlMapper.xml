@@ -99,4 +99,12 @@
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
 	
+	<select id="selectByGetUserUrlName" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from SSO_GETUSERURL
+		where name = #{name,jdbcType=VARCHAR}
+	</select>
+	
 </mapper>

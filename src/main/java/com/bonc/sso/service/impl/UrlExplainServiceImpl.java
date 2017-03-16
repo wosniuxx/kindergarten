@@ -14,6 +14,7 @@ import com.bonc.frame.util.IdUtil;
 import com.bonc.sso.model.TargetUrl;
 import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
+import com.bonc.sso.service.GetUserUrlService;
 import com.bonc.sso.service.TargetUrlService;
 import com.bonc.sso.service.UrlExplainService;
 import com.github.pagehelper.Page;
@@ -30,6 +31,9 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 	@Resource
 	private TargetUrlService targetUrlService;
 	
+	@Resource
+	private GetUserUrlService getUserUrlService;
+	
 	@Override
 	public Map selectAll(String start, String length, Map<String, Object> paramMap) {
 		Map<String,Object> map = new HashMap<String, Object>();
@@ -38,17 +42,22 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 		PageInfo<UrlExplain> pageinfo = new PageInfo<UrlExplain>(page);
 		for(UrlExplain urlExplain:pageinfo.getList()){
 			String turl = null;
+			String proname = null;
 			Map<String,Object> nmap = new HashMap<String, Object>();
 			nmap.put("name",urlExplain.getTargetUrl());
 			nmap.put("envname", urlExplain.getEnvname());
 			List<TargetUrl> targeturls = targetUrlService.selectByTargetUrlname(nmap);
 			for(TargetUrl targeturl:targeturls){
 				turl = targeturl.getTargetUrl();
+				proname = targeturl.getProductname();
 			}
 			if(null != envService.selectByEnvName(urlExplain.getEnvname()) && null != turl){
-				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+urlExplain.getSign()+"?return="+
-						turl+"token=";
-				System.out.println(finalUrl);
+				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+proname+"/"+
+						urlExplain.getSign()+"?return="+
+						turl;
+				if(getUserUrlService.selectByGetUserUrlName(urlExplain.getGetUserUrl()).getIsToken().equals("1")){
+					finalUrl = finalUrl + "&token=";
+				}
 				urlExplain.setFinalUrl(finalUrl);
 			}
 		}

@@ -7,10 +7,11 @@
 		<result column="targeturl" jdbcType="VARCHAR" property="targetUrl" />
 		<result column="envname" jdbcType="VARCHAR" property="envname" />
 		<result column="state" jdbcType="VARCHAR" property="state" />
+		<result column="productname" jdbcType="VARCHAR" property="productname" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id, name, targeturl ,envname,state
+		id, name, targeturl ,envname,state,productname
 	</sql>
 
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
@@ -111,5 +112,7 @@
 			and envname = #{envname,jdbcType=VARCHAR}
 		</if>
 	</select>
+	
+	
 
 </mapper>

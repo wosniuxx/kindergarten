@@ -46,4 +46,9 @@ public class GetUserUrlSericeImpl implements GetUserUrlService{
 		return daoHelper.update("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.updateByPrimaryKey", getUserUrl);
 	}
 
+	@Override
+	public GetUserUrl selectByGetUserUrlName(String name) {
+		return (GetUserUrl) daoHelper.queryOne("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.selectByGetUserUrlName", name);
+	}
+
 }
