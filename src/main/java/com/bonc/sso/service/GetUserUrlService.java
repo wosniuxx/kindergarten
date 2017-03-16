@@ -46,4 +46,11 @@ public interface GetUserUrlService {
 	 * @return
 	 */
 	public int update(GetUserUrl getUserUrl);
+	
+	/**
+	 * 根据名称查找
+	 * @param getUserUrl
+	 * @return
+	 */
+	public GetUserUrl selectByGetUserUrlName(String getUserUrl);
 }
