@@ -1,4 +1,4 @@
-package com.bonc.frame.web.entity.form;
+package com.bonc.form.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;

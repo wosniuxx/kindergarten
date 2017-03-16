@@ -9,26 +9,37 @@ CKEDITOR.editorConfig = function( config ) {
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
 	// The toolbar groups arrangement, optimized for two toolbar rows.
+	
+	
+	  config.plugins = 'about,a11yhelp,basicstyles,bidi,blockquote,clipboard,colorbutton,colordialog,contextmenu,dialogadvtab,div,elementspath,enterkey,entities,filebrowser,find,flash,floatingspace,font,format,forms,horizontalrule,htmlwriter,image,iframe,indentlist,indentblock,justify,language,link,list,liststyle,magicline,maximize,newpage,pagebreak,pastefromword,pastetext,preview,print,removeformat,resize,save,scayt,selectall,showblocks,showborders,smiley,sourcearea,specialchar,stylescombo,tab,table,tabletools,templates,toolbar,undo,wsc,wysiwygarea';
+	
 	config.toolbarGroups = [
 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
 		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
-		{ name: 'links' },
+		{ name: 'links' ,      group:[ 'Link','Unlink','Anchor' ] },
 		{ name: 'insert' },
 		{ name: 'forms' },
 		{ name: 'tools' },
 		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'others' },
 		'/',
+		{name: 'font' , groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'styles' },
+		{ name: 'styles' ,    groups: [ 'Arial','Times NewRoman','Verdana' ]},
 		{ name: 'colors' },
-		{ name: 'about' }
-	];
+		{ name: 'code' },
+	
+		config.uiColor = '#FFFFFF'
+		];
 
+   
+    
+  
+	
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
-	config.removeButtons = 'Underline,Subscript,Superscript';
+	//config.removeButtons = 'Underline,Subscript,Superscript';
 
 	// Set the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';
@@ -36,7 +47,13 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
+	config.language = 'zh-cn';
 	
-	config.language = 'fr';
-	config.uiColor = '#AADC6E';
+	//工具栏是否可以被收缩
+    config.toolbarCanCollapse = true;
+
+     config.font_names
+     = '宋体/宋体;黑体/黑体;仿宋/仿宋_GB2312;楷体/楷体_GB2312;隶书/隶书;幼圆/幼圆;雅黑/雅黑;'+
+     config.font_names ;
+    
 };

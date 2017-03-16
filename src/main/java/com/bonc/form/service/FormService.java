@@ -1,9 +1,8 @@
-package com.bonc.frame.web.service.form;
+package com.bonc.form.service;
 
 import java.util.Map;
 
-import com.bonc.frame.web.entity.form.Form;
-import com.bonc.frame.web.entity.tenant.Tenant;
+import com.bonc.form.entity.Form;
 
 public interface FormService {
 	
