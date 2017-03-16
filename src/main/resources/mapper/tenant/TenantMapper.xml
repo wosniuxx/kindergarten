@@ -29,7 +29,7 @@
     where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
   </select>
    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from PURE_tenant
+    delete from PURE_TENANT
     where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
   </delete>
   

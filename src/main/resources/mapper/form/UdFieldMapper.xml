@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bonc.frame.web.mapper.form.UdFileldMapper">
+	<resultMap type="com.bonc.form.entity.UdField" id="BaseResultMap">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="templatecode" jdbcType="VARCHAR" property="templatecode" />
+		<result column="fieldename" jdbcType="VARCHAR" property="fieldename" />
+		<result column="fieldcname" jdbcType="VARCHAR" property="fieldcname" />
+		<result column="fieldsel" jdbcType="VARCHAR" property="fieldsel" />
+		<result column="fielduse" jdbcType="VARCHAR" property="fielduse" />
+		<result column="fieldtype" jdbcType="VARCHAR" property="fieldtype" />
+		<result column="datatype" jdbcType="VARCHAR" property="datatype" />
+		<result column="defaultvalue" jdbcType="VARCHAR" property="defaultvalue" />
+		<result column="datalenth" jdbcType="VARCHAR" property="datalenth" />
+		<result column="dataDecimal" jdbcType="VARCHAR" property="dataDecimal" />
+		<result column="mathrule" jdbcType="VARCHAR" property="mathrule" />
+		<result column="delflag" jdbcType="DECIMAL" property="delflag" />
+		<result column="fieldcode" jdbcType="VARCHAR" property="fieldcode" />
+		<result column="fielfashion" jdbcType="VARCHAR" property="fielfashion" />
+		<result column="need" jdbcType="DECIMAL" property="need" />
+		<result column="subtime" jdbcType="TIMESTAMP" property="subtime" />
+		<result column="afterField" jdbcType="VARCHAR" property="afterField" />
+		<result column="gltable" jdbcType="VARCHAR" property="gltable" />
+		<result column="glfield" jdbcType="VARCHAR" property="glfield" />
+		<result column="sortid" jdbcType="VARCHAR" property="sortid" />
+		<result column="mainflag" jdbcType="VARCHAR" property="mainflag" />
+		<result column="ztablename" jdbcType="VARCHAR" property="ztablename" />
+	</resultMap>
+	<sql id="Base_Column_List">
+	id,templatecode,fieldename,fieldcname,fieldsel,fielduse,fieldtype,datatype,defaultvalue,
+	datalenth,dataDecimal,mathrule,delflag,fieldcode,fielfashion,
+	need,subtime,afterField,gltable,glfield,sortid,mainflag,ztablename
+	</sql>
+	<select id="selectByTablename" parameterType="map" resultMap="BaseResultMap">
+    select 
+  	<include refid="Base_Column_List" />
+    from ud_field where 1=1
+    <if test="templatecode!=null and templatecode != ''">
+     and templatecode =#{templatecode,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ud_template
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PURE_tenant
+    where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
+  </delete>
+  
+  <insert id="insertSelective" parameterType="com.bonc.form.entity.Form">
+    insert into ud_template
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tablename != null">
+        tablename,
+      </if>
+      <if test="tablecnname != null">
+        tablecnname,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="subtime != null">
+        subtime,
+      </if>
+      <if test="udtemplatecode != null">
+        udtemplatecode,
+      </if>
+      
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>		
+      <if test="tablename != null">
+        #{tablename,jdbcType=VARCHAR},
+      </if>
+      <if test="tablecnname != null">
+        #{tablecnname,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="subtime != null">
+        #{subtime,jdbcType=TIMESTAMP},
+        <if test="udtemplatecode != null">
+        #{udtemplatecode,jdbcType=VARCHAR},
+      </if>
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.bonc.frame.web.entity.tenant.Tenant">
+    update PURE_TENANT
+    <set>
+      <if test="tenantId != null">
+        TENANT_ID = #{tenantId,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantName != null">
+        TENANT_NAME = #{tenantName,jdbcType=VARCHAR},
+      </if>
+       <if test="state != null">
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
+  </update>
+</mapper>

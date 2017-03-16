@@ -1,4 +1,4 @@
-package com.bonc.frame.web.service.impl.form;
+package com.bonc.form.service.Impl;
 
 import java.util.Map;
 
@@ -6,9 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.bonc.form.entity.Form;
+import com.bonc.form.service.FormService;
 import com.bonc.frame.base.dao.DaoHelper;
-import com.bonc.frame.web.entity.form.Form;
-import com.bonc.frame.web.service.form.FormService;
 @Service("formService")
 public class FormServiceImpl implements FormService{
 
