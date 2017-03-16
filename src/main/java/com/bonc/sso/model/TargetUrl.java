@@ -24,6 +24,11 @@ public class TargetUrl {
 	 */
 	private String state;
 	
+	/**
+	 * 访问项目名称
+	 */
+	private String productname;
+	
 	public String getId() {
 		return id;
 	}
@@ -54,4 +59,12 @@ public class TargetUrl {
 	public void setState(String state) {
 		this.state = state;
 	}
+	public String getProductname() {
+		return productname;
+	}
+	public void setProductname(String productname) {
+		this.productname = productname;
+	}
+	
+	
 }
