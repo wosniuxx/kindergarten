@@ -56,7 +56,6 @@ body {
 					<table id="getuserurlTable">
 						<thead>
 							<tr>
-								<th>接口id</th>
 								<th>接口名称</th>
 								<th>获取用户接口</th>
 								<th>用户数据类型</th>
@@ -79,18 +78,9 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="id">接口id:</label> <input type="text"
-								class="form-control input-sm" name="id" placeholder="请输入id"
-								data-rule="required;length(4~32);filter;" />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
 							<label for="name">接口名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入接口名称"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -99,7 +89,7 @@ body {
 						<div class="form-group">
 							<label for="getUserUrl">获取用户接口:</label> <input type="text"
 								class="form-control input-sm" name="getUserUrl"
-								placeholder="请输入获取用户接口" data-rule="email" />
+								placeholder="请输入获取用户接口" />
 						</div>
 					</td>
 				</tr>
@@ -108,25 +98,25 @@ body {
 						<div class="form-group">
 							<label for="method">用户数据类型:</label> <input type="text"
 								class="form-control input-sm" name="method"
-								placeholder="请输入获取用户接口" data-rule="email" />
+								placeholder="请输入获取用户接口" />
 						</div>
 					</td>
 				</tr>
 				<tr>
-	                <td>
-	                    <div class="form-group">
-						  <label for="isToken">是否需要isToken:</label>
-					      <label>
-						  <input type="radio" value="1" name="isToken" data-rule="checked(1)" >
-						    是
-						  </label>
-						  <label>
-						  <input type="radio" value="-1" name="isToken" data-rule="checked(1)">
-						   否
-						  </label>
-				   		</div>
-	                </td>
-	             </tr>
+					<td>
+						<div class="form-group">
+							<label for="isToken">是否需要isToken:</label> 
+							<label> 
+							<input type="radio" value="1" name="isToken" data-rule="checked(1)">
+								是
+							</label> 
+							<label> 
+							<input type="radio" value="-1" name="isToken"
+								data-rule="checked(1)"> 否
+							</label>
+						</div>
+					</td>
+				</tr>
 			</table>
 		</form>
 	</div>
@@ -143,7 +133,7 @@ body {
 						<div class="form-group">
 							<label for="id">接口id:</label> <input type="text"
 								class="form-control input-sm" name="id" placeholder="接口id"
-								data-rule="required;length(2~32);filter;" redeonly="redeonly" />
+								 redeonly="redeonly" />
 						</div>
 					</td>
 				</tr>
@@ -152,7 +142,7 @@ body {
 						<div class="form-group">
 							<label for="name">接口名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入接口名称"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -161,7 +151,7 @@ body {
 						<div class="form-group">
 							<label for="getUserUrl">获取用户接口:</label> <input type="text"
 								class="form-control input-sm" name="getUserUrl"
-								placeholder="请输入获取用户接口" data-rule="email" />
+								placeholder="请输入获取用户接口" />
 						</div>
 					</td>
 				</tr>
@@ -170,7 +160,7 @@ body {
 						<div class="form-group">
 							<label for="method">用户数据类型:</label> <input type="text"
 								class="form-control input-sm" name="method"
-								placeholder="请输入用户数据类型" data-rule="email" />
+								placeholder="请输入用户数据类型" />
 						</div>
 					</td>
 				</tr>

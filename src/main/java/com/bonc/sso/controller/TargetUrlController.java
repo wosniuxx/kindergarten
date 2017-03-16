@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bonc.frame.util.IdUtil;
 import com.bonc.frame.util.JsonUtils;
 import com.bonc.sso.model.TargetUrl;
 import com.bonc.sso.service.TargetUrlService;
@@ -43,6 +44,7 @@ public class TargetUrlController {
 	@ResponseBody
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public int insert(TargetUrl targetUrl) {
+		targetUrl.setId(IdUtil.createId());
 		return targetUrlService.insert(targetUrl);
 	}
 	

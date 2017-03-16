@@ -22,7 +22,6 @@ $(document).ready(function(){
 function initGetUserUrlTable(){
 	$("#getuserurlTable").width("100%").dataTable({
 		"columns":[
-		           { "data": "id" },
 		            { "data": "name" },
 		            { "data": "getUserUrl" },
 		            { "data": "method" },
@@ -42,22 +41,9 @@ function initGetUserUrlTable(){
 		           return json.data;
 		     }
 		},
-		columnDefs:[{
-			"targets" : 0,//id
-			"data" : null,
-			"width" : '17%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
+		columnDefs:[
 		{
-			"targets" : 1,//接口名称
+			"targets" : 0,//接口名称
 			"data" : null,
 			"render" : function(data, type,row) {
 				var html = '';
@@ -69,7 +55,7 @@ function initGetUserUrlTable(){
 				return html;
 			}
 		},{
-			"targets" : 2,//获取用户接口
+			"targets" : 1,//获取用户接口
 			"data" : null,
 			"width" : '17%',
 			"render" : function(data, type,row) {
@@ -82,7 +68,7 @@ function initGetUserUrlTable(){
 			      return html;
 			   }
 		},{
-			"targets" : 3,//获取用户数据类型
+			"targets" : 2,//获取用户数据类型
 			"data" : null,
 			"width" : '17%',
 			"render" : function(data, type,row) {
@@ -95,7 +81,7 @@ function initGetUserUrlTable(){
 			      return html;
 			   }
 		},{
-			"targets" : 4,//是否需要isToken
+			"targets" : 3,//是否需要isToken
 			"data" : null,
 			"width" : '17%',
 			"render" : function(data, type,row) {
@@ -108,7 +94,7 @@ function initGetUserUrlTable(){
 				return html;
 			}
 		},{
-			  "targets" : 5,//操作按钮目标列
+			  "targets" : 4,//操作按钮目标列
 			  "data" : null,
 			  "width" : '17%',
 			  "render" : function(data, type,row) {

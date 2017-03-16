@@ -55,7 +55,6 @@ body {
 					<table id="envTable">
 						<thead>
 							<tr>
-								<th>环境id</th>
 								<th>环境名称</th>
 								<th>环境地址</th>
 								<th>操作</th>
@@ -76,18 +75,9 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="id">环境id:</label> <input type="text"
-								class="form-control input-sm" name="id"
-								placeholder="请输入id" data-rule="required;length(4~32);filter;" />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
 								class="form-control input-sm" name="envname" placeholder="请输入名称"
-								data-rule="email" />
+								/>
 						</div>
 					</td>
 				</tr>
@@ -96,7 +86,7 @@ body {
 						<div class="form-group">
 							<label for="service">环境地址:</label> <input type="text"
 								class="form-control input-sm" name="service" placeholder="请输入服务地址"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -114,19 +104,9 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="id">环境id:</label> <input type="text"
-								class="form-control input-sm" name="id"
-								placeholder="请输入租户id" data-rule="required;length(2~32);filter;" 
-								redeonly="redeonly"/>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
 								class="form-control input-sm" name="envname" placeholder="请输入租户名称"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -135,7 +115,7 @@ body {
 						<div class="form-group">
 							<label for="service">环境地址:</label> <input type="text"
 								class="form-control input-sm" name="service" placeholder="请输入环境地址"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 

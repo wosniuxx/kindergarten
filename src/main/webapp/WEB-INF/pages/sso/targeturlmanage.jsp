@@ -55,11 +55,11 @@ body {
 					<table id="targeturlTable">
 						<thead>
 							<tr>
-								<th>目标地址编号</th>
 								<th>目标地址名称</th>
 								<th>目标地址路径</th>
 								<th>环境名称</th>
 								<th>环境状态</th>
+								<th>产品名称</th>
 								<th>操作</th>
 							</tr>
 						</thead>
@@ -78,18 +78,9 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="id">目标地址编号:</label> <input type="text"
-								class="form-control input-sm" name="id"
-								placeholder="请输入id" data-rule="required;length(4~32);filter;" />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
 							<label for="name">目标地址名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入名称"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -98,7 +89,7 @@ body {
 						<div class="form-group">
 							<label for="targetUrl">目标地址路径:</label> <input type="text"
 								class="form-control input-sm" name="targetUrl" placeholder="请输入服务地址"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -107,7 +98,7 @@ body {
 						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
 								class="form-control input-sm" name="envname" placeholder="请输入服务地址"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -126,12 +117,21 @@ body {
 				   		</div>
 	                </td>
 	             </tr>
+	             <tr>
+					<td>
+						<div class="form-group">
+							<label for="productname">产品名称:</label> <input type="text"
+								class="form-control input-sm" name="productname" placeholder="请输入产品名称"
+								 />
+						</div>
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<div class="form-group">
 							<label for="service">操作:</label> <input type="text"
 								class="form-control input-sm" name="service" placeholder="请输入服务地址"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -151,7 +151,7 @@ body {
 						<div class="form-group">
 							<label for="id">目标地址编号:</label> <input type="text"
 								class="form-control input-sm" name="id"
-								placeholder="请输入id" data-rule="required;length(4~32);filter;" />
+								placeholder="请输入id"  redeonly="redeonly" />
 						</div>
 					</td>
 				</tr>
@@ -160,7 +160,7 @@ body {
 						<div class="form-group">
 							<label for="name">目标地址名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入名称"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -169,7 +169,7 @@ body {
 						<div class="form-group">
 							<label for="targetUrl">目标地址路径:</label> <input type="text"
 								class="form-control input-sm" name="targetUrl" placeholder="请输入服务地址"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -178,7 +178,7 @@ body {
 						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
 								class="form-control input-sm" name="envname" placeholder="请输入服务地址"
-								data-rule="email" />
+								 />
 						</div>
 					</td>
 				</tr>
@@ -191,12 +191,21 @@ body {
 						    是
 						  </label>
 						  <label>
-						  <input type="radio" value="0" name="state" data-rule="checked(1)">
+						  <input type="radio" value="0" name="state" >
 						   否
 						  </label>
 				   		</div>
 	                </td>
 	             </tr>
+	             <tr>
+					<td>
+						<div class="form-group">
+							<label for="productname">产品名称:</label> <input type="text"
+								class="form-control input-sm" name="productname" placeholder="请输入产品名称"
+								 />
+						</div>
+					</td>
+				</tr>
 			</table>
 		</form>
 	</div>

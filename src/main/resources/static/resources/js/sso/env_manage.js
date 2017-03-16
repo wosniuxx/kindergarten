@@ -19,7 +19,6 @@ $(document).ready(function(){
 function initEnvTable(){
 	$("#envTable").width("100%").dataTable({
 		"columns":[
-		           { "data": "id" },
 		            { "data": "envname" },
 		            { "data": "service" },
 		 ],
@@ -37,22 +36,9 @@ function initEnvTable(){
 		           return json.data;
 		     }
 		},
-		columnDefs:[{
-			"targets" : 0,//环境id
-			"data" : null,
-			"width" : '25%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无内容';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
+		columnDefs:[
 		{
-			"targets" : 1,//环境名称
+			"targets" : 0,//环境名称
 			"data" : null,
 			"render" : function(data, type,row) {
 				var html = '';
@@ -64,7 +50,7 @@ function initEnvTable(){
 				return html;
 			}
 		},{
-			"targets" : 2,//环境地址
+			"targets" : 1,//环境地址
 			"data" : null,
 			"width" : '30%',
 			"render" : function(data, type,row) {
@@ -77,7 +63,7 @@ function initEnvTable(){
 			      return html;
 			   }
 		},{
-			  "targets" : 3,//操作按钮目标列
+			  "targets" : 2,//操作按钮目标列
 			  "data" : null,
 			  "render" : function(data, type,row) {
 				  var id = row.id;

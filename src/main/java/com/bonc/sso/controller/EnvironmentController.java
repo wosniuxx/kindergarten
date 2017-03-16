@@ -50,6 +50,7 @@ public class EnvironmentController {
 	@ResponseBody
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public int insert(Env env) {
+		env.setId(IdUtil.createId());
 		return envService.insert(env);
 	}
 	

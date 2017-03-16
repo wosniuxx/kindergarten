@@ -19,11 +19,11 @@ $(document).ready(function(){
 function initTargetUrlTable(){
 	$("#targeturlTable").width("100%").dataTable({
 		"columns":[
-		           { "data": "id" },
 		            { "data": "name" },
 		            { "data": "targetUrl" },
 		            { "data": "envname" },
 		            { "data": "state" },
+		            { "data": "productname" },
 		 ],
 		 ajax: {
 		     url:webpath+'/TargetUrl/selectPage',
@@ -40,21 +40,7 @@ function initTargetUrlTable(){
 		     }
 		},
 		columnDefs:[{
-			"targets" : 0,//id
-			"data" : null,
-			"width" : '17%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},
-		{
-			"targets" : 1,//接口地址名称
+			"targets" : 0,//接口地址名称
 			"data" : null,
 			"render" : function(data, type,row) {
 				var html = '';
@@ -66,9 +52,9 @@ function initTargetUrlTable(){
 				return html;
 			}
 		},{
-			"targets" : 2,//获取地址url
+			"targets" : 1,//获取地址url
 			"data" : null,
-			"width" : '17%',
+			"width" : '15%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -79,9 +65,9 @@ function initTargetUrlTable(){
 			      return html;
 			   }
 		},{
-			"targets" : 3,//获取环境名称
+			"targets" : 2,//获取环境名称
 			"data" : null,
-			"width" : '17%',
+			"width" : '15%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -92,9 +78,9 @@ function initTargetUrlTable(){
 			      return html;
 			   }
 		},{
-			"targets" : 4,//环境状态
+			"targets" : 3,//环境状态
 			"data" : null,
-			"width" : '17%',
+			"width" : '15%',
 			"render" : function(data, type,row) {
 				var html = '';
 				if(data=="1"){
@@ -105,9 +91,22 @@ function initTargetUrlTable(){
 				return html;
 			}
 		},{
+			"targets" : 4,//productname
+			"data" : null,
+			"width" : '15%',
+			"render" : function(data, type,row) {
+				  var html = '';
+				  if(data==null||data==""){
+					  html += '暂无';
+				  }else{
+					  html += data;
+				  }
+			      return html;
+			   }
+		},{
 			  "targets" : 5,//操作按钮目标列
 			  "data" : null,
-			  "width" : '17%',
+			  "width" : '15%',
 			  "render" : function(data, type,row) {
 				  var id = row.id;
 				  var html =  '<a href="javascript:void(0);" onclick="updateTargetUrl(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe628;</i></a>';
@@ -182,7 +181,10 @@ function updateTargetUrl(id){
 			$("[name=name]").val(data.name);
 			$("[name=getUserUrl]").val(data.getUserUrl);
 			$("[name=method]").val(data.method);
-			$("[name=isToken]").val(data.isToken);
+			if($("[name=state]:checked").val!=data.isToken){
+				$("[name=state]:checked").val(data.isToken);
+			}
+			$("[name=productname]").val(data.productname);
 			
 			layer.open({
 				type: 1,
