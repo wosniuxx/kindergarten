@@ -151,7 +151,7 @@ body {
 						<div class="form-group">
 							<label for="id">目标地址编号:</label> <input type="text"
 								class="form-control input-sm" name="id"
-								placeholder="请输入id"  redeonly="redeonly" />
+								placeholder="请输入id"  readonly="readonly" />
 						</div>
 					</td>
 				</tr>

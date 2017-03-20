@@ -133,7 +133,7 @@ body {
 						<div class="form-group">
 							<label for="id">接口id:</label> <input type="text"
 								class="form-control input-sm" name="id" placeholder="接口id"
-								 redeonly="redeonly" />
+								 readonly="readonly" />
 						</div>
 					</td>
 				</tr>

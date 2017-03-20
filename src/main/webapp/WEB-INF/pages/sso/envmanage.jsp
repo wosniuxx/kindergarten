@@ -38,7 +38,7 @@ body {
 						<form class="form-inline" id="envSearchForm">
 							<div class="form-group">
 								<label for="envname">环境名称:</label> <input type="text"
-									class="form-control input-sm" name="envname" />
+									class="form-control inpu-sm" name="envname" />
 							</div>
 							<button type="button" class="b-redBtn btn-i" id="searchBtn">
 								<i class="iconfont">&#xe67a;</i>查询
@@ -76,8 +76,7 @@ body {
 					<td>
 						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
-								class="form-control input-sm" name="envname" placeholder="请输入名称"
-								/>
+								class="form-control input-sm" name="envname" placeholder="请输入名称" />
 						</div>
 					</td>
 				</tr>
@@ -85,8 +84,8 @@ body {
 					<td>
 						<div class="form-group">
 							<label for="service">环境地址:</label> <input type="text"
-								class="form-control input-sm" name="service" placeholder="请输入服务地址"
-								 />
+								class="form-control input-sm" name="service"
+								placeholder="请输入服务地址" />
 						</div>
 					</td>
 				</tr>
@@ -104,9 +103,17 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
+							<label for="id">环境编号:</label> <input type="text"
+								class="form-control input-sm" name="id" placeholder="请输入环境编号:" readonly="readonly" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
-								class="form-control input-sm" name="envname" placeholder="请输入租户名称"
-								 />
+								class="form-control input-sm" name="envname"
+								placeholder="请输入租户名称" />
 						</div>
 					</td>
 				</tr>
@@ -114,8 +121,8 @@ body {
 					<td>
 						<div class="form-group">
 							<label for="service">环境地址:</label> <input type="text"
-								class="form-control input-sm" name="service" placeholder="请输入环境地址"
-								 />
+								class="form-control input-sm" name="service"
+								placeholder="请输入环境地址" />
 						</div>
 					</td>
 
