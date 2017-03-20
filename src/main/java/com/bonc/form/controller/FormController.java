@@ -41,6 +41,7 @@ public class FormController {
 	@RequestMapping("/selectPage")
 	public Map selectPage(String start, String length, String jsonStr) {
 		Map<String, Object> paramMap = JsonUtils.stringToCollect(jsonStr);
+		System.err.println("statrt="+start+",jsonStr = "+jsonStr);
 		Map map = formService.selectAll(start, length, paramMap);
 		return map;
 	}

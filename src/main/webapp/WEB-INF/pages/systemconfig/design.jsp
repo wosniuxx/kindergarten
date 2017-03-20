@@ -16,11 +16,14 @@
              This is my textarea to be replaced with CKEditor.
         </textarea>
 		<script>
-			CKEDITOR.replace('editor1');
-			/*  CKEDITOR.replace( 'editor1', {
-			    language: 'fr',
-			    uiColor: '#9AB8F3'
-			}); */
+			//CKEDITOR.replace('editor1');
+			CKEDITOR.replace('editor1',{ 
+			       /*  toolbar : 
+			            [ 
+			                [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','code' ] 
+			            ],  */
+			        extraPlugins:"code"    //注册linkbutton,也可在config.js中注册 
+			    }); 
 		</script>
 	</form> 
 </body>
