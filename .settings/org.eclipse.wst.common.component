@@ -8,4 +8,5 @@
         <property name="context-root" value="xIntegration"/>
         <property name="java-output-path" value="/xIntegration/target/classes"/>
     </wb-module>
+    
 </project-modules>
