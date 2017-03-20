@@ -171,7 +171,7 @@ function updateTargetUrl(id){
 			id:id
 		},
 		success:function(data){
-			console.log(data.targeturlname);
+			/*console.log(data.targeturlname);
 			var formObj = $("#updateTargetUrlForm");
 			//form.clear(formObj);
 			//form.cleanValidator(formObj);
@@ -184,11 +184,16 @@ function updateTargetUrl(id){
 			if($("[name=state]:checked").val!=data.isToken){
 				$("[name=state]:checked").val(data.isToken);
 			}
-			$("[name=productname]").val(data.productname);
+			$("[name=productname]").val(data.productname);*/
+			
+			var formObj = $("#updateTargetUrlForm");
+			form.clear(formObj);
+			form.cleanValidator(formObj);
+			form.load(formObj,data);
 			
 			layer.open({
 				type: 1,
-		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改用户接口配置',
+		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改目标地址配置',
 		        area: ['300px', '350px'],
 		        content: $("#updatetargeturl"),
 		        btn: ['确定','取消'],
