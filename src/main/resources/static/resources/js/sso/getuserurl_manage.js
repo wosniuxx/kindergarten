@@ -169,14 +169,14 @@ function updateGetUserUrl(id){
 			//form.cleanValidator(formObj);
 			form.load(formObj,data);
 			//var vals='',ids='';
-			$("[name=id]").val(data.id);
+			/*$("[name=id]").val(data.id);
 			$("[name=name]").val(data.name);
 			$("[name=getUserUrl]").val(data.getUserUrl);
 			$("[name=method]").val(data.method);
 			
 			if($("[name=isToken]:checked").val!=data.isToken){
 				$("[name=isToken]:checked").val(data.isToken);
-			}
+			}*/
 			
 			
 			layer.open({

@@ -134,10 +134,10 @@ function updateEnv(id){
 			//form.clear(formObj);
 			//form.cleanValidator(formObj);
 			form.load(formObj,data);
-			var vals='',ids='';
+			/*var vals='',ids='';
 			$("[name=id]").val(data.id);
 			$("[name=envname]").val(data.envname);
-			$("[name=service]").val(data.service);
+			$("[name=service]").val(data.service);*/
 			
 			layer.open({
 				type: 1,
