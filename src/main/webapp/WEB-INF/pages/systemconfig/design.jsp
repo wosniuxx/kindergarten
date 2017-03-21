@@ -6,6 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script
+	src="${pageContext.request.contextPath}/resources/plugin/jquery/jquery-1.8.2.js"></script>
+
+<script
 	src="${pageContext.request.contextPath}/resources/plugin/ckeditor/ckeditor.js"></script>
 
 </head>
@@ -16,14 +19,10 @@
              This is my textarea to be replaced with CKEditor.
         </textarea>
 		<script>
-			//CKEDITOR.replace('editor1');
 			CKEDITOR.replace('editor1',{ 
-			       /*  toolbar : 
-			            [ 
-			                [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','code' ] 
-			            ],  */
 			        extraPlugins:"code"    //注册linkbutton,也可在config.js中注册 
-			    }); 
+			 }); 
+			
 		</script>
 	</form> 
 </body>
