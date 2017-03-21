@@ -215,6 +215,7 @@ body {
 	<div id="addField" class="dialog-wrap">
 		<form class="form-inline" id="addFieldForm"
 			data-validator-option="{timely:2, theme:'yellow_right'}">
+			<input name="id" type="hidden">
 			<table class="form-table">
 				<tr>
 					<td>
