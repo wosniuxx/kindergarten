@@ -25,5 +25,19 @@ public interface FormService {
 	 * @return
 	 */
 	public Form selectById(String id);
+	
+	/**
+	 * 根据租户Id删除该表单
+	 * @param id 表单Id
+	 * @return
+	 */
+	public int deleteByFormId(String id);
+	
+	/**
+	 * 根据租户Id修改表单
+	 * @param id 表单户Id
+	 * @return
+	 */
+	public int update(Form form);
 
 }

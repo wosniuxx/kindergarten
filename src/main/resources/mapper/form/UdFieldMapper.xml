@@ -14,7 +14,7 @@
 		<result column="datalenth" jdbcType="VARCHAR" property="datalenth" />
 		<result column="dataDecimal" jdbcType="VARCHAR" property="dataDecimal" />
 		<result column="mathrule" jdbcType="VARCHAR" property="mathrule" />
-		<result column="delflag" jdbcType="DECIMAL" property="delflag" />
+		<result column="delflag" jdbcType="VARCHAR" property="delflag" />
 		<result column="fieldcode" jdbcType="VARCHAR" property="fieldcode" />
 		<result column="fielfashion" jdbcType="VARCHAR" property="fielfashion" />
 		<result column="need" jdbcType="DECIMAL" property="need" />
@@ -27,96 +27,109 @@
 		<result column="ztablename" jdbcType="VARCHAR" property="ztablename" />
 	</resultMap>
 	<sql id="Base_Column_List">
-	id,templatecode,fieldename,fieldcname,fieldsel,fielduse,fieldtype,datatype,defaultvalue,
-	datalenth,dataDecimal,mathrule,delflag,fieldcode,fielfashion,
-	need,subtime,afterField,gltable,glfield,sortid,mainflag,ztablename
+		id,templatecode,fieldename,fieldcname,fieldsel,fielduse,fieldtype,datatype,defaultvalue,
+		datalenth,dataDecimal,mathrule,delflag,fieldcode,fielfashion,
+		need,subtime,afterField,gltable,glfield,sortid,mainflag,ztablename
 	</sql>
 	<select id="selectByTablename" parameterType="map" resultMap="BaseResultMap">
-    select 
-  	<include refid="Base_Column_List" />
-    from ud_field where 1=1
-    <if test="templatecode!=null and templatecode != ''">
-     and templatecode =#{templatecode,jdbcType=VARCHAR}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from ud_template
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from PURE_tenant
-    where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
-  </delete>
-  
-  <insert id="insertSelective" parameterType="com.bonc.form.entity.Form">
-    insert into ud_template
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="tablename != null">
-        tablename,
-      </if>
-      <if test="tablecnname != null">
-        tablecnname,
-      </if>
-      <if test="state != null">
-        state,
-      </if>
-      <if test="remark != null">
-        remark,
-      </if>
-      <if test="subtime != null">
-        subtime,
-      </if>
-      <if test="udtemplatecode != null">
-        udtemplatecode,
-      </if>
-      
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>		
-      <if test="tablename != null">
-        #{tablename,jdbcType=VARCHAR},
-      </if>
-      <if test="tablecnname != null">
-        #{tablecnname,jdbcType=VARCHAR},
-      </if>
-      <if test="state != null">
-        #{state,jdbcType=VARCHAR},
-      </if>
-      <if test="remark != null">
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="subtime != null">
-        #{subtime,jdbcType=TIMESTAMP},
-        <if test="udtemplatecode != null">
-        #{udtemplatecode,jdbcType=VARCHAR},
-      </if>
-      </if>
-    </trim>
-  </insert>
-  
-  <update id="updateByPrimaryKeySelective" parameterType="com.bonc.frame.web.entity.tenant.Tenant">
-    update PURE_TENANT
-    <set>
-      <if test="tenantId != null">
-        TENANT_ID = #{tenantId,jdbcType=VARCHAR},
-      </if>
-      <if test="tenantName != null">
-        TENANT_NAME = #{tenantName,jdbcType=VARCHAR},
-      </if>
-       <if test="state != null">
-        STATE = #{state,jdbcType=VARCHAR},
-      </if>
-      <if test="memo != null">
-        MEMO = #{memo,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
-  </update>
+		select
+		<include refid="Base_Column_List" />
+		from ud_field where 1=1
+		<if test="delflag!=null and delflag != ''">
+			and delflag =#{delflag,jdbcType=VARCHAR}
+		</if>
+		<if test="templatecode!=null and templatecode != ''">
+			and templatecode =#{templatecode,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from ud_field
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+
+	<insert id="insertSelective" parameterType="com.bonc.form.entity.UdField">
+		insert into ud_field
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="templatecode != null">
+				templatecode,
+			</if>
+			<if test="fieldename != null">
+				fieldename,
+			</if>
+			<if test="fieldcname != null">
+				fieldcname,
+			</if>
+			<if test="fieldtype != null">
+				fieldtype,
+			</if>
+			<if test="datalenth != null">
+				datalenth,
+			</if>
+			<if test="delflag != null">
+				delflag,
+			</if>
+
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="templatecode != null">
+				#{templatecode,jdbcType=VARCHAR},
+			</if>
+			<if test="fieldename != null">
+				#{fieldename,jdbcType=VARCHAR},
+			</if>
+			<if test="fieldcname != null">
+				#{fieldcname,jdbcType=VARCHAR},
+			</if>
+			<if test="fieldtype != null">
+				#{fieldtype,jdbcType=VARCHAR},
+			</if>
+			<if test="datalenth != null">
+				#{datalenth,jdbcType=TIMESTAMP},
+			</if>
+			<if test="delflag != null">
+				#{delflag,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		ud_field
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+	<update id="updateByPrimaryKeySelective" parameterType="com.bonc.form.entity.UdField">
+		update ud_field
+		<set>
+			<if test="delflag != null">
+				delflag = #{delflag,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.bonc.form.entity.UdField">
+		update ud_field
+		<set>
+			<if test="fieldcname != null">
+				fieldcname=#{fieldcname,jdbcType=VARCHAR},
+			</if>
+			<if test="fieldtype != null">
+				fieldtype=#{fieldtype,jdbcType=VARCHAR},
+			</if>
+			<if test="datalenth != null">
+				datalenth=#{datalenth,jdbcType=VARCHAR},
+			</if>
+			<if test="need != null">
+				need=#{need,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
 </mapper>

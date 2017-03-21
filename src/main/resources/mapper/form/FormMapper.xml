@@ -29,7 +29,7 @@
     <include refid="Base_Column_List" />
     from ud_template WHERE 1=1
     <if test="tablecnname!=null and tablecnname != ''">
-         AND tablecnname LIKE '%${tablecnname}%'
+         AND tablecnname  = #{tablecnname,jdbcType=VARCHAR}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -38,11 +38,7 @@
     from ud_template
     where id = #{id,jdbcType=VARCHAR}
   </select>
-   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from PURE_tenant
-    where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
-  </delete>
-  
+    
   <insert id="insertSelective" parameterType="com.bonc.form.entity.Form">
     insert into ud_template
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -93,6 +89,24 @@
       </if>
     </trim>
   </insert>
-  
+  <update id="updateByPrimaryKey" parameterType="com.bonc.form.entity.Form">
+		update ud_template
+		<set>
+			<if test="tablecnname != null">
+				tablecnname=#{tablecnname,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				remark=#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="exampletitle != null">
+				exampletitle=#{exampletitle,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ud_template
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
   
 </mapper>

@@ -35,7 +35,6 @@ body {
 	padding-right: 8px;
 	text-decoration: none;
 }
-
 </style>
 </head>
 <body>
@@ -47,22 +46,24 @@ body {
 				</div>
 				<div class="panel-body common-content">
 					<div class="searchWrap">
-					<form class="form-inline" id="formSearchForm">
-					<div class="form-group">
-    									<label for="tablecnname">表单名称:</label>
-    									<input type="text" class="form-control input-sm" name="tablecnname" />
-  									</div>
-  									<button type="button" class="b-redBtn btn-i" id="searchBtn"><i class="iconfont">&#xe67a;</i>查询</button>
-  									<button type="button" class="b-redBtn btn-i" id="resetBtn"><i class="iconfont">&#xe647;</i>重置</button>
-						<button type="button" class="b-redBtn btn-i" id="addBtn"><i class="iconfont">&#xe635;</i>新建</button>
-						<button type="button" class="b-redBtn btn-i" id="resetBtn">
-							<i class="iconfont">&#xe647;</i>删除
-						</button>
+						<form class="form-inline" id="formSearchForm">
+							<div class="form-group">
+								<label for="tablecnname">表单名称:</label> <input type="text"
+									class="form-control input-sm" name="tablecnname" />
+							</div>
+							<button type="button" class="b-redBtn btn-i" id="searchBtn">
+								<i class="iconfont">&#xe67a;</i>查询
+							</button>
+							<button type="button" class="b-redBtn btn-i" id="resetBtn">
+								<i class="iconfont">&#xe647;</i>重置
+							</button>
+							<button type="button" class="b-redBtn btn-i" id="addBtn">
+								<i class="iconfont">&#xe635;</i>新建
+							</button>
 						</form>
 					</div>
 
-					<table id="formTable" cellspacing="0" cellpadding="0" border="0"
-						width="100%">
+					<table id="formTable">
 						<thead>
 							<tr>
 								<th>表单名称</th>
@@ -79,39 +80,41 @@ body {
 
 	<!--新建表单dialog  -->
 	<div id="addForm" class="dialog-wrap">
-		<form name="frm" id="frm" method="post"
-			action="userdefined!templateNewSave.action" target="fromiframe"
+		<form name="frm" id="frm" class="form-inline"
 			data-validator-option="{timely:2, theme:'yellow_right'}">
-			<table border="0" width="100%">
-				<tbody>
-					<tr>
-						<table border="0" width="80%">
-							<tbody>
-								<tr>
-									<td width="40%" align="right">表单名称:</td>
-									<td width="60%"><input name="tablecnname" id="tablecnname"
-										style="width: 90%" type="text"></td>
-								</tr>
-								<tr>
-									<td width="40%" align="right">表单代码:</td>
-									<td width="60%"><input name="udtemplateCode" id="udtemplateCode"
-										style="width: 90%" maxlength="100" type="text"></td>
-								</tr>
-								<tr>
-									<td width="40%" align="right">备&nbsp;&nbsp;&nbsp;&nbsp;注:
-									</td>
-									<td width="60%"><textarea name="remark"
-											style="width: 90%" rows="3"></textarea></td>
-								</tr>
+			<table class="form-table">
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="tablecnname">表单名称:</label> <input name="tablecnname"
+								class="form-control input-sm" type="text" placeholder="请输入表单"
+								data-rule="required;length(4~32);filter;">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="udtemplateCode">表单代码:</label> <input
+								name="udtemplateCode" class="form-control input-sm" type="text"
+								placeholder="请输入表单代码">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="remark">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注:</label>
+							<textarea name="remark" class="form-control input-sm" rows="3"
+								placeholder="请输入备注"></textarea>
+						</div>
+					</td>
+				</tr>
 
-								<tr>
-									<td width="40%" align="right">&nbsp;</td>
+				<tr>
+					<td width="40%" align="right">&nbsp;</td>
 
-								</tr>
-							</tbody>
-						</table>
-					</tr>
-				</tbody>
+				</tr>
 			</table>
 		</form>
 	</div>
@@ -119,113 +122,158 @@ body {
 
 	<!--  修改表单dialog-->
 	<div id="updateForm" class="dialog-wrap">
-		<form name="updateFormTable"
-			action="userdefined!updateUdTemplateById.action" method="post"
-			target="groupFrame">
-			<table style="font-size: 12px" align="center">
-				<tbody>
-					<tr>
-						<td width="82" align="right"><font color="red">*</font>表单名称:</td>
-						<td width="292"><input name="table_cnname" size="25"
-							value="" style="width: 270px" type="text"></td>
-					</tr>
-
-					<tr>
-						<td valign="top" align="right">说明:</td>
-						<td><textarea name="remark" cols="40" rows="3" id="remark"></textarea>
-						</td>
-					</tr>
-					<tr style="display: none;">
-						<td width="82" align="right">表单标题字段:</td>
-						<td width="292"><select id="selFieldTitle"
-							name="selFieldTitle" style="width: 270px">
-								<option value="">请选择</option>
-								<option value="-549068322717744500">编号</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td width="82" valign="top" align="right">表单标题格式:</td>
-						<td width="292" valign="top" align="left">
-						<div id="btn"></div>
-							 <textarea
-								id="exampletitle" name="exampletitle"
-								style="width: 95%; height: 50px"></textarea></td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td>
-					</tr>
-				</tbody>
+		<form id="updateFormTable" class="form-inline"
+			data-validator-option="{timely:2, theme:'yellow_right'}">
+			<input type="hidden" name="id" />
+			<table class="form-table">
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="tablecnname">表单名称:</label> <input name="tablecnname"
+								align="left" class="form-control input-sm" type="text"
+								aria-required="true" placeholder="请输入表单名称">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="remark">说&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;明:</label>
+							<textarea name="remark" cols="20" rows="3" id="remark"
+								class="form-control input-sm n-valid"></textarea>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="exampletitle" style="float: left">表单字段:</label>
+							<div style="float: left">&nbsp;</div>
+							<div style="float: left; margin-top: 8px">
+								<div id="btn"></div>
+								<textarea id="exampletitle"
+									class="form-control input-sm n-valid" name="exampletitle"
+									cols="20" rows="3"></textarea>
+							</div>
+						</div>
+					</td>
+				</tr>
 			</table>
 		</form>
 	</div>
-    <!--插入字段  -->
-    <div id="insertField" class="dialog-wrap">
-    <table id="fieldTable" cellspacing="0" cellpadding="0" border="0"
-						width="100%">
-						<thead>
-							<tr>
-								<th>字段名称</th>
-								<th>字段类型</th>
-							</tr>
-						</thead>
-					</table>
-    </div>
+	<!--插入字段  -->
+	<div id="insertField" class="dialog-wrap">
+		<table id="fieldTable" class="form-table" width="100%">
+			<thead>
+				<tr>
+					<th>选中</th>
+					<th>字段名称</th>
+					<th>字段类型</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
 
 	<!-- 字段管理 -->
 	<div id="fieldManage" class="dialog-wrap">
-	<div id="fieldBtn">
-		<table id="ManageTable" cellspacing="0" cellpadding="0"
-			border="0" width="100%">
-			<tbody>
-				<tr>
+		<div id="fieldBtn">
+			<table id="ManageTable" class="form-table">
+				<tbody>
+					<tr>
 						<div id="webfx-menu-object-1" class="webfx-menu-bar">
-							<div class="webfx-menu--button" style="float:left" id="kaiqi" onclick="changesel(0)"
-								onmouseover="" onmouseout="">
-								<button type="button" class="b-redBtn btn-i" id="searchBtn">
-									<i class="iconfont">&#xe67a;</i>启用字段
-								</button>
-							</div>
-							<div class="webfx-menu--button" style="float:left" id="stop" onclick="changesel(1)"
-								onmouseover="" onmouseout="">
-								<button type="button" class="b-redBtn btn-i" id="searchBtn">
-									<i class="iconfont">&#xe67a;</i>停用字段
-								</button>
-							</div>
-							<div class="webfx-menu--button" style="float:left" id="create" onclick="FieldNew()"
-								onmouseover="" onmouseout="">
-								<button type="button" class="b-redBtn btn-i" id="searchBtn">
-									<i class="iconfont">&#xe67a;</i>新增
-								</button>
-							</div>
+							<button type="button" class="b-redBtn btn-i" id="start-file-btn">
+								<i class="iconfont">&#xe67a;</i>启用字段
+							</button>
+							<button type="button" class="b-redBtn btn-i" id="stop-file-btn">
+								<i class="iconfont">&#xe67a;</i>停用字段
+							</button>
+							<button type="button" class="b-redBtn btn-i" id="add-file-btn">
+								<i class="iconfont">&#xe67a;</i>新增
+							</button>
 						</div>
-				</tr>
-			</tbody>
-		</table>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div id="tbodyid">
-				<table id="fieldManageTable" 
-					style="text-align: center" cellspacing="0" cellpadding="0"
-					border="0" width="100%">
-					<thead>
-						<tr class="sort">
-							<!-- <th ><input id="FieldIDall" type="checkbox"></th> -->
-							<th>字段名称</th>
-							<th>类 型</th>
-							<th>长 度</th>
-							<th>是否为空</th>
-							<th>查询字段</th>
-							<!-- <td>说明</td> -->
-							<th>操 作</th> 
-						</tr>
-					</thead>
-					
-				</table>
+			<table id="fieldManageTable" width="100%">
+				<thead>
+					<tr class="sort">
+						<th>字段名称</th>
+						<th>类 型</th>
+						<th>长 度</th>
+						<th>是否为空</th>
+						<!-- <td>说明</td> -->
+						<th>操 作</th>
+					</tr>
+				</thead>
+
+			</table>
 		</div>
 	</div>
+	<!-- 新增字段 -->
+	<div id="addField" class="dialog-wrap">
+		<form class="form-inline" id="addFieldForm"
+			data-validator-option="{timely:2, theme:'yellow_right'}">
+			<table class="form-table">
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="fieldcname">字段名称：</label> <input name="fieldcname"
+								class="form-control input-sm" placeholder="请输入字段" type="text">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="fieldtype">字段属性：</label> <select name="fieldtype"
+								id="fieldtype" class="form-control input-sm">
+								<option value="1">字符型</option>
+								<option value="2">大字符型</option>
+								<option value="3">数字型</option>
+								<option value="4">日期型(yyyy-MM-dd)</option>
+								<option value="5">部门</option>
+								<option value="6">用户</option>
+								<option value="7">码表</option>
+								<option value="8">流程意见</option>
+								<option value="10">取值</option>
+								<option value="11">联动取值（主）</option>
+								<option value="12">联动取值（辅）</option>
+								<option value="13">联动枚举</option>
+								<option value="14">复选类型</option>
+								<option value="15">时间型(HH:mm)</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="datalenth">长&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度：</label> <input name="datalenth"
+								class="form-control input-sm" type="text">
+					</td>
+				</tr>
+				<tr>
+				<td>
+					<div class="form-group">
+						  <label for="need">是否是否为空:</label>
+					      <label>
+						  <input type="radio" value="1" name="need" data-rule="checked(1)">
+						    是
+						  </label>
+						  <label>
+						  <input type="radio" value="0" name="need" data-rule="checked(1)">
+						   否
+						  </label>
+				   		</div>
+				</td>
 
+				<td id="templatecodeHide"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 
 
 	<%@ include file="../common-js.jsp"%>

@@ -4,20 +4,38 @@ import java.util.List;
 import java.util.Map;
 
 import com.bonc.form.entity.Form;
+import com.bonc.form.entity.UdField;
 
 public interface UdFieldService {
+
 	/**
-	 * 查询所有字段
+	 * 根据Id查询该字段信息
+	 * @param id 字段Id
 	 * @return
 	 */
-	public Map selectAll(String start,String length,Map<String,Object>paramMap);
+	public UdField selectById(String id);
 	
 	/**
-	 * 新增字段
+	 * 新增表单字段
+	 * @param resource 字段对象
+	 * @return
+	 */
+	public int insert(UdField udField);
+	
+	
+	/**
+	 * 停启用字段
 	 * @param resource 
 	 * @return
 	 */
-	public int insert(Form form);
+	public int update(UdField udField);
+	
+	/**
+	 * 更新字段
+	 * @param resource 
+	 * @return
+	 */
+	public int updateField(UdField udField);
 	
 	/**
 	 * 根据表单查询该表单字段

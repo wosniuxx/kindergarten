@@ -17,7 +17,7 @@ public class UdField {
 	private String defaultvalue;
 	private String datalenth;
 	private String mathrule;
-	private BigDecimal delflag;
+	private String delflag;
 	private String fieldcode;
 	private String fielfashion;
 	private String dataDecimal;
@@ -95,10 +95,10 @@ public class UdField {
 	public void setMathrule(String mathrule) {
 		this.mathrule = mathrule;
 	}
-	public BigDecimal getDelflag() {
+	public String getDelflag() {
 		return delflag;
 	}
-	public void setDelflag(BigDecimal delflag) {
+	public void setDelflag(String delflag) {
 		this.delflag = delflag;
 	}
 	public String getFieldcode() {

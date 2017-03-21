@@ -32,4 +32,15 @@ public class FormServiceImpl implements FormService{
 		return (Form) daoHelper.queryOne("com.bonc.frame.web.mapper.form.FormMapper.selectByPrimaryKey", id);
 	}
 
+	@Override
+	public int deleteByFormId(String id) {
+		return daoHelper.delete("com.bonc.frame.web.mapper.form.FormMapper.deleteByPrimaryKey", id);
+	}
+
+	@Override
+	public int update(Form form) {
+		return daoHelper.update("com.bonc.frame.web.mapper.form.FormMapper.updateByPrimaryKey", form);
+
+	}
+
 }
