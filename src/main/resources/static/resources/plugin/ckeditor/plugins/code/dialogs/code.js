@@ -7,7 +7,8 @@ var temp =[];
             title: "添加字段",  
             minWidth: "500px",  
             minHeight:"500px",  
-            contents: [{  
+            contents: [
+                       {  
                 id: "tab1",  
                 label: "",  
                 title: "",  
@@ -15,33 +16,34 @@ var temp =[];
                 width: "500px",  
                 height: "500px",  
                 padding: 0,  
-                elements: [{  
-                    type: "html",  
-                    style: "width:200px;height:30px",  
-                    html:'1111111111111'
-                },
-                {
-                    id: "enctype",
-                    type: "select",
-                    label: "添加字段",
-                    style: "width:100%",
-                    accessKey: "E",
-                    "default": "",
-                    width: "500px",  
-                    height: "500px", 
-                    items: temp
-                },
-                {
-                    type: "vbox", 
-                    children: [
-                        {id: "chkMulti", type: "checkbox", label: temp[0],}, 
-                    	{ id: "required",type: "checkbox",label:  temp[1]},
-                        { id: "required",type: "checkbox",label:  temp[2]},
-                        { id: "required",type: "checkbox",label:  temp[3]},
-                        { id: "required",type: "checkbox",label:  temp[4]}
-                        
-                        ]
-                }
+                elements: [
+	                /*{  
+	                    type: "html",  
+	                    style: "width:200px;height:30px",  
+	                    html:'1111111111111'
+	                },*/
+	                {
+	                    id: "enctype",
+	                    type: "select",
+//	                    label: "添加字段",
+	                    style: "width:100%",
+	                    accessKey: "E",
+	                    "default": "",
+	                    width: "500px",  
+	                    height: "500px", 
+	                    items: temp
+	                },
+	                /*{
+	                    type: "vbox", 
+	                    children: [
+	                        {id: "chkMulti", type: "checkbox", label: temp[0][0],}, 
+	                    	{ id: "required",type: "checkbox",label:  temp[1][0]},
+	                        { id: "required",type: "checkbox",label:  temp[2][0]},
+	                        { id: "required",type: "checkbox",label:  temp[3][0]},
+	                        { id: "required",type: "checkbox",label:  temp[4][0]}
+	                        
+	                        ]
+	                }*/
                 
                 ]  
             }],  
@@ -77,9 +79,13 @@ function getData(){
       success: function(d){
     	  var formdata =new Array();
 	  	  for(var i = 0 ;i<d.data.length;i++){
-	  		   formdata.push(d.data[i].fieldcname);
+	  		  var a =new Array();
+	  		  a.push(d.data[i].fieldcname);
+	  		  a.push(d.data[i].fieldcname);
+	  		formdata.push(a);
 	  	  }
 	  	 temp = formdata;
+	  	 console.log(temp);
       }
   });
 	 

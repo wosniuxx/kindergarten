@@ -7,7 +7,7 @@
             editor.addCommand(b,new CKEDITOR.dialogCommand("code")); 
             editor.ui.addButton('code',{ 
                 label:'code', 
-                icon: this.path + 'logo_ckeditor.png', 
+                icon: this.path + 'add.png', 
                 command:b 
             }); 
             CKEDITOR.dialog.add("code", this.path + "dialogs/code.js")  
