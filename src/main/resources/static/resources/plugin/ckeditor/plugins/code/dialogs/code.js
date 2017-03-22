@@ -17,11 +17,6 @@ var temp =[];
                 height: "500px",  
                 padding: 0,  
                 elements: [
-	                /*{  
-	                    type: "html",  
-	                    style: "width:200px;height:30px",  
-	                    html:'1111111111111'
-	                },*/
 	                {
 	                    id: "enctype",
 	                    type: "select",
@@ -31,32 +26,34 @@ var temp =[];
 	                    "default": "",
 	                    width: "500px",  
 	                    height: "500px", 
-	                    items: temp
+	                    items: temp,
+	                    setup: function (a) {
+	                        this.setValue(a.data("cke-saved-name") || a.getAttribute("name") || "")
+	                    },
+	                    commit: function (a) {
+	                        a = a.element;
+	                        this.getValue() ? a.data("cke-saved-name", this.getValue()) : (a.data("cke-saved-name", !1), a.removeAttribute("name"))
+	                    }
 	                },
-	                /*{
-	                    type: "vbox", 
-	                    children: [
-	                        {id: "chkMulti", type: "checkbox", label: temp[0][0],}, 
-	                    	{ id: "required",type: "checkbox",label:  temp[1][0]},
-	                        { id: "required",type: "checkbox",label:  temp[2][0]},
-	                        { id: "required",type: "checkbox",label:  temp[3][0]},
-	                        { id: "required",type: "checkbox",label:  temp[4][0]}
-	                        
-	                        ]
-	                }*/
+	               
                 
                 ]  
             }],  
             onOk: function () {
-                var a = this.getParentEditor(), b = this.selectBox, e = !b;
-                e && (b = a.document.createElement("input"));
+             
+            	var a = this.getParentEditor(), b = this.textField, c = !b;
+                c && (b = a.document.createElement("input"), b.setAttribute("type", "text"));
+                b = {element: b};
+                
+                c && (d = a.document.createElement("span"), d.html="123");
+                d = {element: d};
+                
+                console.log(d)
+                c && a.insertElement(b.element);
+                c && a.insertElement(d.element);
                 this.commitContent(b);
-                if (e && (a.insertElement(b), CKEDITOR.env.ie)) {
-                    var d = a.getSelection(), c = d.createBookmarks();
-                    setTimeout(function () {
-                        d.selectBookmarks(c)
-                    }, 0)
-                }
+                this.commitContent(d);
+                c || a.getSelection().selectElement(b.element)
             },
            
         }  
@@ -77,15 +74,16 @@ function getData(){
   	},
       dataType: "json",
       success: function(d){
+    	  d = d.data;
     	  var formdata =new Array();
-	  	  for(var i = 0 ;i<d.data.length;i++){
+	  	  for(var i = 0 ;i<d.length;i++){
+	  		  console.log(d[i]);
 	  		  var a =new Array();
-	  		  a.push(d.data[i].fieldcname);
-	  		  a.push(d.data[i].fieldcname);
+	  		  a.push(d[i].fieldcname);
+	  		  a.push(d[i].fieldename);
 	  		formdata.push(a);
 	  	  }
 	  	 temp = formdata;
-	  	 console.log(temp);
       }
   });
 	 
