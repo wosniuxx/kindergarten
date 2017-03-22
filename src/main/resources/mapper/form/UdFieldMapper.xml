@@ -117,6 +117,9 @@
 	<update id="updateByPrimaryKey" parameterType="com.bonc.form.entity.UdField">
 		update ud_field
 		<set>
+			<if test="fieldename != null">
+				fieldename=#{fieldename,jdbcType=VARCHAR},
+			</if>
 			<if test="fieldcname != null">
 				fieldcname=#{fieldcname,jdbcType=VARCHAR},
 			</if>

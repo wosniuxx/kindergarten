@@ -228,6 +228,14 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
+							<label for="fieldename">英文名称：</label> <input name="fieldename"
+								class="form-control input-sm" placeholder="请输入英文名称" type="text">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
 							<label for="fieldtype">字段属性：</label> <select name="fieldtype"
 								id="fieldtype" class="form-control input-sm">
 								<option value="1">字符型</option>
