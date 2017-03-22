@@ -77,7 +77,6 @@ function getData(){
     	  d = d.data;
     	  var formdata =new Array();
 	  	  for(var i = 0 ;i<d.length;i++){
-	  		  console.log(d[i]);
 	  		  var a =new Array();
 	  		  a.push(d[i].fieldcname);
 	  		  a.push(d[i].fieldename);

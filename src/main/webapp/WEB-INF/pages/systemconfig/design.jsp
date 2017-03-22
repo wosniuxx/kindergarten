@@ -21,7 +21,22 @@
 		<script>
 			CKEDITOR.replace('editor1',{ 
 			        extraPlugins:"code"    //注册linkbutton,也可在config.js中注册 
-			 }); 
+			 });
+			CKEDITOR.instances["editor1"].on("instanceReady", function() {
+		        // 保存按钮
+		        this.addCommand("save", {
+		            modes : {
+		                wysiwyg : 1,
+		                source : 1
+		            },
+		            exec : function(editor) {
+		     		    var content = editor.document.getBody().getHtml();
+		     		    alert(content);
+		            }
+		        });
+		         
+		    });
+		
 			
 		</script>
 	</form> 
