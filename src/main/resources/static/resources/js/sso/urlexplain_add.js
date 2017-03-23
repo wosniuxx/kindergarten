@@ -9,6 +9,7 @@ $(document).ready(function(){
 	$('.tab-wrapper').css('height', $('#urlexplainTable_wrapper').height()-63);
 	$('.tab-wrapper').niceScroll({ cursorcolor: "#ccc", horizrailenabled: false});
 	
+	var proresult;
 	getTargetUrl();
 	$("#envname").change(function(){
 		getTargetUrl();
@@ -31,7 +32,6 @@ $(document).ready(function(){
 });
 
 function getUrl(){
-	
 	if($("#type").val() == "update"){
 		$("#okbtn").html('<i class="iconfont">&#xe8c1;</i>修改');
 		var url = webpath+"/urlExplain/update"
@@ -42,11 +42,14 @@ function getUrl(){
 	var envname = $("#envname").val();
 	var sign = $("#sign").val();
 	var targeturl = $("#targeturl").val();
+	var proname = ($("#targeturl option:selected").text());
 	var istoken = $("#geturl").val();
 	if(istoken == "1"){
-		var content = envname+"/epmsso/"+sign+"?return="+targeturl+"&token=";
+		getTargetUrlPro(proname);
+		var content = envname+"/"+proresult+"/"+sign+"?return="+targeturl+"&token=";
 	}else{
-		var content = envname+"/epmsso/"+sign+"?return="+targeturl;
+		getTargetUrlPro(proname);
+		var content = envname+"/"+proresult+"/"+sign+"?return="+targeturl;
 	}
 	$(".arrowimg").css({
         "transform": "translate3d(0, 0, 0)",
@@ -88,7 +91,6 @@ function getUrl(){
 			dataType:"json",
 			data: datall,
 			success:function(){
-				//$("#showUrl").hide();
 				location.href = webpath+'/urlExplain/index';
 			}
 		});
@@ -99,7 +101,7 @@ function getTargetUrl(){
 	$("#envname option").each(function(i,o){
 		if($(this).is(":selected")){
 			$.ajax({
-				"url":webpath+"/urlExplain/getTargetUrl",
+				"url":webpath+"/targetUrl/getTargetUrl",
 				"type":"POST",
 				dataType:"json",
 				data: {
@@ -123,6 +125,27 @@ function getTargetUrl(){
 					}
 				}
 			});
+		}
+	})
+}
+
+function getTargetUrlPro(proname){
+	$("#targeturl option").each(function(i,o){
+		if($(this).is(":selected")){
+			$.ajax({
+				"url":webpath+"/targetUrl/getTargetUrlPro",
+				"type":"POST",
+				dataType:"json",
+				async : false,
+				data: {
+					"name":proname
+				},
+				success:function(data){
+					for(var i=0;i<data.length;i++){
+						proresult = data[i].productname;
+					}
+				}
+			})
 		}
 	})
 }

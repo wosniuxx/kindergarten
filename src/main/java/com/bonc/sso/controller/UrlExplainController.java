@@ -92,5 +92,4 @@ public class UrlExplainController {
 		map.put("envname", envname);
 		return JSON.toJSON(targetUrlService.selectByTargetUrlname(map));
 	}
-
 }

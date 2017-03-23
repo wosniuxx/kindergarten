@@ -97,7 +97,7 @@
                                 			<c:forEach var="g" items="${geturls}">  
                                 				<option value="${g.isToken}" ogname="${g.name}">${g.name}</option>  
                                 			</c:forEach>  
-                            			</select>  
+                            			</select> 
   									</div>
   									<button type="button" class="b-redBtn btn-i" id="getUrlBtn"><i class="iconfont">&#xe635;</i>接口预览</button>
 								</form>
