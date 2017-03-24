@@ -30,7 +30,9 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'colors' },
 		{ name: 'code' },
 	
-		config.uiColor = '#FFFFFF'
+		config.uiColor = '#FFFFFF',
+			
+	    config.filebrowserUploadUrl = '上传地址',
 		];
 
    
@@ -63,6 +65,6 @@ CKEDITOR.editorConfig = function( config ) {
          // config.skin = 'office2003'; 
          config.extraPlugins="code" 
      }; 
-     
+    
      
 };

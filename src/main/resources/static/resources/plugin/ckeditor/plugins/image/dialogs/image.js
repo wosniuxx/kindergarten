@@ -427,7 +427,7 @@
                             id: "htmlPreview",
                             style: "width:95%;",
                             html: "\x3cdiv\x3e" + CKEDITOR.tools.htmlEncode(d.lang.common.preview) + '\x3cbr\x3e\x3cdiv id\x3d"' + p + '" class\x3d"ImagePreviewLoader" style\x3d"display:none"\x3e\x3cdiv class\x3d"loading"\x3e\x26nbsp;\x3c/div\x3e\x3c/div\x3e\x3cdiv class\x3d"ImagePreviewBox"\x3e\x3ctable\x3e\x3ctr\x3e\x3ctd\x3e\x3ca href\x3d"javascript:void(0)" target\x3d"_blank" onclick\x3d"return false;" id\x3d"' +
-                            E + '"\x3e\x3cimg id\x3d"' + D + '" alt\x3d"" /\x3e\x3c/a\x3e' + (d.config.image_previewText || "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.") +
+                            E + '"\x3e\x3cimg id\x3d"' + D + '" alt\x3d"" /\x3e\x3c/a\x3e' + (d.config.image_previewText || "") +
                             "\x3c/td\x3e\x3c/tr\x3e\x3c/table\x3e\x3c/div\x3e\x3c/div\x3e"
                         }]
                     }]
@@ -479,7 +479,7 @@
                 }]
             }, {
                 id: "Upload",
-                hidden: !0,
+                hidden: 0,
                 filebrowser: "uploadButton",
                 label: d.lang.image.upload,
                 elements: [{
