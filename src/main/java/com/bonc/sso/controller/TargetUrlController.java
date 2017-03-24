@@ -1,5 +1,6 @@
 package com.bonc.sso.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.bonc.frame.util.IdUtil;
 import com.bonc.frame.util.JsonUtils;
 import com.bonc.sso.model.TargetUrl;
@@ -16,7 +18,7 @@ import com.bonc.sso.service.TargetUrlService;
 
 
 @Controller
-@RequestMapping("/TargetUrl")
+@RequestMapping("/targetUrl")
 public class TargetUrlController {
 	
 	@Autowired
@@ -61,4 +63,19 @@ public class TargetUrlController {
 		return targetUrlService.update(targetUrl);
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/getTargetUrl", method = RequestMethod.POST)
+	public Object getTargetUrl(String envname) {
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("envname", envname);
+		return JSON.toJSON(targetUrlService.selectByTargetUrlname(map));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getTargetUrlPro", method = RequestMethod.POST)
+	public Object getTargetUrlPro(String name) {
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("name", name);
+		return JSON.toJSON(targetUrlService.selectByTargetUrlname(map));
+	}
 }

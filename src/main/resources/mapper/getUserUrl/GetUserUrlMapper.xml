@@ -7,6 +7,7 @@
 		<result column="getuserurl" jdbcType="VARCHAR" property="getUserUrl" />
 		<result column="method" jdbcType="VARCHAR" property="method" />
 		<result column="istoken" jdbcType="VARCHAR" property="isToken" />
+		<result column="dataformat" jdbcType="VARCHAR" property="dataformat" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
@@ -60,6 +61,9 @@
 			<if test="isToken != null">
 				istoken,
 			</if>
+			<if test="dataformat != null">
+				dataformat,
+			</if>
 		</trim>
 		<trim prefix="value(" suffix=")" suffixOverrides=",">
 		 	<if test="id != null">
@@ -76,6 +80,9 @@
 			</if>
 			<if test="isToken != null">
 				#{isToken,jdbcType=VARCHAR},
+			</if>
+			<if test="dataformat != null">
+				#{dataformat,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>

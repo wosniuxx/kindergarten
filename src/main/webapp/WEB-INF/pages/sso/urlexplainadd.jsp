@@ -56,6 +56,10 @@
 			float:right;
 			margin-right:100px;
 		}
+		.help{
+		    margin-top: -31px;
+   			margin-left: 95px;
+		}
 		
 	</style>
 </head> 
@@ -64,14 +68,20 @@
 	     <div class="col-lg-12 col-md-12 row-tab">
 	         <div id="org-panel" class="panel panel-default common-wrapper">
   					<div class="panel-heading common-part"><i class="iconfont">&#xe6ca;</i><span>接口注册</span></div>
+					<div>
+					<a href="<%=webpath %>/resources/doc/interface.docx">
+						<image src="<%=webpath %>/resources/img/sso/help.jpg" class="help" id="help" 
+						data-toggle="tooltip" data-placement="right" title="点击下载接口注册帮助文档">
+					</a>
+					</div>
   					<div class="panel-body common-content">
   							
    							<div class="searchWrap">
-	                    		<form class="form-inline" id="urlexplainAddForm">
+	                    		<form class="form-inline" id="urlexplainAddForm" data-validator-option="{timely:2, theme:'yellow_right'}">
 	                    			<input type="hidden" value="${urlExplain.id }" name="id"/>
 		                    		<div class="form-group">
     									<label for="urlEnv">接口名称:</label>
-    									<input type="text" class="form-control input-sm" style="width:125px"  name="introduce" id="introduce" value="${urlExplain.introduce }"/>
+    									<input type="text" class="form-control input-sm" style="width:125px"  name="introduce" id="introduce" value="${urlExplain.introduce }" data-rule="required;length(4~32);filter;"/>
 	  								</div>
   									<div class="form-group">
     									<label for="urlEnv">接口环境:</label>
@@ -84,7 +94,7 @@
   									<div class="form-group">
     									<label for="sign">接口标识:</label>
     									<input type="text" class="form-control input-sm" style="width:125px" 
-    									name="sign" id="sign" value="${urlExplain.sign }"/>
+    									name="sign" id="sign" value="${urlExplain.sign }" data-rule="required;length(4~32);filter;"/>
   									</div>
   									<div class="form-group">
     									<label for="targetUrl">目标地址:</label>

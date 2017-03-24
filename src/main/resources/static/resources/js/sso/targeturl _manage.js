@@ -26,7 +26,7 @@ function initTargetUrlTable(){
 		            { "data": "productname" },
 		 ],
 		 ajax: {
-		     url:webpath+'/TargetUrl/selectPage',
+		     url:webpath+'/targetUrl/selectPage',
 		     "type": 'POST',
 		     "data": function (d) {//查询参数
 		           return $.extend( {}, d, {
@@ -144,7 +144,7 @@ function addTargetUrl(){
         btn1: function(index, layero){//确定按钮回调
         	//if(form.isValidator(formObj)){
         		$.ajax({
-    				"url":webpath+"/TargetUrl/insert",
+    				"url":webpath+"/targetUrl/insert",
     				"type":"POST",
     				dataType:"json",
     				data:form.serializeJson(formObj),
@@ -164,7 +164,7 @@ function addTargetUrl(){
 //修改
 function updateTargetUrl(id){
 	$.ajax({
-		"url":webpath+"/TargetUrl/getTargetUrlById",
+		"url":webpath+"/targetUrl/getTargetUrlById",
 		"type":"POST",
 		dataType:"json",
 		data:{
@@ -200,7 +200,7 @@ function updateTargetUrl(id){
 		        btn1: function(index, layero){//确定按钮回调
 		        	//if(form.isValidator(formObj)){
 		        		$.ajax({
-		    				"url":webpath+"/TargetUrl/update",
+		    				"url":webpath+"/targetUrl/update",
 		    				"type":"POST",
 		    				dataType:"json",
 		    				data:form.serializeJson(formObj),
@@ -225,7 +225,7 @@ function deleteTargetUrl(id){
         btn: ['是','否'] //按钮
   	  }, function(index, layero){
   		  $.ajax({//初始化组织机构树
-  				"url":webpath+"/TargetUrl/delete",
+  				"url":webpath+"/targetUrl/delete",
   				"type":"POST",
   				dataType:"json",
   				data:{

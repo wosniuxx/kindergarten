@@ -6,9 +6,6 @@ $(document).ready(function(){
 	$("#addgetuserurlBtn").bind("click",addGetUserUrl);
 	resourceTree.init();
 	
-	
-	
-	
 	// 为datatable外的父级设置高度
 	$('#getuserurlTable_wrapper').css('height', $('.panel-body').height()-60);
 	// 动态为表格添加父级
@@ -28,7 +25,7 @@ function initGetUserUrlTable(){
 		            { "data": "isToken" },
 		 ],
 		 ajax: {
-		     url:webpath+'/GetUserUrl/selectPage',
+		     url:webpath+'/getUserUrl/selectPage',
 		     "type": 'POST',
 		     "data": function (d) {//查询参数
 		           return $.extend( {}, d, {
@@ -126,6 +123,13 @@ function addGetUserUrl(){
 	var formObj = $("#addGetUserUrlForm");
 	form.clear(formObj);
 //	form.cleanValidator(formObj);
+	
+	$("#datamethod").change(function () {
+		if($("#datamethod").val() != ""&&$("#datamethod").val() != null){
+			$("#dataformat").show();
+		}
+    });  
+	
 	layer.open({
 		type: 1,
         title:'<i class="iconfont">&#xe641;</i>&nbsp;新增用户接口配置',
@@ -136,13 +140,14 @@ function addGetUserUrl(){
         	console.log(form.serializeJson(formObj));
         	//if(form.isValidator(formObj)){
         		$.ajax({
-    				"url":webpath+"/GetUserUrl/insert",
+    				"url":webpath+"/getUserUrl/insert",
     				"type":"POST",
     				dataType:"json",
     				data:form.serializeJson(formObj),
     				success:function(data){
     					layer.close(index);
     					reloadTableData(true);
+    					$("#dataformat").hide();
     				}
     			});
         	//}
@@ -156,28 +161,24 @@ function addGetUserUrl(){
 //修改
 function updateGetUserUrl(id){
 	$.ajax({
-		"url":webpath+"/GetUserUrl/getGetUserUrlById",
+		"url":webpath+"/getUserUrl/getGetUserUrlById",
 		"type":"POST",
 		dataType:"json",
 		data:{
 			id:id
 		},
 		success:function(data){
-			//console.log(data.getuserurlname);
+			
 			var formObj = $("#updateGetUserUrlForm");
-			//form.clear(formObj);
-			//form.cleanValidator(formObj);
+			form.clear(formObj);
+			form.cleanValidator(formObj);
 			form.load(formObj,data);
-			//var vals='',ids='';
-			/*$("[name=id]").val(data.id);
-			$("[name=name]").val(data.name);
-			$("[name=getUserUrl]").val(data.getUserUrl);
-			$("[name=method]").val(data.method);
 			
-			if($("[name=isToken]:checked").val!=data.isToken){
-				$("[name=isToken]:checked").val(data.isToken);
-			}*/
-			
+			$("#methodup option").each(function(i,o){
+				if($(this).val() == data.method){
+					$(this).attr("selected",true);
+				}
+			});
 			
 			layer.open({
 				type: 1,
@@ -190,7 +191,7 @@ function updateGetUserUrl(id){
 		        	
 		        	//if(form.isValidator(formObj)){
 		        		$.ajax({
-		    				"url":webpath+"/GetUserUrl/update",
+		    				"url":webpath+"/getUserUrl/update",
 		    				"type":"POST",
 		    				dataType:"json",
 		    				data:form.serializeJson(formObj),
@@ -215,7 +216,7 @@ function deleteGetUserUrl(id){
         btn: ['是','否'] //按钮
   	  }, function(index, layero){
   		  $.ajax({//初始化组织机构树
-  				"url":webpath+"/GetUserUrl/delete",
+  				"url":webpath+"/getUserUrl/delete",
   				"type":"POST",
   				dataType:"json",
   				data:{

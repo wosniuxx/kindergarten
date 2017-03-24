@@ -5,12 +5,12 @@ package com.bonc.sso.model;
  *
  */
 public class GetUserUrl {
-	private String id;
+    private String id;
 	
 	/**
 	 * 接口名称
 	 */
-	private String name;
+    private String name;
 	/**
 	 * 获取用户接口
 	 */
@@ -25,6 +25,11 @@ public class GetUserUrl {
 	 * 是否需要提供token,1为是
 	 */
 	private String isToken;
+	
+	/**
+	 * 说明数据格式
+	 */
+	private String dataformat;
 	public String getId() {
 		return id;
 	}
@@ -55,6 +60,13 @@ public class GetUserUrl {
 	public void setIsToken(String isToken) {
 		this.isToken = isToken;
 	}
+  public String getDataformat() {
+		return dataformat;
+	}
+	public void setDataformat(String dataformat) {
+		this.dataformat = dataformat;
+	}
+	
 	
 	
 	

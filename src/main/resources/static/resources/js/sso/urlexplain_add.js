@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	
+	$( document ).tooltip();
 	$("#getUrlBtn").bind("click",getUrl);
 	
 	// 为datatable外的父级设置高度
@@ -74,6 +75,7 @@ function getUrl(){
 	$(".conurl").text(content);
 	$("#okbtn").click(function(){
 		var formObj = $("#urlexplainAddForm");
+		form.cleanValidator(formObj);
 		var introduce = $("introduce").val();
 		var getUserUrlName = $("#geturl option:selected").attr("ogname");
 		var targetUrlName = $("#targeturl option:selected").text();
@@ -85,15 +87,18 @@ function getUrl(){
 		datall.targetUrl=targetUrlName;
 		datall.getUserUrl=getUserUrlName;
 		
-		$.ajax({
-			"url":url,
-			"type":"POST",
-			dataType:"json",
-			data: datall,
-			success:function(){
-				location.href = webpath+'/urlExplain/index';
-			}
-		});
+		if(form.isValidator(formObj)){
+			$.ajax({
+				"url":url,
+				"type":"POST",
+				dataType:"json",
+				data: datall,
+				success:function(){
+					location.href = webpath+'/urlExplain/index';
+				}
+			});
+		}
+		
 	})
 }
 

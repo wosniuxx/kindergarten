@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	String webpath = request.getContextPath();
 %>
@@ -22,6 +23,11 @@ body {
 #text_area {
 	width: 407px;
 	height: 80px;
+	border: 1px solid #ccc;
+}
+.selected{
+	width:130px;
+	height:26px;
 	border: 1px solid #ccc;
 }
 </style>
@@ -96,9 +102,17 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="method">用户数据类型:</label> <input type="text"
-								class="form-control input-sm" name="method"
-								placeholder="请输入获取用户接口" />
+							<label for="method">用户数据类型:</label>
+							<select class="selected" name="method" id="datamethod">
+								<option value="json">json</option>
+								<option value="xml">xml</option>
+								<option value="其他">其他</option>
+							</select>							
+						</div>
+						<div class="form-group" style="display:none" id="dataformat">
+							<label for="name">数据示例：</label>
+							<textarea class="form-control" rows="3" style="margin-top:10px" name="dataformat"
+							placeholder="说明数据类型，如{'loginId':'111','email':'aa@.com'}"></textarea>
 						</div>
 					</td>
 				</tr>
@@ -158,9 +172,12 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="method">用户数据类型:</label> <input type="text"
-								class="form-control input-sm" name="method"
-								placeholder="请输入用户数据类型" />
+							<label for="method">用户数据类型:</label> 
+							<select class="selected" name="method" id="method">
+								<option value="json">json</option>
+								<option value="xml">xml</option>
+								<option value="其他">其他</option>
+							</select>	
 						</div>
 					</td>
 				</tr>
