@@ -53,7 +53,7 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 				proname = targeturl.getProductname();
 			}
 			if(null != envService.selectByEnvName(urlExplain.getEnvname()) && null != turl){
-				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+proname+"/"+
+				String finalUrl = envService.selectByEnvName(urlExplain.getEnvname()).getService()+"/"+proname+
 						urlExplain.getSign()+"?return="+
 						turl;
 				if(getUserUrlService.selectByGetUserUrlName(urlExplain.getGetUserUrl()).getIsToken().equals("1")){
@@ -70,6 +70,9 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 	public void insert(UrlExplain urlExplain) {
 		urlExplain.setId(IdUtil.createId());
 		urlExplain.setCreateDate(new Date());
+		if(urlExplain.getSign().indexOf("/")<0){
+		    urlExplain.setSign("/"+urlExplain.getSign());
+		}
 		daoHelper.insert("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.insert", urlExplain);
 	}
 	

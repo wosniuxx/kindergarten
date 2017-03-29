@@ -1,6 +1,5 @@
 package com.bonc.sso.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.bonc.frame.util.JsonUtils;
-import com.bonc.sso.model.TargetUrl;
 import com.bonc.sso.model.UrlExplain;
 import com.bonc.sso.service.EnvService;
 import com.bonc.sso.service.GetUserUrlService;

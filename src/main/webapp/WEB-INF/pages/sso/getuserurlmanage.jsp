@@ -107,6 +107,7 @@ body {
 							<select class="selected" name="method" id="datamethod">
 								<option value="json">json</option>
 								<option value="xml">xml</option>
+								<option value="xml">loginid</option>
 								<option value="其他">其他</option>
 							</select>							
 						</div>
@@ -177,6 +178,7 @@ body {
 							<select class="selected" name="method" id="method">
 								<option value="json">json</option>
 								<option value="xml">xml</option>
+								<option value="xml">loginid</option>
 								<option value="其他">其他</option>
 							</select>	
 						</div>
