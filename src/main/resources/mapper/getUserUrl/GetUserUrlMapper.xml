@@ -11,7 +11,7 @@
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id, name, getuserurl,method, istoken
+		id, name, getuserurl,method, istoken, dataformat
 	</sql>
 
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
@@ -102,6 +102,9 @@
 			<if test="isToken != null">
 				istoken = #{isToken,jdbcType=VARCHAR},
 			</if>
+			<if test="dataformat != null">
+				dataformat = #{dataformat,jdbcType=VARCHAR},
+			</if>
 		</set>
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
@@ -114,4 +117,5 @@
 		where name = #{name,jdbcType=VARCHAR}
 	</select>
 	
+
 </mapper>

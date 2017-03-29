@@ -1,5 +1,6 @@
 package com.bonc.sso.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -85,6 +86,13 @@ public class UrlExplainServiceImpl implements UrlExplainService {
 	@Override
 	public int update(UrlExplain urlExplain) {
 		return daoHelper.update("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.updateByPrimaryKey", urlExplain);
+	}
+
+	@Override
+	public List<String> selectsign() {
+		List<String> selectSignList = new ArrayList<String>(); 
+		selectSignList = daoHelper.queryForList("com.bonc.frame.web.mapper.urlExplain.UrlExplainMapper.selectsignonly");
+		return selectSignList;
 	}
 	
 }

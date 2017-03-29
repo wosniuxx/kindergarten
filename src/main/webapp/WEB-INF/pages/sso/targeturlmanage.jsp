@@ -80,7 +80,7 @@ body {
 						<div class="form-group">
 							<label for="name">目标地址名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入名称"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -89,7 +89,7 @@ body {
 						<div class="form-group">
 							<label for="targetUrl">目标地址路径:</label> <input type="text"
 								class="form-control input-sm" name="targetUrl" placeholder="请输入服务地址"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -98,7 +98,7 @@ body {
 						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
 								class="form-control input-sm" name="envname" placeholder="请输入服务地址"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -122,16 +122,7 @@ body {
 						<div class="form-group">
 							<label for="productname">产品名称:</label> <input type="text"
 								class="form-control input-sm" name="productname" placeholder="请输入产品名称"
-								 />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
-							<label for="service">操作:</label> <input type="text"
-								class="form-control input-sm" name="service" placeholder="请输入服务地址"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -160,7 +151,7 @@ body {
 						<div class="form-group">
 							<label for="name">目标地址名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入名称"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -169,7 +160,7 @@ body {
 						<div class="form-group">
 							<label for="targetUrl">目标地址路径:</label> <input type="text"
 								class="form-control input-sm" name="targetUrl" placeholder="请输入服务地址"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -178,7 +169,7 @@ body {
 						<div class="form-group">
 							<label for="envname">环境名称:</label> <input type="text"
 								class="form-control input-sm" name="envname" placeholder="请输入服务地址"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -202,7 +193,7 @@ body {
 						<div class="form-group">
 							<label for="productname">产品名称:</label> <input type="text"
 								class="form-control input-sm" name="productname" placeholder="请输入产品名称"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>

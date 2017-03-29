@@ -1,5 +1,6 @@
 package com.bonc.sso.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.bonc.sso.model.UrlExplain;
@@ -40,4 +41,10 @@ public interface UrlExplainService {
 	 */
 	public int update(UrlExplain urlExplain);
 	
+	/**
+	 * 查找全部的sign标签
+	 * @param
+	 * @return
+	 */
+	public List<String> selectsign();
 }

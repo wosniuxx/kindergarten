@@ -47,7 +47,7 @@ function initGetUserUrlTable(){
 				if(data==null||data==""){
 					html += '暂无名称';
 				}else{
-					html += data;
+					html += '<span name="name">'+data+'</span>';
 				}
 				return html;
 			}
@@ -83,10 +83,11 @@ function initGetUserUrlTable(){
 			"width" : '17%',
 			"render" : function(data, type,row) {
 				var html = '';
+				var id = row.id;
 				if(data=="1"){
-					html += '<span style="color:green;">是</span>';
+					html += '<input value="-1" style="display:none" name="isToken"/><a href="#" onclick="updateisToken(\''+id+'\',\''+data+'\')" style="color:green;">是</a>';
 				}else{
-					html += '<span style="color:red;">否</span>';
+					html += '<input value="-1" style="display:none" name="isToken"/><a href="#" onclick="updateisToken(\''+id+'\',\''+data+'\')" style="color:red;">否</a>';;
 				}
 				return html;
 			}
@@ -110,7 +111,6 @@ function initGetUserUrlTable(){
 function reloadTableData(isCurrentPage){
 	$("#getuserurlTable").dataTable().fnDraw(isCurrentPage==null?true:isCurrentPage);
 }
-
 
 //重置查询条件
 function resetForm(){
@@ -153,9 +153,62 @@ function addGetUserUrl(){
         	//}
 	    },
 	    btn2: function(index, layero){//确定按钮回调
+	    	$("#dataformat").hide();
         	layer.close(index);
 	    }
     });
+}
+
+//单击修改Taken
+function updateisToken(id,token) {
+	if(token == '1'){
+		token = '-1';
+	}else{
+		token = '1';
+	}
+	$.ajax({
+		"url":webpath+"/getUserUrl/update",
+		"type":"POST",
+		dataType:"json",
+		data:{
+			id:id,
+			isToken:token
+		},
+		success:function(data){
+			reloadTableData(true);
+		}
+	});
+	/*$.ajax({
+		"url":webpath+"/getUserUrl/getGetUserUrlById",
+		"type":"POST",
+		dataType:"json",
+		data:{
+            id:id
+		},
+		success:function(data){
+			console.log(data);
+			
+			if (data.isToken == 1) {
+				data.isToken = -1;
+			}else{
+				data.isToken = 1;
+			}
+			
+			$.ajax({
+				"url":webpath+"/getUserUrl/update",
+				"type":"POST",
+				dataType:"json",
+				data:{
+					id:id,
+					isToken:isToken
+				},
+				success:function(data){
+					reloadTableData(true);
+					console.log("123");
+				}
+			});
+		}
+	})*/
 }
 
 //修改
@@ -183,7 +236,7 @@ function updateGetUserUrl(id){
 			layer.open({
 				type: 1,
 		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改用户接口配置',
-		        area: ['300px', '350px'],
+		        area: ['300px', '400px'],
 		        content: $("#updategetuserurl"),
 		        btn: ['确定','取消'],
 		        btn1: function(index, layero){//确定按钮回调

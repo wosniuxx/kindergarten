@@ -58,7 +58,7 @@ body {
 							</button>
 						</form>
 					</div>
-
+					<form id="updateisTokenFrom">
 					<table id="getuserurlTable">
 						<thead>
 							<tr>
@@ -70,6 +70,7 @@ body {
 							</tr>
 						</thead>
 					</table>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -86,7 +87,7 @@ body {
 						<div class="form-group">
 							<label for="name">接口名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入接口名称"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -95,7 +96,7 @@ body {
 						<div class="form-group">
 							<label for="getUserUrl">获取用户接口:</label> <input type="text"
 								class="form-control input-sm" name="getUserUrl"
-								placeholder="请输入获取用户接口" />
+								placeholder="请输入获取用户接口" data-rule="required;length(4~32);filter;"/>
 						</div>
 					</td>
 				</tr>
@@ -111,7 +112,7 @@ body {
 						</div>
 						<div class="form-group" style="display:none" id="dataformat">
 							<label for="name">数据示例：</label>
-							<textarea class="form-control" rows="3" style="margin-top:10px" name="dataformat"
+							<textarea class="form-control" rows="3" style="margin-top:10px" data-rule="required;length(4~32);filter;" name="dataformat"
 							placeholder="说明数据类型，如{'loginId':'111','email':'aa@.com'}"></textarea>
 						</div>
 					</td>
@@ -147,7 +148,7 @@ body {
 						<div class="form-group">
 							<label for="id">接口id:</label> <input type="text"
 								class="form-control input-sm" name="id" placeholder="接口id"
-								 readonly="readonly" />
+								 readonly="readonly" data-rule="required;length(4~32);filter;"/>
 						</div>
 					</td>
 				</tr>
@@ -156,7 +157,7 @@ body {
 						<div class="form-group">
 							<label for="name">接口名称:</label> <input type="text"
 								class="form-control input-sm" name="name" placeholder="请输入接口名称"
-								 />
+								data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -165,7 +166,7 @@ body {
 						<div class="form-group">
 							<label for="getUserUrl">获取用户接口:</label> <input type="text"
 								class="form-control input-sm" name="getUserUrl"
-								placeholder="请输入获取用户接口" />
+								placeholder="请输入获取用户接口" data-rule="required;length(4~32);filter;" />
 						</div>
 					</td>
 				</tr>
@@ -178,6 +179,15 @@ body {
 								<option value="xml">xml</option>
 								<option value="其他">其他</option>
 							</select>	
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="">数据示例:</label>
+							<textarea class="form-control" rows="3" style="margin-top:10px" name="dataformat"
+							placeholder="说明数据类型，如{'loginId':'111','email':'aa@.com'}"></textarea>
 						</div>
 					</td>
 				</tr>

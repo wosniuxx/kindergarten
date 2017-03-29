@@ -39,12 +39,41 @@ function getUrl(){
 	}else{
 		var url = webpath+"/urlExplain/insert"
 	}
+	
 	var envnameservice  = $("#envname option:selected").attr("eoname");
 	var envname = $("#envname").val();
 	var sign = $("#sign").val();
 	var targeturl = $("#targeturl").val();
 	var proname = ($("#targeturl option:selected").text());
 	var istoken = $("#geturl").val();
+	
+	$.ajax({
+		"url":webpath+"/urlExplain/selectsign",
+		"type" : "POST",
+		cache:false, 
+	    async:false,
+		data:{
+			sign:sign
+		},
+		success:function(data){
+			console.log(data);
+			if(data == '1'){
+				layer.open({
+					type: 1,
+			        title:'提示信息',
+			        area: ['300px', '150px'],
+			        content: '<div align="center">该标识已存在，请重新输入</div>',
+			        skin: 'demo-class',
+			        btn: ['知道了'],
+			        btn1: function(index){
+			        	layer.close(index);
+			        },
+			        offset: '100px'
+				})
+			}
+		}
+	})
+	
 	if(istoken == "1"){
 		getTargetUrlPro(proname);
 		var content = envname+"/"+proresult+"/"+sign+"?return="+targeturl+"&token=";
@@ -154,4 +183,5 @@ function getTargetUrlPro(proname){
 		}
 	})
 }
+
 

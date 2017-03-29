@@ -1,5 +1,6 @@
 package com.bonc.sso.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.bonc.frame.util.JsonUtils;
 import com.bonc.sso.model.TargetUrl;
 import com.bonc.sso.model.UrlExplain;
@@ -91,5 +94,22 @@ public class UrlExplainController {
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("envname", envname);
 		return JSON.toJSON(targetUrlService.selectByTargetUrlname(map));
+	}
+	
+	//查询并返回sign
+	@ResponseBody
+	@RequestMapping(value="/selectsign", method = RequestMethod.POST)
+	public String selectSign(@RequestParam("sign") String sign){
+		System.out.println(sign);
+		List<String> selectSignList = urlExplainService.selectsign();
+		//String str = JSON.toJSON(selectSignList).toString();
+		boolean boo = selectSignList.contains(sign);
+		String d;
+		if(boo==true){
+			d = "1";
+		}else{
+			d = "-1";
+		}
+		return d;
 	}
 }

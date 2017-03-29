@@ -41,6 +41,11 @@
 	    from SSO_URL WHERE 1=1
   	</select>
   	
+  	<select id="selectsignonly" resultType="java.lang.String">
+  		select sign
+	    from SSO_URL WHERE 1=1
+  	</select>
+  	
   	 <insert id="insert" parameterType="com.bonc.sso.model.UrlExplain">
     insert into SSO_URL
     <trim prefix="(" suffix=")" suffixOverrides=",">

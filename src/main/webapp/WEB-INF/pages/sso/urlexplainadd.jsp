@@ -67,7 +67,9 @@
 	<div class="row">
 	     <div class="col-lg-12 col-md-12 row-tab">
 	         <div id="org-panel" class="panel panel-default common-wrapper">
-  					<div class="panel-heading common-part"><i class="iconfont">&#xe6ca;</i><span>接口注册</span></div>
+  					<div class="panel-heading common-part"><i class="iconfont">&#xe6ca;</i><span>接口注册</span>
+  					<button type="button" class="b-redBtn btn-i" id="backbutton1" style="float: right;" onclick="javascript:history.back(-1);">返回</button>
+  					</div>
 					<div>
 					<a href="<%=webpath %>/resources/doc/interface.docx">
 						<image src="<%=webpath %>/resources/img/sso/help.jpg" class="help" id="help" 
@@ -120,6 +122,9 @@
   					</div>
 			 </div>
 	     </div>
+	</div>
+	<div style="display: none" id="errormessage">
+		<span>该标识已存在，请重新输入</span>
 	</div>
 	<input type="hidden" value="${type }" id="type"/>
 	<%@ include file="../common-js.jsp"%>
