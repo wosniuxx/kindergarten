@@ -34,7 +34,11 @@
 	                    		<form class="form-inline" id="urlexplainSearchForm">
   									<div class="form-group">
     									<label for="tenantName">接口名称:</label>
-    									<input type="text" class="form-control input-sm" name="introduce" />
+    									<input type="text" class="form-control input-sm" name="introduce" 
+    									data-toggle="tooltip" data-placement="right" title="点击预览接口详细信息"/>
+    									<span id="service-path" style="color:#1dd2af;">
+<i class="fa fa-info-circle"></i>
+</span>
   									</div>
   									<div class="form-group">
     									<label for="state">接口环境:</label>
@@ -50,7 +54,7 @@
                         		<thead>
             						<tr>
                 						<th>接口名称</th>
-                						<th>接口</th>
+                						<th style="display:none">接口</th>
                							<th>环境</th>
                							<th>状态</th>
                 						<th>操作</th>

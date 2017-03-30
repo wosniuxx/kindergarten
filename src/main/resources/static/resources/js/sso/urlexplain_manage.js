@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	 $( document ).tooltip();
 	initurlexplainTable();
 	
 	$("#searchBtn").bind("click",reloadTableData);
@@ -19,7 +20,7 @@ function initurlexplainTable(){
 	$("#urlexplainTable").width("100%").dataTable({
 		"columns":[
 		           { "data": "introduce" },
-		            { "data": "finalUrl" },
+		           { "data": "finalUrl" },
 		            { "data": "envname" },
 		            { "data": "status" }
 		 ],
@@ -40,9 +41,18 @@ function initurlexplainTable(){
 		
 		columnDefs:[
 		{
+			"targets" : 0,
+			"data" : null,
+			"render" : function(data, type,row) {
+				var finalUrl = row.finalUrl;
+				var html =  '<a href="javascript:void(0);" onclick="selectfinalurl(\''+finalUrl+'\')">'+data+'</a>';
+				return html;
+			}
+		},
+		{
 			"targets" : 1,//操作按钮目标列
 			"data" : null,
-			"width" : 500
+			"visible": false,
 		},
 		{
 			"targets" : 3,//操作按钮目标列
@@ -126,6 +136,19 @@ function deleteUrl(id){
   				}
   		   });
   	  });
+}
+
+function selectfinalurl(finalUrl){
+	layer.open({
+	  type: 1,
+	  title:"接口预览",
+	  skin: 'layui-layer-lan', //样式类名
+	  area: ['400px', '150px'],
+	  closeBtn: 0, //不显示关闭按钮
+	  anim:2,
+	  shadeClose: true, //开启遮罩关闭
+	  content: '<div style="margin-top:25px;font-family:Arial,Verdana,Sans-serif;font-size:14px">'+finalUrl+'<div>'
+	});
 }
 
 
