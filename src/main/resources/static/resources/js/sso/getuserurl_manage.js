@@ -84,10 +84,11 @@ function initGetUserUrlTable(){
 			"render" : function(data, type,row) {
 				var html = '';
 				var id = row.id;
+				var istoken = row.isToken;
 				if(data=="1"){
-					html += '<input value="-1" style="display:none" name="isToken"/><a href="#" onclick="updateisToken(\''+id+'\',\''+data+'\')" style="color:green;">是</a>';
+					html += '<input value="-1" style="display:none" name="isToken"/><a href="#" onclick="updateisToken(\''+id+'\',\''+istoken+'\')" style="color:green;">是</a>';
 				}else{
-					html += '<input value="-1" style="display:none" name="isToken"/><a href="#" onclick="updateisToken(\''+id+'\',\''+data+'\')" style="color:red;">否</a>';;
+					html += '<input value="-1" style="display:none" name="isToken"/><a href="#" onclick="updateisToken(\''+id+'\',\''+istoken+'\')" style="color:red;">否</a>';;
 				}
 				return html;
 			}
@@ -160,11 +161,11 @@ function addGetUserUrl(){
 }
 
 //单击修改Taken
-function updateisToken(id,token) {
-	if(token == '1'){
-		token = '-1';
+function updateisToken(id,istoken) {
+	if(istoken == '1'){
+		istoken = '-1';
 	}else{
-		token = '1';
+		istoken = '1';
 	}
 	$.ajax({
 		"url":webpath+"/getUserUrl/update",
@@ -172,43 +173,12 @@ function updateisToken(id,token) {
 		dataType:"json",
 		data:{
 			id:id,
-			isToken:token
+			isToken:istoken
 		},
 		success:function(data){
 			reloadTableData(true);
 		}
 	});
-	/*$.ajax({
-		"url":webpath+"/getUserUrl/getGetUserUrlById",
-		"type":"POST",
-		dataType:"json",
-		data:{
-            id:id
-		},
-		success:function(data){
-			console.log(data);
-			
-			if (data.isToken == 1) {
-				data.isToken = -1;
-			}else{
-				data.isToken = 1;
-			}
-			
-			$.ajax({
-				"url":webpath+"/getUserUrl/update",
-				"type":"POST",
-				dataType:"json",
-				data:{
-					id:id,
-					isToken:isToken
-				},
-				success:function(data){
-					reloadTableData(true);
-					console.log("123");
-				}
-			});
-		}
-	})*/
 }
 
 //修改

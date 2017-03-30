@@ -1,23 +1,17 @@
 package com.bonc.sso.controller;
 
+import java.util.List;
 import java.util.Map;
-
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bonc.frame.util.IdUtil;
 import com.bonc.frame.util.JsonUtils;
-import com.bonc.frame.web.entity.tenant.Tenant;
-import com.bonc.frame.web.service.tenant.TenantService;
 import com.bonc.sso.model.Env;
-import com.bonc.sso.model.TargetUrl;
 import com.bonc.sso.service.EnvService;
 
 @Controller
@@ -66,6 +60,12 @@ public class EnvironmentController {
 	public int update(Env env){
 		System.out.println(env);
 		return envService.update(env);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/findAll")
+	public List<Env> selectPage() {
+		return envService.findAll();
 	}
 	
 }

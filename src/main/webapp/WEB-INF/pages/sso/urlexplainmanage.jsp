@@ -53,7 +53,10 @@
 	               			<table id="urlexplainTable">  
                         		<thead>
             						<tr>
-                						<th>接口名称</th>
+                						<th>接口名称
+                						<image src="<%=webpath %>/resources/img/sso/conf.png" class="conf" id="" 
+						data-toggle="tooltip" data-placement="right" title="点击接口名称可直接预览生成的URL">
+                						</th>
                 						<th style="display:none">接口</th>
                							<th>环境</th>
                							<th>状态</th>

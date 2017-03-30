@@ -24,6 +24,12 @@ body {
 	height: 80px;
 	border: 1px solid #ccc;
 }
+
+.selected {
+	width: 140px;
+	height: 26px;
+	border: 1px solid #ccc;
+}
 </style>
 </head>
 <body>
@@ -96,9 +102,8 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="envname">环境名称:</label> <input type="text"
-								class="form-control input-sm" name="envname" placeholder="请输入服务地址"
-								data-rule="required;length(4~32);filter;" />
+							<label for="envname">环境名称:</label>
+							<select class="selected" name="envname" id="selectenvname"></select>
 						</div>
 					</td>
 				</tr>
@@ -167,9 +172,8 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="envname">环境名称:</label> <input type="text"
-								class="form-control input-sm" name="envname" placeholder="请输入服务地址"
-								data-rule="required;length(4~32);filter;" />
+							<label for="envname">环境名称:</label>
+							<select class="selected" name="envname" id="selectedenvname"></select>
 						</div>
 					</td>
 				</tr>

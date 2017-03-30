@@ -135,6 +135,18 @@ function addTargetUrl(){
 	var formObj = $("#addTargetUrlForm");
 	form.clear(formObj);
 //	form.cleanValidator(formObj);
+	
+	$.ajax({
+		"url":webpath+"/Env/findAll",
+		"type":"POST",
+		dataType:"json",
+		success:function(data){
+			$("#selectenvname").empty();
+			for(var i=0;i<data.length;i++){
+				$("#selectenvname").append("<option value='"+data[i].envname+
+						  "'>"+data[i].envname+
+						  "</option>");
+			}
 	layer.open({
 		type: 1,
         title:'<i class="iconfont">&#xe641;</i>&nbsp;新增目标地址配置',
@@ -159,10 +171,27 @@ function addTargetUrl(){
         	layer.close(index);
 	    }
     });
+		}
+	});
 }
 
 //修改
 function updateTargetUrl(id){
+	$.ajax({
+		"url":webpath+"/Env/findAll",
+		"type":"POST",
+		dataType:"json",
+		success:function(envdata){
+			$("#selectenvname").empty();
+			for(var i=0;i<envdata.length;i++){
+				console.log(envdata[i].envname);
+				$("#selectedenvname").append("<option value='"+envdata[i].envname+
+						  "'>"+envdata[i].envname+
+						  "</option>");
+			}
+		
+	
+	
 	$.ajax({
 		"url":webpath+"/targetUrl/getTargetUrlById",
 		"type":"POST",
@@ -171,20 +200,7 @@ function updateTargetUrl(id){
 			id:id
 		},
 		success:function(data){
-			/*console.log(data.targeturlname);
-			var formObj = $("#updateTargetUrlForm");
-			//form.clear(formObj);
-			//form.cleanValidator(formObj);
-			form.load(formObj,data);
-			//var vals='',ids='';
-			$("[name=id]").val(data.id);
-			$("[name=name]").val(data.name);
-			$("[name=getUserUrl]").val(data.getUserUrl);
-			$("[name=method]").val(data.method);
-			if($("[name=state]:checked").val!=data.isToken){
-				$("[name=state]:checked").val(data.isToken);
-			}
-			$("[name=productname]").val(data.productname);*/
+			
 			
 			var formObj = $("#updateTargetUrlForm");
 			form.clear(formObj);
@@ -217,6 +233,8 @@ function updateTargetUrl(id){
 		    });
 		   }
     });
+		}
+	});
 }
 //删除环境
 function deleteTargetUrl(id){
