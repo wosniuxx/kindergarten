@@ -5,6 +5,7 @@ $(document).ready(function(){
 	$("#searchBtn").bind("click",reloadTableData);
 	$("#resetBtn").bind("click",resetForm);
 	$("#addUrlBtn").bind("click",addUrl);
+	$("#addYunUrlBtn").bind("click",addYunUrl);
 	
 	// 为datatable外的父级设置高度
 	$('#urlexplainTable_wrapper').css('height', $('.panel-body').height()-60);
@@ -99,6 +100,15 @@ function resetForm(){
 //添加角色
 function addUrl(){
 	location.href = webpath+'/urlExplain/insert';
+	/*$.ajax({
+		type:'GET',
+		url:webpath+'/urlExplain/insert'
+	});*/
+}
+
+//添加云门户注册信息
+function addYunUrl(){
+	location.href = webpath+'/urlExplain/tourlexplainyun';
 	/*$.ajax({
 		type:'GET',
 		url:webpath+'/urlExplain/insert'

@@ -54,6 +54,15 @@ public class UrlExplainController {
 		return "sso/urlexplainadd";
 	}
 	
+	@RequestMapping(value = "/tourlexplainyun", method = RequestMethod.GET)
+	public String toUrlExplainYun(Model model) {
+		model.addAttribute("envnames", envService.findAll());
+		model.addAttribute("targeturls", targetUrlService.findAll());
+		model.addAttribute("geturls", getUserUrlSerice.findAll());
+		model.addAttribute("dtstr", "");
+		return "sso/urlexplainyunadd";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public void insert(UrlExplain urlExplain) {
