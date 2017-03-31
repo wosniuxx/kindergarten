@@ -12,6 +12,19 @@ $(document).ready(function(){
 	$('#getuserurlTable').wrap('<div class="tab-wrapper"></div>');
 	$('.tab-wrapper').css('height', $('#getuserurlTable_wrapper').height()-63);
 	$('.tab-wrapper').niceScroll({ cursorcolor: "#ccc", horizrailenabled: false});
+	$("#conf").mouseover(function(){
+		layer.tips('返回数据需包括用户loginId和email信息，请说明返回数据中对应参数名', '#conf', {
+			  tips: [1, '#77DDFF'],
+			  time: 4000
+			});
+	});
+	
+	$("#upconf").mouseover(function(){
+		layer.tips('返回数据需包括用户loginId和email信息，请说明返回数据中对应参数名', '#upconf', {
+			  tips: [1, '#77DDFF'],
+			  time: 4000
+			});
+	});
 });
 
 
@@ -138,20 +151,24 @@ function addGetUserUrl(){
         content: $("#addgetuserurl"),
         btn: ['确定','取消'],
         btn1: function(index, layero){//确定按钮回调
-        	console.log(form.serializeJson(formObj));
-        	//if(form.isValidator(formObj)){
+        	var data = form.serializeJson(formObj);
+        	var datall = new Object();
+        	datall=data;
+        	datall.dataformat = '{\'loginId\':\''+$("#loginId-data").val()+'\',\'email\':\''+$("#email-data").val()+'\'}'; 
+        	console.log(datall.dataformat);
+        	if(form.isValidator(formObj)){
         		$.ajax({
     				"url":webpath+"/getUserUrl/insert",
     				"type":"POST",
     				dataType:"json",
-    				data:form.serializeJson(formObj),
+    				data:datall,
     				success:function(data){
     					layer.close(index);
     					reloadTableData(true);
     					$("#dataformat").hide();
     				}
     			});
-        	//}
+        	}
 	    },
 	    btn2: function(index, layero){//确定按钮回调
 	    	$("#dataformat").hide();
@@ -203,6 +220,10 @@ function updateGetUserUrl(id){
 				}
 			});
 			
+			var obj = jQuery.parseJSON($("#updataformat").val().replace(/'/g, '"'));
+			$("#uploginId-data").val(obj.loginId);
+			$("#upemail-data").val(obj.email);
+			
 			layer.open({
 				type: 1,
 		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改用户接口配置',
@@ -210,26 +231,29 @@ function updateGetUserUrl(id){
 		        content: $("#updategetuserurl"),
 		        btn: ['确定','取消'],
 		        btn1: function(index, layero){//确定按钮回调
-		        	
-		        	
-		        	//if(form.isValidator(formObj)){
+		        	var data = form.serializeJson(formObj);
+		        	var datall = new Object();
+		        	datall=data;
+		        	datall.dataformat = '{\'loginId\':\''+$("#uploginId-data").val()+'\',\'email\':\''+$("#upemail-data").val()+'\'}';
+					console.log(datall);
+		        	if(form.isValidator(formObj)){
 		        		$.ajax({
 		    				"url":webpath+"/getUserUrl/update",
 		    				"type":"POST",
 		    				dataType:"json",
-		    				data:form.serializeJson(formObj),
+		    				data:datall,
 		    				success:function(data){
 		    					layer.close(index);
 		    					reloadTableData(true);
 		    				}
 		    			});
-		        	//}
+		        	}
 			    },
 			    btn2: function(index, layero){//确定按钮回调
 		        	layer.close(index);
 			    }
 		    });
-		   }
+		}
     });
 }
 //删除环境
