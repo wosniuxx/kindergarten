@@ -30,6 +30,14 @@ body {
 	height:26px;
 	border: 1px solid #ccc;
 }
+.conf{
+	margin-top: -37px;
+    margin-left: -86px;
+}
+.dataformat{
+	margin-top: 10px;
+    margin-left: 29px;
+}
 </style>
 </head>
 <body>
@@ -111,10 +119,14 @@ body {
 								<option value="其他">其他</option>
 							</select>							
 						</div>
-						<div class="form-group" style="display:none" id="dataformat">
-							<label for="name">数据示例：</label>
-							<textarea class="form-control" rows="3" style="margin-top:10px" data-rule="required;length(4~32);filter;" name="dataformat"
-							placeholder="说明数据类型，如{'loginId':'111','email':'aa@.com'}"></textarea>
+						<div class="form-group dataformat" style="display:none" id="dataformat">
+							<label for="name">数据示例：</label><br/>
+							<input type="hidden" name="dataformat" id="dataformat"/>
+							loginId:<input type="text" style="width: 100px;border: 1px solid #ccc;" id="loginId-data"/><br/>
+							email&nbsp;&nbsp;:<input type="text" style="margin-top: 5px;width: 100px;border: 1px solid #ccc;" id="email-data"/>
+							<!-- <textarea class="form-control" rows="3" style="margin-top:10px" data-rule="required;length(4~32);filter;" name="dataformat"
+							placeholder="建议数据类型格式，{'loginId':'111','email':'aa@.com'} -loginid"></textarea> -->
+							<image src="<%=webpath %>/resources/img/sso/conf.png" class="conf" id="conf">
 						</div>
 					</td>
 				</tr>
@@ -186,10 +198,14 @@ body {
 				</tr>
 				<tr>
 					<td>
-						<div class="form-group">
-							<label for="">数据示例:</label>
-							<textarea class="form-control" rows="3" style="margin-top:10px" name="dataformat"
-							placeholder="说明数据类型，如{'loginId':'111','email':'aa@.com'}"></textarea>
+						<div class="form-group dataformat" id="dataformat">
+							<label for="name">数据示例：</label><br/>
+							<input type="hidden" name="dataformat" id="updataformat"/>
+							loginId:<input type="text" style="width: 100px;border: 1px solid #ccc;" id="uploginId-data"/><br/>
+							email&nbsp;&nbsp;:<input type="text" style="margin-top: 5px;width: 100px;border: 1px solid #ccc;" id="upemail-data"/>
+							<!-- <textarea class="form-control" rows="3" style="margin-top:10px" data-rule="required;length(4~32);filter;" name="dataformat"
+							placeholder="建议数据类型格式，{'loginId':'111','email':'aa@.com'} -loginid"></textarea> -->
+							<image src="<%=webpath %>/resources/img/sso/conf.png" class="conf" id="conf">
 						</div>
 					</td>
 				</tr>
