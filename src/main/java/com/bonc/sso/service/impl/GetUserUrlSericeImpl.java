@@ -38,6 +38,9 @@ public class GetUserUrlSericeImpl implements GetUserUrlService{
 
 	@Override
 	public int insert(GetUserUrl getUserUrl) {
+	    if(getUserUrl.getIsToken().equals("1")&&!getUserUrl.equals("?token=")){
+	        getUserUrl.setGetUserUrl(getUserUrl.getGetUserUrl()+"?token=");
+	    }
 		return daoHelper.insert("com.bonc.frame.web.mapper.getUserUrl.GetUserUrlMapper.insertGetUserUrl", getUserUrl);
 	}
 
