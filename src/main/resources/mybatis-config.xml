@@ -56,6 +56,7 @@
 		<mapper resource="mapper/form/FormMapper.xml" />
 		<mapper resource="mapper/form/UdFieldMapper.xml" />
 		<mapper resource="mapper/urlExplain/UrlExplainMapper.xml" />
+		<mapper resource="mapper/urlExplain/UrlModelMapper.xml" />
 		<mapper resource="mapper/env/EnvMapper.xml" />
 		<mapper resource="mapper/getUserUrl/GetUserUrlMapper.xml" />
 		<mapper resource="mapper/targetUrl/TargetUrlMapper.xml" />
