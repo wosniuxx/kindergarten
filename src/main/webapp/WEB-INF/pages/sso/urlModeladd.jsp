@@ -127,14 +127,13 @@
 	
 	<div class="dialog-wrap" id="showurl" style="margin-top: 57px;
     font-family: inherit;
-    font-size: 18px;width:700px">
+    font-size: 18px;width:600px">
 		测试接口地址：</br>
-		<input type="text" style="width: 2000px;border:none;
-    margin-bottom: 15px;
-    margin-top: 15px;" id="precontent"></br>
+		<textarea style="width: 600px;border:none;margin-bottom: 15px;
+    margin-top: 15px; resize : none;"  id="precontent"></textarea></br>
 		正式接口地址：</br>
-		<input type="text" style="width: 2000px;border:none;
-    margin-top: 15px;" id="procontent"></br>
+		<textarea style="width: 600px;border:none; margin-top: 15px; 
+		resize : none;" id="procontent"></textarea></br>
 	</div>
 	
 	
