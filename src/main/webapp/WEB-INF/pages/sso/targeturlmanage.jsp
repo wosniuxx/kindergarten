@@ -63,7 +63,6 @@ body {
 							<tr>
 								<th>目标地址名称</th>
 								<th>目标地址路径</th>
-								<th>环境名称</th>
 								<th>环境状态</th>
 								<th>产品名称</th>
 								<th>操作</th>
@@ -96,14 +95,6 @@ body {
 							<label for="targetUrl">目标地址路径:</label> <input type="text"
 								class="form-control input-sm" name="targetUrl" placeholder="请输入服务地址"
 								data-rule="required;length(4~32);filter;" />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
-							<label for="envname">环境名称:</label>
-							<select class="selected" name="envname" id="selectenvname"></select>
 						</div>
 					</td>
 				</tr>
@@ -166,14 +157,6 @@ body {
 							<label for="targetUrl">目标地址路径:</label> <input type="text"
 								class="form-control input-sm" name="targetUrl" placeholder="请输入服务地址"
 								data-rule="required;length(4~32);filter;" />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
-							<label for="envname">环境名称:</label>
-							<select class="selected" name="envname" id="selectedenvname"></select>
 						</div>
 					</td>
 				</tr>

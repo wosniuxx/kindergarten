@@ -16,10 +16,6 @@ public class TargetUrl {
 	 */
 	private String targetUrl;
 	/**
-	 * 目标环境名称
-	 */
-	private String envname;
-	/**
 	 * 目标状态
 	 */
 	private String state;
@@ -46,12 +42,6 @@ public class TargetUrl {
 	}
 	public void setTargetUrl(String targetUrl) {
 		this.targetUrl = targetUrl;
-	}
-	public String getEnvname() {
-		return envname;
-	}
-	public void setEnvname(String envname) {
-		this.envname = envname;
 	}
 	public String getState() {
 		return state;

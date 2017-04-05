@@ -32,7 +32,6 @@ public class TargetUrlController {
 	@ResponseBody
 	@RequestMapping("/selectPage")
 	public Map selectPage(String start, String length, String jsonStr) {
-		System.out.println(start+"   "+length+"   "+jsonStr);
 		Map<String, Object> paramMap = JsonUtils.stringToCollect(jsonStr);
 		return targetUrlService.selectAll(start, length, paramMap);
 	}

@@ -21,7 +21,6 @@ function initTargetUrlTable(){
 		"columns":[
 		            { "data": "name" },
 		            { "data": "targetUrl" },
-		            { "data": "envname" },
 		            { "data": "state" },
 		            { "data": "productname" },
 		 ],
@@ -54,7 +53,7 @@ function initTargetUrlTable(){
 		},{
 			"targets" : 1,//获取地址url
 			"data" : null,
-			"width" : '15%',
+			"width" : '20%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -65,22 +64,9 @@ function initTargetUrlTable(){
 			      return html;
 			   }
 		},{
-			"targets" : 2,//获取环境名称
+			"targets" : 2,//环境状态
 			"data" : null,
-			"width" : '15%',
-			"render" : function(data, type,row) {
-				  var html = '';
-				  if(data==null||data==""){
-					  html += '暂无用户数据类型';
-				  }else{
-					  html += data;
-				  }
-			      return html;
-			   }
-		},{
-			"targets" : 3,//环境状态
-			"data" : null,
-			"width" : '15%',
+			"width" : '20%',
 			"render" : function(data, type,row) {
 				var html = '';
 				if(data=="1"){
@@ -91,9 +77,9 @@ function initTargetUrlTable(){
 				return html;
 			}
 		},{
-			"targets" : 4,//productname
+			"targets" : 3,//productname
 			"data" : null,
-			"width" : '15%',
+			"width" : '20%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -104,9 +90,9 @@ function initTargetUrlTable(){
 			      return html;
 			   }
 		},{
-			  "targets" : 5,//操作按钮目标列
+			  "targets" : 4,//操作按钮目标列
 			  "data" : null,
-			  "width" : '15%',
+			  "width" : '20%',
 			  "render" : function(data, type,row) {
 				  var id = row.id;
 				  var html =  '<a href="javascript:void(0);" onclick="updateTargetUrl(\''+id+'\')" class="icon-wrap" title="编辑"><i class="iconfont i-btn">&#xe628;</i></a>';
@@ -141,16 +127,10 @@ function addTargetUrl(){
 		"type":"POST",
 		dataType:"json",
 		success:function(data){
-			$("#selectenvname").empty();
-			for(var i=0;i<data.length;i++){
-				$("#selectenvname").append("<option value='"+data[i].envname+
-						  "'>"+data[i].envname+
-						  "</option>");
-			}
 	layer.open({
 		type: 1,
         title:'<i class="iconfont">&#xe641;</i>&nbsp;新增目标地址配置',
-        area: ['300px', '400px'],
+        area: ['300px', '300px'],
         content: $("#addtargeturl"),
         btn: ['确定','取消'],
         btn1: function(index, layero){//确定按钮回调
@@ -182,60 +162,47 @@ function updateTargetUrl(id){
 		"type":"POST",
 		dataType:"json",
 		success:function(envdata){
-			$("#selectenvname").empty();
-			for(var i=0;i<envdata.length;i++){
-				console.log(envdata[i].envname);
-				$("#selectedenvname").append("<option value='"+envdata[i].envname+
-						  "'>"+envdata[i].envname+
-						  "</option>");
-			}
-		
-	
-	
-	$.ajax({
-		"url":webpath+"/targetUrl/getTargetUrlById",
-		"type":"POST",
-		dataType:"json",
-		data:{
-			id:id
-		},
-		success:function(data){
-			
-			
-			var formObj = $("#updateTargetUrlForm");
-			form.clear(formObj);
-			form.cleanValidator(formObj);
-			form.load(formObj,data);
-			
-			layer.open({
-				type: 1,
-		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改目标地址配置',
-		        area: ['300px', '350px'],
-		        content: $("#updatetargeturl"),
-		        btn: ['确定','取消'],
-		        btn1: function(index, layero){//确定按钮回调
-		        	//if(form.isValidator(formObj)){
-		        		$.ajax({
-		    				"url":webpath+"/targetUrl/update",
-		    				"type":"POST",
-		    				dataType:"json",
-		    				data:form.serializeJson(formObj),
-		    				success:function(data){
-		    					layer.close(index);
-		    					reloadTableData(true);
-		    				}
-		    			});
-		        	//}
-			    },
-			    btn2: function(index, layero){//确定按钮回调
-		        	layer.close(index);
-			    }
-		    });
-		   }
-    });
+				$.ajax({
+						"url":webpath+"/targetUrl/getTargetUrlById",
+						"type":"POST",
+						dataType:"json",
+						data:{
+							id:id
+						},
+						success:function(data){
+							var formObj = $("#updateTargetUrlForm");
+							form.clear(formObj);
+							form.cleanValidator(formObj);
+							form.load(formObj,data);
+							layer.open({
+								type: 1,
+								title:'<i class="iconfont">&#xe633;</i>&nbsp;修改目标地址配置',
+								area: ['300px', '350px'],
+								content: $("#updatetargeturl"),
+								btn: ['确定','取消'],
+								btn1: function(index, layero){//确定按钮回调
+									//if(form.isValidator(formObj)){
+									$.ajax({
+										"url":webpath+"/targetUrl/update",
+										"type":"POST",
+										dataType:"json",
+										data:form.serializeJson(formObj),
+										success:function(data){
+											layer.close(index);
+											reloadTableData(true);
+										}
+									});
+									//}
+								},
+								btn2: function(index, layero){//确定按钮回调
+									layer.close(index);
+								}
+							});
+						}
+				});
 		}
-	});
-}
+		});
+	}
 //删除环境
 function deleteTargetUrl(id){
 	layer.confirm('删除该环境？（删除后不可恢复）', {
