@@ -18,6 +18,7 @@ import com.bonc.sso.service.EnvService;
 import com.bonc.sso.service.GetUserUrlService;
 import com.bonc.sso.service.TargetUrlService;
 import com.bonc.sso.service.UrlModelService;
+import com.bonc.sso.util.SsoConfig;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 
@@ -51,7 +52,20 @@ public class UrlModelServiceImpl implements UrlModelService {
 				turl = targeturl.getTargetUrl();
 				proname = targeturl.getProductname();
 			}
-			urlModel.setFinalUrl("aaaaa");
+			if(null != turl){
+			    String prefinalUrl = SsoConfig.getConfigValue(SsoConfig.PREENVUTL)+proname+
+                    urlModel.getSign()+"/"+"?return="+turl;
+			    
+			    String profinalUrl = SsoConfig.getConfigValue(SsoConfig.PROENVUTL)+proname+
+			        urlModel.getSign()+"/"+"?return="+turl;
+			    if(getUserUrlService.selectByGetUserUrlName(urlModel.getGetUserUrl()).getIsToken().equals("1")){
+			        prefinalUrl = prefinalUrl + "&token=";
+			        profinalUrl = profinalUrl + "&token=";
+                }
+			    urlModel.setPrefinalUrl(prefinalUrl);
+			    urlModel.setProfinalUrl(profinalUrl);
+			}
+			
 		}
 		map.put("data", pageinfo.getList());
 		return map;
@@ -61,6 +75,8 @@ public class UrlModelServiceImpl implements UrlModelService {
 	public void insert(UrlModel urlModel) {
 	    urlModel.setId(IdUtil.createId());
 	    urlModel.setCreateDate(new Date());
+	    //添加的时候默认为停用
+	    urlModel.setStatus("0");
 		if(urlModel.getSign().indexOf("/")<0){
 		    urlModel.setSign("/"+urlModel.getSign());
 		}

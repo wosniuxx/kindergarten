@@ -31,50 +31,52 @@ function getUrl(){
 	var istoken = $("#geturl").val();
 	getTargetUrlPro(proname);
 	
-	precontent = "http://clyxys.yz.local:8080/"+proresult+sign+"?return="+targeturl;
-	procontent = "http://10.245.2.222/"+proresult+sign+"?return="+targeturl;
+	precontent = "http://clyxys.yz.local:8080/"+proresult+"/"+sign+"?return="+targeturl;
+	procontent = "http://10.245.2.222/"+proresult+"/"+sign+"?return="+targeturl;
 	
 	$("#precontent").val(precontent);
 	$("#procontent").val(procontent);
-	layer.open({
-		type: 1,
-		skin: 'demo-class', //样式类名
-		anim: 5,
-		shadeClose: true, //开启遮罩关闭
-		area: ['700px', '400px'],
-		offset: ['60px', '400px'],
-		title: '接口预览',
-		content: $("#showurl"),
-		btn: ['生成','取消'],
-		btn1: function(index, layero){//确定按钮回调
-			var formObj = $("#urlmodelAddForm");
-			form.cleanValidator(formObj);
-			var introduce = $("#introduce").val();
-			var getUserUrlName = $("#geturl option:selected").attr("ogname");
-			var targetUrlName = $("#targeturl option:selected").text();
-			var data = form.serializeJson(formObj);
-			var datall = new Object();
-			datall=data;
-			datall.targetUrl=targetUrlName;
-			datall.getUserUrl=getUserUrlName;
-			
-			if(form.isValidator(formObj)){
-				$.ajax({
-					"url":url,
-					"type":"POST",
-					dataType:"json",
-					data: datall,
-					success:function(){
-						location.href = webpath+'/urlModel/index';
-					}
-				});
-			}
-	    },
-	    btn2: function(index, layero){//确定按钮回调
-        	layer.close(index);
-	    }
-		});     
-		  
+	var formObj = $("#urlmodelAddForm");
+	if(form.isValidator(formObj)){
+		layer.open({
+			type: 1,
+			skin: 'demo-class', //样式类名
+			anim: 5,
+			shadeClose: true, //开启遮罩关闭
+			area: ['600px', '300px'],
+			offset: ['60px', '400px'],
+			title: '接口预览',
+			content: $("#showurl"),
+			btn: ['生成','取消'],
+			btn1: function(index, layero){//确定按钮回调
+				var formObj = $("#urlmodelAddForm");
+				form.cleanValidator(formObj);
+				var introduce = $("#introduce").val();
+				var getUserUrlName = $("#geturl option:selected").attr("ogname");
+				var targetUrlName = $("#targeturl option:selected").text();
+				var data = form.serializeJson(formObj);
+				var datall = new Object();
+				datall=data;
+				datall.targetUrl=targetUrlName;
+				datall.getUserUrl=getUserUrlName;
+				
+				if(form.isValidator(formObj)){
+					$.ajax({
+						"url":url,
+						"type":"POST",
+						dataType:"json",
+						data: datall,
+						success:function(){
+							location.href = webpath+'/urlModel/index';
+						}
+					});
+				}
+		    },
+		    btn2: function(index, layero){//确定按钮回调
+	        	layer.close(index);
+		    }
+			}); 
+	}
 	}
 
 function getTargetUrlPro(proname){

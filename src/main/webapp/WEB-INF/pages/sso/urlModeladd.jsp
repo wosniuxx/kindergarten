@@ -71,8 +71,11 @@
 		}
 		.form-sm{
 			margin-left:50px;
+			display: inline-block;
 		}
+		
 		body .demo-class .layui-layer-title{background:#FF8888; color:#fff; border: none;}
+		body .demo-class .layui-layer-btn .layui-layer-btn1{background:#FF8888;}
 	</style>
 </head> 
 <body>
@@ -125,15 +128,15 @@
 	     </div>
 	</div>
 	
-	<div class="dialog-wrap" id="showurl" style="margin-top: 57px;
+	<div class="dialog-wrap" id="showurl" style="margin-top: 6px;
     font-family: inherit;
-    font-size: 18px;width:600px">
+    font-size: 17px;width:600px">
 		测试接口地址：</br>
-		<textarea style="width: 600px;border:none;margin-bottom: 15px;
-    margin-top: 15px; resize : none;"  id="precontent"></textarea></br>
+		<textarea style="width: 574px;border:none;margin-bottom: 15px;
+    margin-top: 15px; resize : none;"  id="precontent" readonly="readonly"></textarea></br>
 		正式接口地址：</br>
-		<textarea style="width: 600px;border:none; margin-top: 15px; 
-		resize : none;" id="procontent"></textarea></br>
+		<textarea style="width: 574px;border:none; margin-top: 15px; 
+		resize : none;" id="procontent" readonly="readonly"></textarea></br>
 	</div>
 	
 	

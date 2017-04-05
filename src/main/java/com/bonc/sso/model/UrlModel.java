@@ -31,9 +31,13 @@ public class UrlModel {
      */
     private String status;
     /**
-     * 最后的拼接url
+     * 测试环境的拼接url
      */
-    private String finalUrl;
+    private String prefinalUrl;
+    /**
+     * 正式环境的拼接url
+     */
+    private String profinalUrl;
     /**
      * 创建时间
      */
@@ -62,12 +66,6 @@ public class UrlModel {
     public void setTargetUrl(String targetUrl) {
         this.targetUrl = targetUrl;
     }
-    public String getFinalUrl() {
-        return finalUrl;
-    }
-    public void setFinalUrl(String finalUrl) {
-        this.finalUrl = finalUrl;
-    }
     public String getSign() {
         return sign;
     }
@@ -86,5 +84,18 @@ public class UrlModel {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+    public String getPrefinalUrl() {
+        return prefinalUrl;
+    }
+    public void setPrefinalUrl(String prefinalUrl) {
+        this.prefinalUrl = prefinalUrl;
+    }
+    public String getProfinalUrl() {
+        return profinalUrl;
+    }
+    public void setProfinalUrl(String profinalUrl) {
+        this.profinalUrl = profinalUrl;
+    }
+    
     
 }

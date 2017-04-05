@@ -128,7 +128,7 @@ var form = {
 		},
 		serializeJson:function(form){//将form表单序列化成jsonObject格式
 			var str = this.serializeStr(form);
-			return JSON.parse(str)
+			return JSON.parse(str);
 		},
 		serializeStr:function(form){//将form表单序列化成jsonStr格式
 	    	var formInfo = jQueryExt.serialize(form);

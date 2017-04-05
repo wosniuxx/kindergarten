@@ -21,7 +21,8 @@ function initurlexplainTable(){
 	$("#urlexplainTable").width("100%").dataTable({
 		"columns":[
 		           { "data": "introduce" },
-		           { "data": "finalUrl" },
+		           { "data": "prefinalUrl" },
+		           { "data": "profinalUrl" },
 		            { "data": "status" }
 		 ],
 		 ajax: {
@@ -44,8 +45,9 @@ function initurlexplainTable(){
 			"targets" : 0,
 			"data" : null,
 			"render" : function(data, type,row) {
-				var finalUrl = row.finalUrl;
-				var html =  '<a href="javascript:void(0);" onclick="selectfinalurl(\''+finalUrl+'\')">'+data+'</a>';
+				var prefinalUrl = row.prefinalUrl;
+				var profinalUrl = row.profinalUrl;
+				var html =  '<a href="javascript:void(0);" onclick="selectfinalurl(\''+prefinalUrl+'\',\''+profinalUrl+'\')">'+data+'</a>';
 				return html;
 			}
 		},
@@ -57,18 +59,25 @@ function initurlexplainTable(){
 		{
 			"targets" : 2,//操作按钮目标列
 			"data" : null,
+			"visible": false,
+		},
+		{
+			"targets" : 3,//操作按钮目标列
+			"data" : null,
 			"render" : function(data, type,row) {
+				  var id = row.id;
+				  var status = data;
 				  var html = '';
 				  if(data=="1"){
-					  html += '<span style="color:green;">启用</span>';
+					  html += '<a href="javascript:void(0);" onclick="updateUrlStatus(\''+id+'\',\''+status+'\')"><span style="color:green;">启用</span></a>';
 				  }else{
-					  html += '<span style="color:red;">停用</span>';
+					  html += '<a href="javascript:void(0);" onclick="updateUrlStatus(\''+id+'\',\''+status+'\')"><span style="color:red;">停用</span></a>';
 				  }
 			      return html;
 			   }
 		},
 		{
-			  "targets" : 3,//操作按钮目标列
+			  "targets" : 4,//操作按钮目标列
 			  "data" : null,
 			  "render" : function(data, type,row) {
 				  var id = row.id;
@@ -128,7 +137,7 @@ function updateUrl(id){
 }
 //删除角色
 function deleteUrl(id){
-	layer.confirm('删除该角色？（删除后不可恢复）', {
+	layer.confirm('删除该链接？（删除后不可恢复）', {
         icon: 3,
         btn: ['是','否'] //按钮
   	  }, function(index, layero){
@@ -147,17 +156,40 @@ function deleteUrl(id){
   	  });
 }
 
-function selectfinalurl(finalUrl){
+function selectfinalurl(prefinalUrl,profinalUrl){
+	console.log(prefinalUrl);
+	$("#precontent").val(prefinalUrl);
+	$("#procontent").val(profinalUrl);
 	layer.open({
 	  type: 1,
 	  title:"接口预览",
 	  skin: 'layui-layer-lan', //样式类名
-	  area: ['400px', '150px'],
+	  area: ['500px', '220px'],
 	  closeBtn: 0, //不显示关闭按钮
 	  anim:2,
 	  shadeClose: true, //开启遮罩关闭
-	  content: '<div style="margin-top:25px;font-family:Arial,Verdana,Sans-serif;font-size:14px">'+finalUrl+'<div>'
+	  content: $("#showurl")
 	});
+}
+
+function updateUrlStatus(id,status){
+	if(status==0){
+		status = 1;
+	}else if(status==1){
+		status = 0;
+	}
+	$.ajax({
+		"url":webpath+"/urlModel/update",
+		"type":"POST",
+		dataType:"json",
+		data:{
+           id:id,
+           status:status
+		},
+		success:function(data){
+			reloadTableData(true);
+		}
+	})
 }
 
 

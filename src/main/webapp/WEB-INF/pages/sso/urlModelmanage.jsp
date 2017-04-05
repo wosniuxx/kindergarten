@@ -55,6 +55,7 @@
 						data-toggle="tooltip" data-placement="right" title="点击接口名称可直接预览生成的URL">
                 						</th>
                 						<th style="display:none">接口</th>
+                						<th style="display:none">接口</th>
                							<th>状态</th>
                 						<th>操作</th>
             						</tr>
@@ -63,6 +64,15 @@
   					</div>
 			 </div>
 	     </div>
+	</div>
+	
+	<div style="margin-top:25px;font-family:Arial,Verdana,Sans-serif;font-size:14px;display:none" id="showurl">
+		测试接口地址：</br>
+		<textarea style="width: 500px;border:none;margin-bottom: 15px;
+    margin-top: 15px; resize : none;"  id="precontent" readonly="readonly"></textarea></br>
+		正式接口地址：</br>
+		<textarea style="width: 500px;border:none; margin-top: 15px; 
+		resize : none;" id="procontent" readonly="readonly"></textarea></br>
 	</div>
 	
 	<%@ include file="../common-js.jsp"%>
