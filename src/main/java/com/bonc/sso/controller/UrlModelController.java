@@ -27,6 +27,8 @@ public class UrlModelController {
 	@Autowired
 	private UrlModelService urlModelService;
 	@Autowired
+	private EnvService envService;
+	@Autowired
 	private TargetUrlService targetUrlService;
 	@Autowired
 	private GetUserUrlService getUserUrlSerice;
@@ -50,6 +52,16 @@ public class UrlModelController {
 		model.addAttribute("dtstr", "");
 		return "sso/urlModeladd";
 	}
+	
+	@RequestMapping(value = "/tourlexplainyun", method = RequestMethod.GET)
+	public String toUrlExplainYun(Model model) {
+		model.addAttribute("envnames", envService.findAll());
+		model.addAttribute("targeturls", targetUrlService.findAll());
+		model.addAttribute("geturls", getUserUrlSerice.findAll());
+		model.addAttribute("dtstr", "");
+		return "sso/urlModelyunadd";
+	}
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
