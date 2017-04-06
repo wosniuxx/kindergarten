@@ -106,7 +106,8 @@
   									</div>
   									<div class="form-group">
     									<label for="targetUrl">目标地址:</label>
-    									<select id="targeturl" name="targeturl" class="form-control form-sm" value="${urlModel.getUserUrl }">  
+    									<input type="hidden" value="${urlModel.targetUrl }" id="targeturlt">
+    									<select id="targeturl" name="targeturl" class="form-control form-sm">  
                                 			<c:forEach var="t" items="${targeturls}">  
                                 				<option value="${t.targetUrl}" ogname="${t.name}">${t.name}</option>  
                                 			</c:forEach>  
@@ -114,9 +115,10 @@
   									</div>
   									<div class="form-group">
     									<label for="getUserUrl">获得用户地址:</label>
-    									<select id="geturl" name="getUserUrl" class="form-control form-sm" value="${urlModel.getUserUrl }">  
+    									<input type="hidden" value="${urlModel.getUserUrl }" id="getUserUrlt">
+    									<select id="geturl" name="getUserUrl" class="form-control form-sm">  
                                 			<c:forEach var="g" items="${geturls}">  
-                                				<option value="${g.isToken}" ogname="${g.name}">${g.name}</option>  
+                                				<option value="${g.getUserUrl}" ogname="${g.name}">${g.name}</option>  
                                 			</c:forEach>  
                             			</select> 
   									</div>

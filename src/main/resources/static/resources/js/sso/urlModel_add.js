@@ -11,7 +11,19 @@ $(document).ready(function(){
 	$('#urlexplainTable').wrap('<div class="tab-wrapper"></div>');
 	$('.tab-wrapper').css('height', $('#urlexplainTable_wrapper').height()-63);
 	$('.tab-wrapper').niceScroll({ cursorcolor: "#ccc", horizrailenabled: false});
-	
+	if($("#type").val() == "update"){
+		$("#targeturl option").each(function(){
+			if($(this).attr("ogname") == $("#targeturlt").val()){
+				$(this).attr("selected","selected");
+			}
+		})
+		$("#geturl option").each(function(){
+			if($(this).attr("ogname") == $("#getUserUrlt").val()){
+				$(this).attr("selected","selected");
+			}
+		})
+		
+	}
 	
 });
 
