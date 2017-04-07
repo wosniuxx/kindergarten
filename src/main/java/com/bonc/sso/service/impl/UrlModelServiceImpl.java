@@ -54,10 +54,10 @@ public class UrlModelServiceImpl implements UrlModelService {
 			}
 			if(null != turl){
 			    String prefinalUrl = SsoConfig.getConfigValue(SsoConfig.PREENVUTL)+proname+
-                    urlModel.getSign()+"/"+"?return="+turl;
+                    urlModel.getSign()+"?return="+turl;
 			    
 			    String profinalUrl = SsoConfig.getConfigValue(SsoConfig.PROENVUTL)+proname+
-			        urlModel.getSign()+"/"+"?return="+turl;
+			        urlModel.getSign()+"?return="+turl;
 			    if(getUserUrlService.selectByGetUserUrlName(urlModel.getGetUserUrl()).getIsToken().equals("1")){
 			        prefinalUrl = prefinalUrl + "&token=";
 			        profinalUrl = profinalUrl + "&token=";
