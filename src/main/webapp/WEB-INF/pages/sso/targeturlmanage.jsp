@@ -163,13 +163,13 @@ body {
 				<tr>
 	                <td>
 	                    <div class="form-group">
-						  <label for="state">目标状态:</label>
+						  <label for="state">环境状态:</label>
 					      <label>
-						  <input type="radio" value="1" name="state" data-rule="checked(1)">
+						  <input type="radio" value="1" name="state" data-rule="checked(1)" checked />
 						    是
 						  </label>
 						  <label>
-						  <input type="radio" value="0" name="state" >
+						  <input type="radio" value="0" name="state" data-rule="checked(1)" />
 						   否
 						  </label>
 				   		</div>

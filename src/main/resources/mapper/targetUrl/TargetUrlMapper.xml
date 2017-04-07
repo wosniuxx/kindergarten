@@ -33,7 +33,7 @@
 	<select id="findAll" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from SSO_TARGETURL WHERE 1=1
+		from SSO_TARGETURL WHERE 1=1 and state = 1;
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">

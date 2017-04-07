@@ -69,10 +69,12 @@ function initTargetUrlTable(){
 			"width" : '20%',
 			"render" : function(data, type,row) {
 				var html = '';
+				var id = row.id;
+				var state = row.state;
 				if(data=="1"){
-					html += '<span style="color:green;">正常</span>';
+					html += '<a href="#" onclick="updateState(\''+id+'\',\''+state+'\')" style="color:green;">正常</a>';
 				}else{
-					html += '<span style="color:red;">异常</span>';
+					html += '<a href="#" onclick="updateState(\''+id+'\',\''+state+'\')" style="color:red;">异常</a>';
 				}
 				return html;
 			}
@@ -154,6 +156,30 @@ function addTargetUrl(){
 		}
 	});
 }
+
+//单击修改state
+function updateState(id,state){
+	if(state == '1'){
+		state = '0';
+	}else{
+		state = '1';
+	}
+	$.ajax({
+		"url": webpath+"/targetUrl/update",
+		type: "POST",
+		dataType:"json",
+		data:{
+			id:id,
+			state:state,
+		},
+		success:function(data){
+			reloadTableData(true);
+		}
+	});
+}
+
+
+
 
 //修改
 function updateTargetUrl(id){
