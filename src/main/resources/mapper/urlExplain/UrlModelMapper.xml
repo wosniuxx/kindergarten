@@ -120,4 +120,8 @@
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
    
+	<select id="selectmodelsignonly" resultType="java.lang.String">
+		select sign from SSO_URLMODEL where 1=1
+	</select>
+   
 </mapper>

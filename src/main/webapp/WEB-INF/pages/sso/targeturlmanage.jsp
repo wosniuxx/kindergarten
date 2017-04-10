@@ -116,9 +116,11 @@ body {
 	             <tr>
 					<td>
 						<div class="form-group">
-							<label for="productname">产品名称:</label> <input type="text"
-								class="form-control input-sm" name="productname" placeholder="请输入产品名称"
-								data-rule="required;length(4~32);filter;" />
+							<label for="productname">产品名称:</label>
+							<select class="selected" name="productname" id="productname">
+								<option value="北十工作台">北十工作台</option>
+								<option value="存量精准化营销">存量精准化营销</option>
+							</select>
 						</div>
 					</td>
 				</tr>
@@ -178,9 +180,11 @@ body {
 	             <tr>
 					<td>
 						<div class="form-group">
-							<label for="productname">产品名称:</label> <input type="text"
-								class="form-control input-sm" name="productname" placeholder="请输入产品名称"
-								data-rule="required;length(4~32);filter;" />
+							<label for="productname">产品名称:</label>
+							<select class="selected" name="productname" id="productname">
+								<option value="北十工作台">北十工作台</option>
+								<option value="存量精准化营销">存量精准化营销</option>
+							</select>
 						</div>
 					</td>
 				</tr>

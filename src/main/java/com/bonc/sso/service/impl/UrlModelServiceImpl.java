@@ -101,7 +101,7 @@ public class UrlModelServiceImpl implements UrlModelService {
 	@Override
 	public List<String> selectsign() {
 		List<String> selectSignList = new ArrayList<String>(); 
-		selectSignList = daoHelper.queryForList("com.bonc.frame.web.mapper.urlModel.UrlModelMapper.selectsignonly");
+		selectSignList = daoHelper.queryForList("com.bonc.frame.web.mapper.urlModel.UrlModelMapper.selectmodelsignonly");
 		return selectSignList;
 	}
 	

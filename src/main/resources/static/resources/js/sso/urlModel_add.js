@@ -43,52 +43,80 @@ function getUrl(){
 	var istoken = $("#geturl").val();
 	getTargetUrlPro(proname);
 	
-	precontent = "http://clyxys.yz.local:8080/"+proresult+"/"+sign+"?return="+targeturl;
-	procontent = "http://10.245.2.222/"+proresult+"/"+sign+"?return="+targeturl;
-	
-	$("#precontent").val(precontent);
-	$("#procontent").val(procontent);
-	var formObj = $("#urlmodelAddForm");
-	if(form.isValidator(formObj)){
-		layer.open({
-			type: 1,
-			skin: 'demo-class', //样式类名
-			anim: 5,
-			shadeClose: true, //开启遮罩关闭
-			area: ['600px', '300px'],
-			offset: ['60px', '400px'],
-			title: '接口预览',
-			content: $("#showurl"),
-			btn: ['生成','取消'],
-			btn1: function(index, layero){//确定按钮回调
-				var formObj = $("#urlmodelAddForm");
-				form.cleanValidator(formObj);
-				var introduce = $("#introduce").val();
-				var getUserUrlName = $("#geturl option:selected").attr("ogname");
-				var targetUrlName = $("#targeturl option:selected").text();
-				var data = form.serializeJson(formObj);
-				var datall = new Object();
-				datall=data;
-				datall.targetUrl=targetUrlName;
-				datall.getUserUrl=getUserUrlName;
+	$.ajax({
+		"url":webpath+"/urlModel/selectsign",
+		"type":"POST",
+	    data:{
+	    	sign:sign
+	    },
+		success:function(data){
+			if (data == '1') {
+				console.log(data);
+				layer.open({
+					type: 1,
+			        title:'提示信息',
+			        area: ['300px', '150px'],
+			        content: '<div align="center"><span style="font-size:17px;"><p>&nbsp;</p>该标识已存在，请重新输入</span></div>',
+			        skin: 'demo-class',
+			        btn: ['知道了'],
+			        btn1: function(index){
+			        	layer.close(index);
+			        	location.reload();
+			        },
+			        offset: '100px'
+				});
+			}else{
+				precontent = "http://clyxys.yz.local:8080/"+proresult+"/"+sign+"?return="+targeturl;
+				procontent = "http://10.245.2.222/"+proresult+"/"+sign+"?return="+targeturl;
 				
+				$("#precontent").val(precontent);
+				$("#procontent").val(procontent);
+				var formObj = $("#urlmodelAddForm");
 				if(form.isValidator(formObj)){
-					$.ajax({
-						"url":url,
-						"type":"POST",
-						dataType:"json",
-						data: datall,
-						success:function(){
-							location.href = webpath+'/urlModel/index';
-						}
-					});
+					layer.open({
+						type: 1,
+						skin: 'demo-class', //样式类名
+						anim: 5,
+						shadeClose: true, //开启遮罩关闭
+						area: ['600px', '300px'],
+						offset: ['60px', '400px'],
+						title: '接口预览',
+						content: $("#showurl"),
+						btn: ['生成','取消'],
+						btn1: function(index, layero){//确定按钮回调
+							var formObj = $("#urlmodelAddForm");
+							form.cleanValidator(formObj);
+							var introduce = $("#introduce").val();
+							var getUserUrlName = $("#geturl option:selected").attr("ogname");
+							var targetUrlName = $("#targeturl option:selected").text();
+							var data = form.serializeJson(formObj);
+							var datall = new Object();
+							datall=data;
+							datall.targetUrl=targetUrlName;
+							datall.getUserUrl=getUserUrlName;
+							
+							if(form.isValidator(formObj)){
+								$.ajax({
+									"url":url,
+									"type":"POST",
+									dataType:"json",
+									data: datall,
+									success:function(){
+										location.href = webpath+'/urlModel/index';
+									}
+								});
+							}
+					    },
+					    btn2: function(index, layero){//确定按钮回调
+				        	layer.close(index);
+					    }
+						}); 
 				}
-		    },
-		    btn2: function(index, layero){//确定按钮回调
-	        	layer.close(index);
-		    }
-			}); 
-	}
+			}
+		}
+	});
+	
+
 	}
 
 function getTargetUrlPro(proname){

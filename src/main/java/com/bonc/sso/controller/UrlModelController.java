@@ -105,16 +105,19 @@ public class UrlModelController {
 	@ResponseBody
 	@RequestMapping(value="/selectsign", method = RequestMethod.POST)
 	public String selectSign(@RequestParam("sign") String sign){
-		System.out.println(sign);
+		String signs = "/" + sign;
+		String d = "-1";
 		List<String> selectSignList = urlModelService.selectsign();
-		//String str = JSON.toJSON(selectSignList).toString();
-		boolean boo = selectSignList.contains(sign);
-		String d;
-		if(boo==true){
-			d = "1";
+		if(!"/jcCheckLogin".equals(signs)){
+			boolean boo = selectSignList.contains(signs);
+			if(boo==true){
+				d = "1";
+				return d;
+			}else{
+				return d;
+			}
 		}else{
-			d = "-1";
+			return d;
 		}
-		return d;
 	}
 }
