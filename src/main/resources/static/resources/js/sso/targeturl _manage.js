@@ -125,10 +125,18 @@ function addTargetUrl(){
 //	form.cleanValidator(formObj);
 	
 	$.ajax({
-		"url":webpath+"/Env/findAll",
-		"type":"POST",
+		"url":webpath+"/targetUrl/getProname",
+		"type":"GET",
 		dataType:"json",
 		success:function(data){
+			$("#productname").empty();
+			for (var prop in data) {
+				if (data.hasOwnProperty(prop)) {
+					$("#productname").append("<option value='"+prop+
+							  "'>"+data[prop]+
+							  "</option>");
+				}
+			}
 	layer.open({
 		type: 1,
         title:'<i class="iconfont">&#xe641;</i>&nbsp;新增目标地址配置',
@@ -184,10 +192,18 @@ function updateState(id,state){
 //修改
 function updateTargetUrl(id){
 	$.ajax({
-		"url":webpath+"/Env/findAll",
-		"type":"POST",
+		"url":webpath+"/targetUrl/getProname",
+		"type":"GET",
 		dataType:"json",
-		success:function(envdata){
+		success:function(data){
+			$("#productname").empty();
+			for (var prop in data) {
+				if (data.hasOwnProperty(prop)) {
+					$("#upproductname").append("<option value='"+prop+
+							  "'>"+data[prop]+
+							  "</option>");
+				}
+			}
 				$.ajax({
 						"url":webpath+"/targetUrl/getTargetUrlById",
 						"type":"POST",
@@ -200,6 +216,11 @@ function updateTargetUrl(id){
 							form.clear(formObj);
 							form.cleanValidator(formObj);
 							form.load(formObj,data);
+							$("#productname option").each(function(){
+								if($(this).val() == data.productname){
+									$(this).attr("selected","selected");
+								}
+							})
 							layer.open({
 								type: 1,
 								title:'<i class="iconfont">&#xe633;</i>&nbsp;修改目标地址配置',
@@ -249,9 +270,6 @@ function deleteTargetUrl(id){
   		   });
   	  });
 }
-
-
-
 
 var resourceTree ={
 		treeObj:null,

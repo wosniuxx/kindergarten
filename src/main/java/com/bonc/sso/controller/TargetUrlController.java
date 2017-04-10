@@ -1,6 +1,8 @@
 package com.bonc.sso.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import com.bonc.frame.util.IdUtil;
 import com.bonc.frame.util.JsonUtils;
 import com.bonc.sso.model.TargetUrl;
 import com.bonc.sso.service.TargetUrlService;
+import com.bonc.sso.util.SsoConfig;
 
 
 
@@ -77,4 +80,25 @@ public class TargetUrlController {
 		map.put("name", name);
 		return JSON.toJSON(targetUrlService.selectByTargetUrlname(map));
 	}
+	
+	@ResponseBody
+    @RequestMapping(value = "/getProname", method = RequestMethod.GET)
+    public Map<String,String> getProname() {
+	    Map<String,String> map = new HashMap<String,String>();
+	    String[] pronames = SsoConfig.getConfigValue(SsoConfig.PRONAME).split(","); 
+	    String[] prochnames = SsoConfig.getConfigValue(SsoConfig.PROCHNAME).split(",");
+	    for(int i=0;i<pronames.length;i++){
+	        map.put(pronames[i], prochnames[i]);
+	    }
+        return map;
+    }
+	
+	/*public static void main(String[] args) {
+	    System.out.println(SsoConfig.getConfigValue(SsoConfig.PROCHNAME));
+	    String s = "epmsso,sso-norten";
+	    String[] ss = s.split(",");
+	    for(int i=0;i<ss.length;i++){
+	        System.out.println(ss[i]);
+	    }
+    }*/
 }

@@ -6,7 +6,9 @@ public class SsoConfig {
 	
     public static final String PREENVUTL = "preEnvurl.url";//测试环境地址
     public static final String PROENVUTL = "proEnvurl.url"; //正式环境地址
-	
+    public static final String PRONAME = "proname"; //产品名称
+    public static final String PROCHNAME = "proChname"; //产品名称
+    
 	private static String FILE = "ssoenv.properties";
 	private static Properties props = new Properties();
 

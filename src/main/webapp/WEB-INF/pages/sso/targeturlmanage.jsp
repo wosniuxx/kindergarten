@@ -181,9 +181,7 @@ body {
 					<td>
 						<div class="form-group">
 							<label for="productname">产品名称:</label>
-							<select class="selected" name="productname" id="productname">
-								<option value="北十工作台">北十工作台</option>
-								<option value="存量精准化营销">存量精准化营销</option>
+							<select class="selected" name="productname" id="upproductname">
 							</select>
 						</div>
 					</td>
