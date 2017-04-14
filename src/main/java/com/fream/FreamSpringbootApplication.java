@@ -3,20 +3,16 @@ package com.fream;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.ErrorPage;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-import com.bonc.frame.security.SpringMVCSecurityInterceptor;
 
 //@EnableFeignClients
 //@EnableDiscoveryClient
@@ -25,18 +21,23 @@ import com.bonc.frame.security.SpringMVCSecurityInterceptor;
 @Configuration
 @ComponentScan(basePackages = "com.bonc")
 @MapperScan("com.bonc.frame.base.dao")
-public class FreamSpringbootApplication extends WebMvcConfigurerAdapter {
-
+public class FreamSpringbootApplication extends SpringBootServletInitializer{
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {  
+        return application.sources(FreamSpringbootApplication.class);  
+    } 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(FreamSpringbootApplication.class, args);
 	}
 	
-	public void addInterceptors(InterceptorRegistry registry) {  
+	/*public void addInterceptors(InterceptorRegistry registry) {  
         registry.addInterceptor(new SpringMVCSecurityInterceptor())
         	.addPathPatterns("/**")  
         	.excludePathPatterns("/login/toLogin","/login/actionLogin","/resources/**");
         super.addInterceptors(registry);
-    } 
+    } */
 	
 	@Bean
 	public EmbeddedServletContainerCustomizer containerCustomizer() {
