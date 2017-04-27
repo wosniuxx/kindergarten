@@ -286,11 +286,23 @@
 		    <artifactId>springfox-swagger2</artifactId>
 		    <version>2.6.1</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.bonc</groupId>
+			<artifactId>bonc-security-base</artifactId>
+			<version>1.0.4-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- lombok 简化java代码注解 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.6</version>
+		</dependency>
 
 	</dependencies>
 
 	<build>
-	<finalName>xIntegration</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -2,7 +2,9 @@ package com.bonc.frame.security.authication.provider;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,6 +30,7 @@ import com.bonc.frame.web.exception.LoginException;
 import com.bonc.frame.web.exception.LoginException.ExceptionType;
 import com.bonc.frame.web.service.resources.ResourceService;
 import com.bonc.frame.web.service.user.UserService;
+import com.bonc.security.client.SecurityRestClient;
 
 /**
  * @author 作者: 吕一凡 
@@ -58,8 +61,12 @@ public class NormalAuthicationProvider implements IAuthication{
 	
 	//校验用户名密码是否正确，返回userId 不是loginId
 	@Override
-	public String authCheck(HttpServletRequest request) throws LoginException {
+	public Map<String, String> authCheck(HttpServletRequest request) throws LoginException {
+		Map<String,String> map = new HashMap<String,String>();
+	    SecurityRestClient restClient = new SecurityRestClient();
+		//String loginId = request.getParameter("loginId");
 		String loginId = request.getParameter("loginId");
+		System.out.println("-----------------"+loginId);
 		if("".equals(loginId)){
 			throw new LoginException(ExceptionType.isEmpty);
 		}
@@ -71,7 +78,9 @@ public class NormalAuthicationProvider implements IAuthication{
 		}else if(LOCK.equals(user.getState())){
 			throw new LoginException(ExceptionType.isLocked);
 		}
-		return user.getUserId();
+		map.put("userId", user.getUserId());
+		map.put("loginId", user.getLoginId());
+		return map;
 	}
 	
 	@Override
@@ -112,9 +121,9 @@ public class NormalAuthicationProvider implements IAuthication{
 	}
 	
 	@Override
-	public void doUserLoginLog(HttpServletRequest request, String userId) {
+	public void doUserLoginLog(HttpServletRequest request, String loginId) {
 		UserLoginLog log = new UserLoginLog();
-		log.setUserId(userId);
+		log.setUserId(loginId);
 		log.setLoginIp(request.getRemoteAddr());
 		userService.doUserLoginLog(log);
 	}

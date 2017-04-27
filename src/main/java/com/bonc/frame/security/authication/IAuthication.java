@@ -1,5 +1,7 @@
 package com.bonc.frame.security.authication;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.bonc.frame.web.exception.LoginException;
@@ -17,7 +19,7 @@ public interface IAuthication {
 	 * @return userId  不是 loginId
 	 * @throws Exception 
 	 */
-	public String authCheck(HttpServletRequest request) throws LoginException;
+	public Map<String, String> authCheck(HttpServletRequest request) throws LoginException;
 	
 	/**
 	 * 将用户信息放入Session

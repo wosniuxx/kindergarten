@@ -47,6 +47,7 @@
 	<!--mapper映射 -->
 	<mappers>
 		<mapper resource="mapper/log/ResourceLogMapper.xml" />
+		<mapper resource="mapper/log/UserLoginLogMapper.xml" />
 		<mapper resource="mapper/notice/NoticeMapper.xml" />
 		<mapper resource="mapper/organization/OrganizationMapper.xml" />
 		<mapper resource="mapper/resources/ResourcesMapper.xml" />

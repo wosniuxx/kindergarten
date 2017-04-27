@@ -2,6 +2,7 @@ package com.bonc.frame.web.controller.login;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -53,12 +54,14 @@ public class LoginController {
 	@RequestMapping(value="/actionLogin",method=RequestMethod.POST)
 	public String actionLogin(HttpServletRequest request, HttpServletResponse response){
 		try {
-			String userId = normalAuthicationProvider.authCheck(request);
+			Map<String,String> map = normalAuthicationProvider.authCheck(request);
+			String userId = map.get("userId");
+			String loginId = map.get("loginId");
 			normalAuthicationProvider.putUserResource(request, userId);
 			normalAuthicationProvider.putUserMenuResource(request, userId);
 			normalAuthicationProvider.putMenuResource(request,userId);
 			normalAuthicationProvider.putButtonResource(request, userId);
-			normalAuthicationProvider.doUserLoginLog(request, userId);
+			normalAuthicationProvider.doUserLoginLog(request, loginId);
 			normalAuthicationProvider.countOnlineUser(request, userId);
 			response.sendRedirect(request.getContextPath()+"/platform/index");
 		} catch (LoginException e) {
