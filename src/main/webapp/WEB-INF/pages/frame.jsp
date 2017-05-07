@@ -46,9 +46,7 @@
 		<div class="frame-head clearfix">
 			<h1>
 				<a href="javascript:;"> 
-					<img src="<%=webpath %>/resources/img/frame/logo.png"
-					title="<%=SystemPropertiesUtils.getSystemTitle() %>" alt="<%=SystemPropertiesUtils.getSystemTitle() %>" class="logo-img">
-					<span class="logo-title"><%=SystemPropertiesUtils.getSystemTitle() %></span>
+					<span class="logo-title" style="font-size:25px;">幼儿园网站管理</span>
 				</a>
 			</h1>
 			<!-- header 右侧菜单 -->

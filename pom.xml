@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.xIntegration</groupId>
-	<artifactId>xIntegration</artifactId>
+	<groupId>com.kindergarten</groupId>
+	<artifactId>kindergarten</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>xIntegration</name>
+	<name>kindergarten</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

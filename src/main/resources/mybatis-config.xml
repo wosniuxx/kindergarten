@@ -61,5 +61,6 @@
 		<mapper resource="mapper/env/EnvMapper.xml" />
 		<mapper resource="mapper/getUserUrl/GetUserUrlMapper.xml" />
 		<mapper resource="mapper/targetUrl/TargetUrlMapper.xml" />
+		<mapper resource="mapper/person/ManageToTeacherMapper.xml" />
 	</mappers>
 </configuration>
