@@ -62,5 +62,7 @@
 		<mapper resource="mapper/getUserUrl/GetUserUrlMapper.xml" />
 		<mapper resource="mapper/targetUrl/TargetUrlMapper.xml" />
 		<mapper resource="mapper/person/ManageToTeacherMapper.xml" />
+		<mapper resource="mapper/person/ManageToChildMapper.xml" />
+		<mapper resource="mapper/recruit/RecruitMapper.xml" />
 	</mappers>
 </configuration>

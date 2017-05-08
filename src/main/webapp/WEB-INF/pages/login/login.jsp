@@ -9,7 +9,7 @@
 <html>
 <head>
   <%@ include file="../common-head.jsp"%>
-  <title><%=SystemPropertiesUtils.getSystemTitle() %></title>
+  <title>幼儿园网站管理</title>
   <link rel="stylesheet" href="<%=webpath %>/resources/css/login/login.css" />
 </head> 
 <body onkeydown="keyEnter();"> 
@@ -17,8 +17,7 @@
 		<div class="login-bgimg"></div>
 		<div class="login-content">
 			<h2 class="logo">
-				<img src="<%=webpath %>/resources/img/frame/logo.png" title="河南联通大数据精细化营销平台" alt="河南联通大数据精细化营销平台">
-				<span><%=SystemPropertiesUtils.getSystemTitle() %></span>
+				<span>幼儿园网站管理</span>
 			</h2>
 			<div class="login-wrapper">
 				<div class="form-wrap">

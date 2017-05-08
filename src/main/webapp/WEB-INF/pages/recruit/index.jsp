@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <%@ include file="../common-head.jsp"%>
-<title>教师管理</title>
+<title>招生管理</title>
 <%@ include file="../common-layer-ext.jsp"%>
 <%@ include file="../common-body-css.jsp"%>
 <style type="text/css">
@@ -31,13 +31,13 @@ body {
 		<div class="col-lg-12 col-md-12 row-tab">
 			<div id="org-panel" class="panel panel-default common-wrapper">
 				<div class="panel-heading common-part">
-					<i class="iconfont">&#xe6ca;</i><span>教师列表</span>
+					<i class="iconfont">&#xe6ca;</i><span>招生列表</span>
 				</div>
 				<div class="panel-body common-content">
 					<div class="searchWrap">
 						<form class="form-inline" id="SearchForm">
 							<div class="form-group">
-								<label for="name">教师名称:</label> <input type="text"
+								<label for="name">手机号码:</label> <input type="text"
 									class="form-control inpu-sm" name="name" />
 							</div>
 							<button type="button" class="b-redBtn btn-i" id="searchBtn">
@@ -47,7 +47,7 @@ body {
 								<i class="iconfont">&#xe647;</i>重置
 							</button>
 							<button type="button" class="b-redBtn btn-i" id="addBtn">
-								<i class="iconfont">&#xe635;</i>新增教师信息
+								<i class="iconfont">&#xe635;</i>新增招生信息
 							</button>
 						</form>
 					</div>
@@ -55,10 +55,14 @@ body {
 					<table id="Table">
 						<thead>
 							<tr>
-								<th>教师编号</th>
-								<th>名称</th>
-								<th>密码</th>
-								<th>教授班级</th>
+								<th>学生姓名</th>
+								<th>学生年龄</th>
+								<th>学生血型</th>
+								<th>户口所在地</th>
+								<th>家长姓名</th>
+								<th>联系方式</th>
+								<th>居住地址</th>
+								<th>录入时间</th>
 								<th>操作</th>
 							</tr>
 						</thead>
@@ -77,16 +81,16 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="teachernum">教师编号:</label> <input type="text"
-								class="form-control input-sm" name="teachernum" placeholder="请输入名称"/>
+							<label for="childname">学生姓名:</label> <input type="text"
+								class="form-control input-sm" name="childname" placeholder="请输入名称"/>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="name">名称:</label> <input type="text"
-								class="form-control input-sm" name="name"
+							<label for="childage">学生年龄:</label> <input type="text"
+								class="form-control input-sm" name="childage"
 								placeholder="请输入"/>
 						</div>
 					</td>
@@ -94,8 +98,8 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="password">密码:</label> <input type="text"
-								class="form-control input-sm" name="password"
+							<label for="blood_type">学生血型:</label> <input type="text"
+								class="form-control input-sm" name="blood_type"
 								placeholder="请输入服务地址"/>
 						</div>
 					</td>
@@ -103,8 +107,35 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="classes">教授班级:</label> <input type="text"
-								class="form-control input-sm" name="classes"
+							<label for="id_residence">户口所在地:</label> <input type="text"
+								class="form-control input-sm" name="id_residence"
+								placeholder="请输入服务地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="parentname">家长姓名:</label> <input type="text"
+								class="form-control input-sm" name="parentname"
+								placeholder="请输入服务地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="tel">联系方式:</label> <input type="text"
+								class="form-control input-sm" name="tel"
+								placeholder="请输入服务地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="residence">居住地址:</label> <input type="text"
+								class="form-control input-sm" name="residence"
 								placeholder="请输入服务地址" />
 						</div>
 					</td>
@@ -131,8 +162,8 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="teachernum">教师编号:</label> <input type="text"
-								class="form-control input-sm" name="teachernum"
+							<label for="childname">学生姓名:</label> <input type="text"
+								class="form-control input-sm" name="childname"
 								placeholder="请输入租户名称"/>
 						</div>
 					</td>
@@ -140,8 +171,8 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="name">名称:</label> <input type="text"
-								class="form-control input-sm" name="name"
+							<label for="childage">学生年龄:</label> <input type="text"
+								class="form-control input-sm" name="childage"
 								placeholder="请输入环境地址"/>
 						</div>
 					</td>
@@ -149,8 +180,8 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="password">密码:</label> <input type="password"
-								class="form-control input-sm" name="password"
+							<label for="blood_type">学生血型:</label> <input type="password"
+								class="form-control input-sm" name="blood_type"
 								placeholder="请输入环境地址" />
 						</div>
 					</td>
@@ -158,8 +189,35 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="classes">教授班级:</label> <input type="text"
-								class="form-control input-sm" name="classes"
+							<label for="id_residence">户口所在地:</label> <input type="text"
+								class="form-control input-sm" name="id_residence"
+								placeholder="请输入环境地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="parentname">家长姓名:</label> <input type="text"
+								class="form-control input-sm" name="parentname"
+								placeholder="请输入环境地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="tel">联系方式:</label> <input type="text"
+								class="form-control input-sm" name="tel"
+								placeholder="请输入环境地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="residence">居住地址:</label> <input type="text"
+								class="form-control input-sm" name="residence"
 								placeholder="请输入环境地址" />
 						</div>
 					</td>
@@ -168,6 +226,6 @@ body {
 		</form>
 	</div>
 	<%@ include file="../common-js.jsp"%>
-	<script src="<%=webpath%>/resources/js/person/teacher.js"></script>
+	<script src="<%=webpath%>/resources/js/recruit/index.js"></script>
 </body>
 </html>

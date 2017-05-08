@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bonc.frame.web.mapper.recruit.RecruitMapper">
+	<resultMap type="com.bonc.recruit.model.Recruit" id="BaseResultMap">
+		<id column="id" jdbcType="VARCHAR" property="id" />
+		<result column="childname" jdbcType="VARCHAR" property="childname" />
+		<result column="childage" jdbcType="VARCHAR" property="childage" />
+		<result column="blood_type" jdbcType="VARCHAR" property="blood_type" />
+		<result column="id_residence" jdbcType="VARCHAR" property="id_residence" />
+		<result column="parentname" jdbcType="VARCHAR" property="parentname" />
+		<result column="tel" jdbcType="VARCHAR" property="tel" />
+		<result column="residence" jdbcType="VARCHAR" property="residence" />
+		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, childname, childage, blood_type,
+		id_residence, parentname, tel, residence, createtime
+	</sql>
+
+	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from p_recruit where 1=1
+		<if test="tel !=null and tel != ''">
+		AND tel LIKE '%${tel}%'
+		</if>
+	</select>
+
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from p_recruit
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+
+	<select id="selectByName" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from p_recruit
+		where tel = #{tel,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from p_recruit WHERE 1=1
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		p_recruit
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+
+	<insert id="insert" parameterType="com.bonc.recruit.model.Recruit">
+		insert into p_recruit
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="childname != null">
+				childname,
+			</if>
+			<if test="childage != null">
+				childage,
+			</if>
+			<if test="blood_type != null">
+				blood_type,
+			</if>
+			<if test="id_residence != null">
+				id_residence,
+			</if>
+			<if test="parentname != null">
+				parentname,
+			</if>
+			<if test="tel != null">
+				tel,
+			</if>
+			<if test="residence != null">
+				residence,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=VARCHAR},
+			</if>
+			<if test="childname != null">
+				#{childname,jdbcType=VARCHAR},
+			</if>
+			<if test="childage != null">
+				#{childage,jdbcType=VARCHAR},
+			</if>
+			<if test="blood_type != null">
+				#{blood_type,jdbcType=VARCHAR},
+			</if>
+			<if test="id_residence != null">
+				#{id_residence,jdbcType=VARCHAR},
+			</if>
+			<if test="parentname != null">
+				#{parentname,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				#{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="residence != null">
+				#{residence,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKey" parameterType="com.bonc.recruit.model.Recruit">
+		update p_recruit
+		<set>
+			<if test="childname != null">
+				childname = #{childname,jdbcType=VARCHAR},
+			</if>
+			<if test="childage != null">
+				childage = #{childage,jdbcType=VARCHAR},
+			</if>
+			<if test="blood_type != null">
+				blood_type = #{blood_type,jdbcType=VARCHAR},
+			</if>
+			<if test="id_residence != null">
+				id_residence = #{id_residence,jdbcType=VARCHAR},
+			</if>
+			<if test="parentname != null">
+				parentname = #{parentname,jdbcType=VARCHAR},
+			</if>
+			<if test="residence != null">
+				residence = #{residence,jdbcType=VARCHAR},
+			</if>
+			<if test="tel != null">
+				tel = #{tel,jdbcType=VARCHAR},
+			</if>
+			<if test="id_residence != null">
+				id_residence = #{id_residence,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
+</mapper>

@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <%@ include file="../common-head.jsp"%>
-<title>教师管理</title>
+<title>学生管理</title>
 <%@ include file="../common-layer-ext.jsp"%>
 <%@ include file="../common-body-css.jsp"%>
 <style type="text/css">
@@ -31,13 +31,13 @@ body {
 		<div class="col-lg-12 col-md-12 row-tab">
 			<div id="org-panel" class="panel panel-default common-wrapper">
 				<div class="panel-heading common-part">
-					<i class="iconfont">&#xe6ca;</i><span>教师列表</span>
+					<i class="iconfont">&#xe6ca;</i><span>学生列表</span>
 				</div>
 				<div class="panel-body common-content">
 					<div class="searchWrap">
 						<form class="form-inline" id="SearchForm">
 							<div class="form-group">
-								<label for="name">教师名称:</label> <input type="text"
+								<label for="name">学生名称:</label> <input type="text"
 									class="form-control inpu-sm" name="name" />
 							</div>
 							<button type="button" class="b-redBtn btn-i" id="searchBtn">
@@ -47,7 +47,7 @@ body {
 								<i class="iconfont">&#xe647;</i>重置
 							</button>
 							<button type="button" class="b-redBtn btn-i" id="addBtn">
-								<i class="iconfont">&#xe635;</i>新增教师信息
+								<i class="iconfont">&#xe635;</i>新增学生信息
 							</button>
 						</form>
 					</div>
@@ -55,14 +55,15 @@ body {
 					<table id="Table">
 						<thead>
 							<tr>
-								<th>教师编号</th>
+								<th>学生编号</th>
 								<th>名称</th>
 								<th>密码</th>
-								<th>教授班级</th>
+								<th>班级</th>
 								<th>操作</th>
 							</tr>
 						</thead>
 					</table>
+					<script src="<%=webpath%>/resources/js/index/index2017.js"></script>
 				</div>
 			</div>
 		</div>
@@ -77,7 +78,7 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="teachernum">教师编号:</label> <input type="text"
+							<label for="teachernum">学生编号:</label> <input type="text"
 								class="form-control input-sm" name="teachernum" placeholder="请输入名称"/>
 						</div>
 					</td>
@@ -103,7 +104,7 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="classes">教授班级:</label> <input type="text"
+							<label for="classes">班级:</label> <input type="text"
 								class="form-control input-sm" name="classes"
 								placeholder="请输入服务地址" />
 						</div>
@@ -131,7 +132,7 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="teachernum">教师编号:</label> <input type="text"
+							<label for="teachernum">学生编号:</label> <input type="text"
 								class="form-control input-sm" name="teachernum"
 								placeholder="请输入租户名称"/>
 						</div>
@@ -158,7 +159,7 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="classes">教授班级:</label> <input type="text"
+							<label for="classes">班级:</label> <input type="text"
 								class="form-control input-sm" name="classes"
 								placeholder="请输入环境地址" />
 						</div>
@@ -168,6 +169,6 @@ body {
 		</form>
 	</div>
 	<%@ include file="../common-js.jsp"%>
-	<script src="<%=webpath%>/resources/js/person/teacher.js"></script>
+	<script src="<%=webpath%>/resources/js/person/child.js"></script>
 </body>
 </html>
