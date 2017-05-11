@@ -14,7 +14,6 @@ import com.github.pagehelper.PageInfo;
 /**
  * 数据库查询DAO，封装了基本的查询方法，包括增删改查分页查等。
  * 使用此类时，使用@Resource注解注入。
- * @author qxl
  * @date 2017年1月10日 上午10:23:07
  * @version 1.0.0
  */

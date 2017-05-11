@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.bonc.person.model.Teacher;
-import com.bonc.sso.model.Env;
 
 public interface ManageToTeacherService {
 

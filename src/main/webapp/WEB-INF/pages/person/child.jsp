@@ -63,7 +63,6 @@ body {
 							</tr>
 						</thead>
 					</table>
-					<script src="<%=webpath%>/resources/js/index/index2017.js"></script>
 				</div>
 			</div>
 		</div>

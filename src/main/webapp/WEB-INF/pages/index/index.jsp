@@ -11,14 +11,14 @@
 <title>幼儿园网站</title>
 <meta name="Keywords" content="123" />
 <meta name="Description" content="," />
-</script>
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <link href="<%=webpath%>/resources/css/index/index2016.css"
 	type="text/css" rel="stylesheet" />
-<script src="<%=webpath%>/resources/js/index/index2016.js"
-	type="text/javascript">
+<script src="<%=webpath%>/resources/js/jquery-1.4.4.min.js"/></script>
+<script src="<%=webpath%>/resources/js/index/index2016.js"></script>
 	
-</script>
+
 </head>
 
 <body>
@@ -45,19 +45,17 @@
 				</div>
 				<nav class="nav">
 				<ul class="fix">
-					<li id="menu1"><a href="index.html"> 本院概况 </a></li>
-					<li id="menu2"><a href="about/index.html"> 园区公告 </a></li>
-					<li id="menu3"><a href="cases/index.html"> 教学展示 </a></li>
-					<li id="menu4"><a href="service/index.html"> 班级展示 </a></li>
-					<li id="menu5"><a href="mobile/index.html"> 招生入口 </a></li>
+					<li id="menu1"><a href="#situation"> 本园概况 </a></li>
+					<li id="menu2"><a href="#notice"> 园区公告 </a></li>
+					<li id="menu3"><a href="#teach"> 教学展示 </a></li>
+					<li id="menu4"><a href="#classes"> 班级展示 </a></li>
+					<li id="menu5"><a href="#recruit"> 招生入口 </a></li>
 				</ul>
 				<span class="nav_icon"> </span> </nav>
 			</div>
 		</div>
 		</header>
-		<script type="text/javascript">
-			document.getElementById("menu1").className = "on";
-		</script>
+		
 		<!--banner-->
 		<div class="banner">
 			<ul class="pic" id="pic">
@@ -84,7 +82,7 @@
 	<!--main-->
 	<div id="section2" init="true" class="section section2">
 		<div class="wrap">
-			<div class="home_title">
+			<div class="home_title" id="situation">
 				<a href="service/index.html" target="_blank"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-easy.png"
 					width="262" height="78" alt="服务范围" />
@@ -94,15 +92,16 @@
 			<div class="serve_column">
 				<ul class="fix">
 					<li class="c1">
-						<dl>
+						<dl  onclick="atohistory()">
 							<dt class="pic">
-								<a href="WebDesign/index.html" target="_blank"> <img
-									src="<%=webpath%>/resources/img/index/images/index201601/service_1.jpg"
+								<a href="javascript:void(0);" target="_blank"> <img
+									src="<%=webpath%>/resources/img/index/images/kinder/a_1.png"
 									alt="品牌官网设计" width="270" height="200" />
 								</a>
 							</dt>
 							<dt class="t">
-								<a href="WebDesign/index.html" target="_blank"> 园区历史 </a>
+								<a href="javascript:void(0);" target="_blank"> 园区历史 </a>
+								
 							</dt>
 							<dd>本院从开园至今已由20年余载</dd>
 							<dd>拥有自己丰富的历史文化和文化积淀</dd>
@@ -114,7 +113,7 @@
 						<dl>
 							<dt class="pic">
 								<img
-									src="<%=webpath%>/resources/img/index/images/index201601/service_2.jpg"
+									src="<%=webpath%>/resources/img/index/images/kinder/a_2.jpg"
 									alt="商城网站开发" width="270" height="200" /> </a>
 							</dt>
 							<dt class="t">
@@ -130,7 +129,7 @@
 						<dl>
 							<dt class="pic">
 								<a href="mobile/index.html"> <img
-									src="<%=webpath%>/resources/img/index/images/index201601/service_3.jpg"
+									src="<%=webpath%>/resources/img/index/images/kinder/a_3.jpg"
 									alt="手机微信网站建设" width="270" height="200" />
 								</a>
 							</dt>
@@ -147,17 +146,17 @@
 						<dl>
 							<dt class="pic">
 								<a href="solutions/index.html"> <img
-									src="<%=webpath%>/resources/img/index/images/index201601/service_4.jpg"
+									src="<%=webpath%>/resources/img/index/images/kinder/a_4.jpg"
 									alt="解决方案" width="270" height="200" />
 								</a>
 							</dt>
 							<dt class="t">
 								<a href="solutions/index.html"> 师资力量 </a>
 							</dt>
-							<dd>只要逻辑可行，我们就能帮你实现</dd>
-							<dd>完全根据你的想法，创新策划解决方案</dd>
-							<dd>采用最新网站开发技术,全方位考虑各种因素</dd>
-							<dd>用最短的时间定制出最好的网站</dd>
+							<dd>本园教师毕业于山西省幼儿类师范院校</dd>
+							<dd>他们将育儿的理念和实践紧密结合</dd>
+							<dd>全方位考虑各种因素，在因材施教的同时</dd>
+							<dd>给予孩子最好的发展</dd>
 						</dl>
 					</li>
 				</ul>
@@ -169,7 +168,7 @@
 	<!--case-->
 	<div id="section3" init="false" class="section section3">
 		<div class="succeed">
-			<div class="succeed_title">
+			<div class="succeed_title" id="notice">
 				<a href="cases/index.html"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-notice.png"
 					alt="成功案例" width="262" height="78" />
@@ -187,6 +186,7 @@
 					<th>发布人</th>
 				</tr>
 			</thead>
+		<%-- 	<script src="<%=webpath%>/resources/js/index/index2017.js"></script> --%>
 			</table>
 		</form>
 
@@ -197,7 +197,7 @@
 	<!-- solutions -->
 	<div id="section4" init="false" class="section section4">
 		<div class="home_solutions">
-			<div class="home_solutions_title">
+			<div class="home_solutions_title" id="teach">
 				<a href="solutions/index.html" target="_blank"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-study.png"
 					alt="解决方案" width="320" height="95" />
@@ -261,7 +261,7 @@
 	<!--news-->
 	<div id="section5" init="false" class="section section5">
 		<div class="home_news">
-			<div class="home_news_title">
+			<div class="home_news_title" id="classes">
 				<a href="news/index.html" target="_blank"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-classes.png"
 					width="320" height="95"  />
@@ -323,7 +323,7 @@
 	<!--partner-->
 	<div id="section6" init="false" class="section section6">
 		<div class="home_partner">
-			<div class="home_partner_title">
+			<div class="home_partner_title" id="recruit">
 				<a href="news/index.html" target="_blank"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-admissions.png"
 					alt="招生" width="350" height="104" />
@@ -331,7 +331,7 @@
 			</div>
 			<div class="home_partner_text">为了简化您的流程和不必要的麻烦，我们推出网上报名系统</div>
 			<div class="btn_news_more">
-				<a href="news/index.html" title="点击此处跳转至报名页" class="btn">
+				<a href="../pages/recruit/recruit.jsp" title="点击此处跳转至报名页" class="btn">
 					点击此处跳转至报名页 </a>
 			</div>
 		</div>
@@ -405,5 +405,11 @@
 	</footer>
 	</div>
 </body>
-
+<script type="text/javascript">
+		document.getElementById("menu1").className = "on";
+	
+		function atohistory(){
+			location.href = "<%=request.getContextPath() %>/index/history";
+		}
+</script>
 </html>

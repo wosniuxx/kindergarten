@@ -8,7 +8,6 @@ import com.bonc.frame.web.vo.ResponseResult;
 
 /**
  * 公告管理service接口，此接口内包含对公告信息的一些常用操作的封装
- * @author 作者: 吕一凡 
  * @date 2017年2月7日 下午4:19:27 
  * @version 版本: 1.0
  */

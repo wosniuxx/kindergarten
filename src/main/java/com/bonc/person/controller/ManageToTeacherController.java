@@ -13,7 +13,6 @@ import com.bonc.frame.util.IdUtil;
 import com.bonc.frame.util.JsonUtils;
 import com.bonc.person.model.Teacher;
 import com.bonc.person.service.ManageToTeacherService;
-import com.bonc.sso.model.Env;
 
 @Controller
 @RequestMapping("/Teacher")

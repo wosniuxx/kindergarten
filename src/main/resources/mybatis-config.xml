@@ -54,13 +54,6 @@
 		<mapper resource="mapper/role/RoleMapper.xml" />
 		<mapper resource="mapper/user/UserMapper.xml" />
 		<mapper resource="mapper/tenant/TenantMapper.xml" />
-		<mapper resource="mapper/form/FormMapper.xml" />
-		<mapper resource="mapper/form/UdFieldMapper.xml" />
-		<mapper resource="mapper/urlExplain/UrlExplainMapper.xml" />
-		<mapper resource="mapper/urlExplain/UrlModelMapper.xml" />
-		<mapper resource="mapper/env/EnvMapper.xml" />
-		<mapper resource="mapper/getUserUrl/GetUserUrlMapper.xml" />
-		<mapper resource="mapper/targetUrl/TargetUrlMapper.xml" />
 		<mapper resource="mapper/person/ManageToTeacherMapper.xml" />
 		<mapper resource="mapper/person/ManageToChildMapper.xml" />
 		<mapper resource="mapper/recruit/RecruitMapper.xml" />

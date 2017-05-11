@@ -12,4 +12,9 @@ public class IndexController {
 	public String index() {
 		return "index/index";
 	}
+	
+	@RequestMapping(value = "/history", method = RequestMethod.GET)
+	public String history() {
+		return "index/history";
+	}
 }
