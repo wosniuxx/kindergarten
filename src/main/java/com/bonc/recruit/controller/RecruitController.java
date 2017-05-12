@@ -34,6 +34,11 @@ public class RecruitController {
 	public String recruit() {
 		return "recruit/recruit";
 	}
+	
+	@RequestMapping("/recruitResult")
+	public String recruitResult() {
+		return "recruit/recruitResult";
+	}
 
 	@ResponseBody
 	@RequestMapping("/selectPage")
@@ -41,6 +46,14 @@ public class RecruitController {
 		System.out.println(start + "   " + length + "   " + jsonStr);
 		Map<String, Object> paramMap = JsonUtils.stringToCollect(jsonStr);
 		return recruitService.selectAll(start, length, paramMap);
+	}
+	
+	@ResponseBody
+	@RequestMapping("/selectbytel")
+	public Map selectbytel(String start, String length, String jsonStr) {
+		System.out.println(start + "   " + length + "   " + jsonStr);
+		Map<String, Object> paramMap = JsonUtils.stringToCollect(jsonStr);
+		return recruitService.selectBytel(start, length, paramMap);
 	}
 
 	@ResponseBody
@@ -58,7 +71,6 @@ public class RecruitController {
 		// 最后的aa表示“上午”或“下午” HH表示24小时制 如果换成hh表示12小时制
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		temp_str = sdf.format(dt);
-
 		recruit.setId(IdUtil.createId());
 		recruit.setCreatetime(temp_str);
 		return recruitService.insert(recruit);

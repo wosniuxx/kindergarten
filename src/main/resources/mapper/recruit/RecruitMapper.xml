@@ -11,11 +11,13 @@
 		<result column="tel" jdbcType="VARCHAR" property="tel" />
 		<result column="residence" jdbcType="VARCHAR" property="residence" />
 		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
+		<result column="recruited" jdbcType="VARCHAR" property="recruited" />
+		<result column="money" jdbcType="VARCHAR" property="money" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
 		id, childname, childage, blood_type,
-		id_residence, parentname, tel, residence, createtime
+		id_residence, parentname, tel, residence, createtime,recruited,money
 	</sql>
 
 	<select id="selectAll" parameterType="map" resultMap="BaseResultMap">
@@ -27,12 +29,11 @@
 		</if>
 	</select>
 
-	<select id="selectByPrimaryKey" parameterType="java.lang.String"
-		resultMap="BaseResultMap">
+	<select id="selectBytel" parameterType="map" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from p_recruit
-		where id = #{id,jdbcType=VARCHAR}
+		where tel = #{tel,jdbcType=VARCHAR}
 	</select>
 
 	<select id="selectByName" parameterType="java.lang.String"
@@ -85,6 +86,12 @@
 			<if test="createtime != null">
 				createtime,
 			</if>
+			<if test="recruited != null">
+				recruited,
+			</if>
+			<if test="money != null">
+				money,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -113,6 +120,12 @@
 			</if>
 			<if test="createtime != null">
 				#{createtime,jdbcType=VARCHAR},
+			</if>
+			<if test="recruited != null">
+				#{recruited,jdbcType=VARCHAR},
+			</if>
+			<if test="money != null">
+				#{money,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -143,6 +156,12 @@
 			</if>
 			<if test="id_residence != null">
 				id_residence = #{id_residence,jdbcType=VARCHAR},
+			</if>
+			<if test="recruited != null">
+				recruited = #{recruited,jdbcType=VARCHAR},
+			</if>
+			<if test="money != null">
+				money = #{money,jdbcType=VARCHAR},
 			</if>
 			<if test="createtime != null">
 				createtime = #{createtime,jdbcType=VARCHAR},

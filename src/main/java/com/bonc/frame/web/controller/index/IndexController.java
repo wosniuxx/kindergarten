@@ -17,4 +17,14 @@ public class IndexController {
 	public String history() {
 		return "index/history";
 	}
+	
+	@RequestMapping(value = "/environment", method = RequestMethod.GET)
+	public String environment() {
+		return "index/environment";
+	}
+	
+	@RequestMapping(value = "/security", method = RequestMethod.GET)
+	public String security() {
+		return "index/security";
+	}
 }

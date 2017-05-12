@@ -27,6 +27,8 @@ function initTable(){
 		            { "data": "tel" },
 		            { "data": "residence" },
 		            { "data": "createtime" },
+		            { "data": "recruited" },
+		            { "data": "money" },
 		 ],
 		 ajax: {
 		     url:webpath+'/Recruit/selectPage',
@@ -39,6 +41,7 @@ function initTable(){
 		     "dataSrc": function (json) {
 		           json.iTotalRecords = json.total;
 		           json.iTotalDisplayRecords = json.total;
+		           console.log(json.data);
 		           return json.data;
 		     }
 		},
@@ -58,7 +61,6 @@ function initTable(){
 		},{
 			"targets" : 1,//孩子年龄
 			"data" : null,
-			"width" : '10%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -71,7 +73,6 @@ function initTable(){
 		},{
 			"targets" : 2,//血型
 			"data" : null,
-			"width" : '10%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -84,7 +85,6 @@ function initTable(){
 		},{
 			"targets" : 3,//户口所在地
 			"data" : null,
-			"width" : '10%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -97,7 +97,6 @@ function initTable(){
 		},{
 			"targets" : 4,//父母姓名
 			"data" : null,
-			"width" : '10%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -110,7 +109,6 @@ function initTable(){
 		},{
 			"targets" : 5,//联系方式
 			"data" : null,
-			"width" : '10%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -123,7 +121,6 @@ function initTable(){
 		},{
 			"targets" : 6,//居住地
 			"data" : null,
-			"width" : '10%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data==null||data==""){
@@ -136,7 +133,6 @@ function initTable(){
 		},{
 			"targets" : 7,//录入时间
 			"data" : null,
-			"width" : '15%',
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data == null || data == ""){
@@ -147,7 +143,31 @@ function initTable(){
 			      return html;
 			   }
 		},{
-			  "targets" : 8,//操作按钮目标列
+			"targets" : 8,//是否录取
+			"data" : null,
+			"render" : function(data, type,row) {
+				  var html = '';
+				  if(data == null || data == ""){
+					  html += '等待处理';
+				  }else{
+					  html += data;
+				  }
+			      return html;
+			   }
+		},{
+			"targets" : 9,//是否缴费
+			"data" : null,
+			"render" : function(data, type,row) {
+				  var html = '';
+				  if(data == null || data == ""){
+					  html += '等待处理';
+				  }else{
+					  html += data;
+				  }
+			      return html;
+			   }
+		},{
+			  "targets" : 10,//操作按钮目标列
 			  "data" : null,
 			  "render" : function(data, type,row) {
 				  var id = row.id;
@@ -180,7 +200,7 @@ function add(){
 	layer.open({
 		type: 1,
         title:'<i class="iconfont">&#xe641;</i>&nbsp;新增招生信息',
-        area: ['300px', '400px'],
+        area: ['300px', '470px'],
         content: $("#add"),
         btn: ['确定','取消'],
         btn1: function(index, layero){//确定按钮回调
@@ -226,7 +246,7 @@ function update(id){
 			layer.open({
 				type: 1,
 		        title:'<i class="iconfont">&#xe633;</i>&nbsp;修改招生信息',
-		        area: ['300px', '450px'],
+		        area: ['300px', '520px'],
 		        content: $("#update"),
 		        btn: ['确定','取消'],
 		        btn1: function(index, layero){//确定按钮回调

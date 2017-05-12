@@ -19,7 +19,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	public void addInterceptors(InterceptorRegistry registry) {  
         registry.addInterceptor(springMVCSecurityInterceptor)
         	.addPathPatterns("/**")  
-        	.excludePathPatterns("/login/toLogin","/login/actionLogin","/resources/**","/index/index","/Recruit/recruit");
+        	.excludePathPatterns("/login/toLogin","/login/actionLogin","/resources/**",
+        			"/index/index","/Recruit/recruit","/index/history","/index/environment",
+        			"/index/security","/Recruit/recruitResult");
         super.addInterceptors(registry);
     }
 }

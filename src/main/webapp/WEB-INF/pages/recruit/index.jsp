@@ -37,8 +37,8 @@ body {
 					<div class="searchWrap">
 						<form class="form-inline" id="SearchForm">
 							<div class="form-group">
-								<label for="name">手机号码:</label> <input type="text"
-									class="form-control inpu-sm" name="name" />
+								<label for="tel">手机号码:</label> <input type="text"
+									class="form-control inpu-sm" name="tel" />
 							</div>
 							<button type="button" class="b-redBtn btn-i" id="searchBtn">
 								<i class="iconfont">&#xe67a;</i>查询
@@ -63,6 +63,8 @@ body {
 								<th>联系方式</th>
 								<th>居住地址</th>
 								<th>录入时间</th>
+								<th>是否录取</th>
+								<th>是否缴费</th>
 								<th>操作</th>
 							</tr>
 						</thead>
@@ -136,6 +138,24 @@ body {
 						<div class="form-group">
 							<label for="residence">居住地址:</label> <input type="text"
 								class="form-control input-sm" name="residence"
+								placeholder="请输入服务地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="recruited">是否录取：</label> <input type="text"
+								class="form-control input-sm" name="recruited"
+								placeholder="请输入服务地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="money">是否缴费:</label> <input type="text"
+								class="form-control input-sm" name="money"
 								placeholder="请输入服务地址" />
 						</div>
 					</td>
@@ -218,6 +238,24 @@ body {
 						<div class="form-group">
 							<label for="residence">居住地址:</label> <input type="text"
 								class="form-control input-sm" name="residence"
+								placeholder="请输入环境地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="recruited">是否录取:</label> <input type="text"
+								class="form-control input-sm" name=""recruited""
+								placeholder="请输入环境地址" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="money">是否缴费:</label> <input type="text"
+								class="form-control input-sm" name="money"
 								placeholder="请输入环境地址" />
 						</div>
 					</td>

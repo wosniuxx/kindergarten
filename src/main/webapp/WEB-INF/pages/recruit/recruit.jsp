@@ -99,7 +99,7 @@
 				<p style="font-size: 30px;">&nbsp;</p>
 				<div align="center">
 					<form style="font-family: '微软雅黑'; font-size: 16px;"
-						action="/kindergarten/Recruit/insert2"  id="subform">
+						action="/kindergarten/Recruit/insert2" id="subform">
 						<p>
 							<span>学生姓名：</span> <input style="height: 30px; width: 200px;"
 								name="childname" />
@@ -142,77 +142,82 @@
 								提交 </a>
 						</div>
 					</form>
+					
+					<div class="btn_news_more">
+							<a href="<%=webpath%>/Recruit/recruitResult" title="点击此处跳转" class="btn" name="submit">查询入口 </a>
+						</div>
 				</div>
-			</div>
-			<footer class="footer">
-			<div class="contact">
-				<div class="wrap">
-					<div class="home_about fl">
-						<dl>
-							<dt>
-								<a href="index.html"> 关于本园 </a>
-							</dt>
-							<dd>
-								我们树立正确的幼教观与儿童观，遵循幼儿身心发展规律,保教合一，寓教于乐，促进幼儿健康成长。将大爱无声无息播撒在孩子们幼小的心灵中，让他们在爱的四季中度过多彩而宝贵的童年时光。也正因此，幼儿院形成了“以爱为本、以德为先”、“专心于爱、专注于教”的理念，成为孩子们快乐玩耍、健康成长的儿童乐园。
-							</dd>
-							<dd>
-								<a href="index.html" class="more"> 查看更多 >> </a>
-							</dd>
-						</dl>
-					</div>
-					<div class="home_case fl">
-						<h2>
-							<a href="../cases/index.html"> 班级分布 </a>
-						</h2>
-						<ul>
-							<li>
-								<h5>
-									<a href="#" target="_blank"> 小一班 </a>
-								</h5>
-							</li>
-							<li>
-								<h5>
-									<a href="#" target="_blank"> 中一班 </a>
-								</h5>
-							</li>
-							<li>
-								<h5>
-									<a href="#" target="_blank"> 大一班 </a>
-								</h5>
-							</li>
-						</ul>
-					</div>
-					<div class="home_service fl">
-						<h2>
-							<a href="#" tppabs="#"> 教育理念 </a>
-						</h2>
-						<a class="sub" href="#" tppabs="#"> 以爱为本 </a> <a class="sub"
-							href="#" tppabs="#"> 以德为先 </a> <a class="sub" href="#" tppabs="#">
-							专注于教 </a> <a class="sub" href="#" tppabs="#"> 专心于爱 </a> <a
-							class="sub" href="#" tppabs="#"> 爱在四季 </a>
-					</div>
-					<div class="home_contact fl">
-						<h2>
-							<a href="../contact/index.html" tppabs="#"> 联系我们 </a>
-						</h2>
-						<ul>
-							<li></i></li>
-							<li><i class="weibo"> </i> Q Q： <a target="_blank"
-								rel="nofollow" href="#"> 123456789 </a></li>
-							<li><i class="email"> </i> 邮 箱： <a target="_blank"
-								rel="nofollow" href="mailto:798099554@qq.com">
-									kindergarten@tyut.net </a></li>
-							<li><i class="call"> </i> 电 话：138-8888-8888</li>
-							<li><i class="weixin"> </i></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="blogroll">
-				<p class="copyright">@2010-2017 幼儿园网站建设 Niu ICP备12071364号</p>
 			</div>
 		</div>
-		</footer>
+		<footer class="footer">
+		<div class="contact">
+			<div class="wrap">
+				<div class="home_about fl">
+					<dl>
+						<dt>
+							<a href="index.html"> 关于本园 </a>
+						</dt>
+						<dd>
+							我们树立正确的幼教观与儿童观，遵循幼儿身心发展规律,保教合一，寓教于乐，促进幼儿健康成长。将大爱无声无息播撒在孩子们幼小的心灵中，让他们在爱的四季中度过多彩而宝贵的童年时光。也正因此，幼儿院形成了“以爱为本、以德为先”、“专心于爱、专注于教”的理念，成为孩子们快乐玩耍、健康成长的儿童乐园。
+						</dd>
+						<dd>
+							<a href="index.html" class="more"> 查看更多 >> </a>
+						</dd>
+					</dl>
+				</div>
+				<div class="home_case fl">
+					<h2>
+						<a href="../cases/index.html"> 班级分布 </a>
+					</h2>
+					<ul>
+						<li>
+							<h5>
+								<a href="#" target="_blank"> 小一班 </a>
+							</h5>
+						</li>
+						<li>
+							<h5>
+								<a href="#" target="_blank"> 中一班 </a>
+							</h5>
+						</li>
+						<li>
+							<h5>
+								<a href="#" target="_blank"> 大一班 </a>
+							</h5>
+						</li>
+					</ul>
+				</div>
+				<div class="home_service fl">
+					<h2>
+						<a href="#" tppabs="#"> 教育理念 </a>
+					</h2>
+					<a class="sub" href="#" tppabs="#"> 以爱为本 </a> <a class="sub"
+						href="#" tppabs="#"> 以德为先 </a> <a class="sub" href="#" tppabs="#">
+						专注于教 </a> <a class="sub" href="#" tppabs="#"> 专心于爱 </a> <a class="sub"
+						href="#" tppabs="#"> 爱在四季 </a>
+				</div>
+				<div class="home_contact fl">
+					<h2>
+						<a href="../contact/index.html" tppabs="#"> 联系我们 </a>
+					</h2>
+					<ul>
+						<li></i></li>
+						<li><i class="weibo"> </i> Q Q： <a target="_blank"
+							rel="nofollow" href="#"> 123456789 </a></li>
+						<li><i class="email"> </i> 邮 箱： <a target="_blank"
+							rel="nofollow" href="mailto:798099554@qq.com">
+								kindergarten@tyut.net </a></li>
+						<li><i class="call"> </i> 电 话：138-8888-8888</li>
+						<li><i class="weixin"> </i></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="blogroll">
+			<p class="copyright">@2010-2017 幼儿园网站建设 Niu ICP备12071364号</p>
+		</div>
+	</div>
+	</footer>
 	</div>
 </body>
 </html>

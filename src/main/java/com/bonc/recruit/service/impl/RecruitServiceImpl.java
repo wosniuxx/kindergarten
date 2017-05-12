@@ -52,4 +52,9 @@ public class RecruitServiceImpl implements RecruitService{
 		return daoHelper.update("com.bonc.frame.web.mapper.recruit.RecruitMapper.updateByPrimaryKey", recruit);
 	}
 
+	@Override
+	public Map selectBytel(String start, String length, Map<String, Object> paramMap) {
+		return daoHelper.queryForPageList("com.bonc.frame.web.mapper.recruit.RecruitMapper.selectBytel", paramMap, start, length);
+	}
+
 }

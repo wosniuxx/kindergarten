@@ -13,6 +13,8 @@ public class Recruit {
 	private String tel;
 	private String residence;
 	private String createtime;
+	private String recruited;
+	private String money;
 	public String getId() {
 		return id;
 	}
@@ -66,6 +68,18 @@ public class Recruit {
 	}
 	public void setCreatetime(String createtime) {
 		this.createtime = createtime;
+	}
+	public String getRecruited() {
+		return recruited;
+	}
+	public void setRecruited(String recruited) {
+		this.recruited = recruited;
+	}
+	public String getMoney() {
+		return money;
+	}
+	public void setMoney(String money) {
+		this.money = money;
 	}
 	
 }

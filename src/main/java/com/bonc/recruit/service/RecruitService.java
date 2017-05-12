@@ -13,6 +13,8 @@ public interface RecruitService {
 	 */
 	public Map selectAll(String start,String length,Map<String,Object>paramMap);
 	
+	public Map selectBytel(String start,String length,Map<String,Object>paramMap);
+	
 	public Recruit selectById(String id);
 	
 	public Recruit selectByName(String name);

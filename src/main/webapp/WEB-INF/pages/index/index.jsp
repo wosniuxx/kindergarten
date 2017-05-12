@@ -92,7 +92,7 @@
 			<div class="serve_column">
 				<ul class="fix">
 					<li class="c1">
-						<dl  onclick="atohistory()">
+						<dl onclick="tohistory()">
 							<dt class="pic">
 								<a href="javascript:void(0);" target="_blank"> <img
 									src="<%=webpath%>/resources/img/index/images/kinder/a_1.png"
@@ -101,7 +101,6 @@
 							</dt>
 							<dt class="t">
 								<a href="javascript:void(0);" target="_blank"> 园区历史 </a>
-								
 							</dt>
 							<dd>本院从开园至今已由20年余载</dd>
 							<dd>拥有自己丰富的历史文化和文化积淀</dd>
@@ -110,14 +109,15 @@
 						</dl>
 					</li>
 					<li class="c2">
-						<dl>
+						<dl onclick="toenvironment()">
 							<dt class="pic">
-								<img
+								<a href="javascript:void(0);" target="_blank"><img
 									src="<%=webpath%>/resources/img/index/images/kinder/a_2.jpg"
 									alt="商城网站开发" width="270" height="200" /> </a>
+								</a>
 							</dt>
-							<dt class="t">
-								<a href="#" rel="noFollow" target="_blank"> 周边环境 </a>
+							<dt class="t" >
+								<a href="javascript:void(0);" rel="noFollow" target="_blank"> 周边环境 </a>
 							</dt>
 							<dd>本园位于太原市小店区并州南路42号院内</dd>
 							<dd>本院属于一个成熟的社区环境之中</dd>
@@ -126,15 +126,15 @@
 						</dl>
 					</li>
 					<li class="c3">
-						<dl>
+						<dl onclick="tosecurity()">
 							<dt class="pic">
-								<a href="mobile/index.html"> <img
+								<a href="javascript:void(0);"> <img
 									src="<%=webpath%>/resources/img/index/images/kinder/a_3.jpg"
 									alt="手机微信网站建设" width="270" height="200" />
 								</a>
 							</dt>
 							<dt class="t">
-								<a href="mobile/index.html"> 社区安全 </a>
+								<a href="javascript:void(0);"> 社区安全 </a>
 							</dt>
 							<dd>本园位于一个成熟稳定的单位园区内部</dd>
 							<dd>可以从根本上减少外来陌生人员</dd>
@@ -151,7 +151,7 @@
 								</a>
 							</dt>
 							<dt class="t">
-								<a href="solutions/index.html"> 师资力量 </a>
+								<a href="javascript:void(0);"> 师资力量 </a>
 							</dt>
 							<dd>本园教师毕业于山西省幼儿类师范院校</dd>
 							<dd>他们将育儿的理念和实践紧密结合</dd>
@@ -186,19 +186,21 @@
 					<th>发布人</th>
 				</tr>
 			</thead>
-		<%-- 	<script src="<%=webpath%>/resources/js/index/index2017.js"></script> --%>
+		 	<script src="<%=webpath%>/resources/js/index/index2017.js"></script>
 			</table>
 		</form>
 
 		<div class="btn_cases_more">
-			<a href="cases/index.html" title="成功案例" class="btn"> 查看更多 </a>
+			<a href="javascript:void(0);" title="查看更多" class="btn"> 查看更多 </a>
 		</div>
 	</div>
+	
+	
 	<!-- solutions -->
 	<div id="section4" init="false" class="section section4">
 		<div class="home_solutions">
 			<div class="home_solutions_title" id="teach">
-				<a href="solutions/index.html" target="_blank"> <img
+				<a href="javascript:void(0);" target="_blank"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-study.png"
 					alt="解决方案" width="320" height="95" />
 				</a>
@@ -208,22 +210,21 @@
 				<div class="home_solutions_list_inner">
 					<dl class="solu_dl_0" >
 						<dt >
-							<a href="solutions/1.html" 
-                target="_blank">
+							<a href="javascript:void(0);" target="_blank">
 							</a>
 						</dt>
 						<dd class="t">
-							<a href="solutions/1.html" target="_blank"> 名师风采 </a>
+							<a href="javascript:void(0);" target="_blank"> 名师风采 </a>
 						</dd>
 						<dd class="spec">优秀的教师，不仅仅可以调节孩子的情绪，还可以调动孩子的思维，使孩子能够更好的成长</dd>
 						<dd class="bg"></dd>
 					</dl>
 					<dl class="solu_dl_1">
 						<dt>
-							<a href="solutions/5.html" target="_blank"> </a>
+							<a href="javascript:void(0);" target="_blank"> </a>
 						</dt>
 						<dd class="t">
-							<a href="solutions/5.html" target="_blank"> 家园共育 </a>
+							<a href="javascript:void(0);" target="_blank"> 家园共育 </a>
 						</dd>
 						<dd class="spec">
 							家庭才是孩子最好的教育环境。孩子会模仿父母的一言一行。幼儿园和家庭应该携手，给孩子共同创造更好的成长环境</dd>
@@ -231,10 +232,10 @@
 					</dl>
 					<dl class="solu_dl_2">
 						<dt>
-							<a href="#" target="_blank"> </a>
+							<a href="javascript:void(0);" target="_blank"> </a>
 						</dt>
 						<dd class="t">
-							<a href="#" target="_blank"> 编程思维 </a>
+							<a href="javascript:void(0);" target="_blank"> 编程思维 </a>
 						</dd>
 						<dd class="spec">
 							随着应用计算机的普及，孩子接受应该趁早。通过编程思维的训练，可以使得孩子富有逻辑性，做事更加调理</dd>
@@ -242,10 +243,10 @@
 					</dl>
 					<dl class="solu_dl_3">
 						<dt>
-							<a href="#" target="_blank"> </a>
+							<a href="javascript:void(0);" target="_blank"> </a>
 						</dt>
 						<dd class="t">
-							<a href="#" target="_blank"> 教材样式 </a>
+							<a href="javascript:void(0);" target="_blank"> 教材样式 </a>
 						</dd>
 						<dd class="spec">我们日用教材，均可从中查询定价。若发生教材丢失，家长可根据其自行购买</dd>
 						<dd class="bg"></dd>
@@ -254,7 +255,7 @@
 				</div>
 			</div>
 			<div class="btn_solutions_more">
-				<a href="#" title="解决方案" class="btn"> 查看更多 </a>
+				<a href="#teach" title="解决方案" class="btn"> 查看更多 </a>
 			</div>
 		</div>
 	</div>
@@ -262,7 +263,7 @@
 	<div id="section5" init="false" class="section section5">
 		<div class="home_news">
 			<div class="home_news_title" id="classes">
-				<a href="news/index.html" target="_blank"> <img
+				<a target="_blank"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-classes.png"
 					width="320" height="95"  />
 				</a>
@@ -276,10 +277,10 @@
 							<dl>
 								<dt>2017-5-1</dt>
 								<dd class="t">
-									<a href="#"> 小一班 </a>
+									<a> 小一班 </a>
 								</dd>
 								<dd class="spec">
-									<a href="#">
+									<a>
 										幼儿对自然界的一切都充满了好奇。于是我们便抓住这一幼儿感兴趣组织活动。让幼儿在玩耍的过程中通过观察、感知、比较、交流获取对失事物基本特征的了解…
 									</a>
 								</dd>
@@ -289,10 +290,10 @@
 							<dl>
 								<dt>2017-5-1</dt>
 								<dd class="t">
-									<a href="#"> 中一班 </a>
+									<a> 中一班 </a>
 								</dd>
 								<dd class="spec">
-									<a href="#">
+									<a>
 										我们追求太阳的温暖，却错过了月亮的温柔;我们追求新鲜的生活，却遗忘了最需要滋润的心灵!对我们的童年说声好久不见，允许我们再过上一个儿童节吧!
 									</a>
 								</dd>
@@ -302,10 +303,10 @@
 							<dl>
 								<dt>2017-5-1</dt>
 								<dd class="t">
-									<a href="#"> 大一班 </a>
+									<a> 大一班 </a>
 								</dd>
 								<dd class="spec">
-									<a href="#">
+									<a>
 										他们总是那样精力充沛、精神饱满；他们的想象力连安徒生都要嫉妒三分，他们的创造力令莱特兄弟都佩服。能够发挥自己的想象力，把不同的玩具彼此联系，创造出一个奇妙有趣的玩具世界…
 									</a>
 								</dd>
@@ -314,7 +315,7 @@
 						<div class="c"></div>
 					</div>
 					<div class="btn_news_more">
-						<a href="news/index.html" title="新闻资讯" class="btn"> 查看更多 </a>
+						<a href="#classes" title="查看更多" class="btn"> 查看更多 </a>
 					</div>
 				</div>
 			</div>
@@ -324,14 +325,14 @@
 	<div id="section6" init="false" class="section section6">
 		<div class="home_partner">
 			<div class="home_partner_title" id="recruit">
-				<a href="news/index.html" target="_blank"> <img
+				<a href="javascript:void(0);" target="_blank"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-admissions.png"
 					alt="招生" width="350" height="104" />
 				</a>
 			</div>
 			<div class="home_partner_text">为了简化您的流程和不必要的麻烦，我们推出网上报名系统</div>
 			<div class="btn_news_more">
-				<a href="../pages/recruit/recruit.jsp" title="点击此处跳转至报名页" class="btn">
+				<a href="<%=webpath%>/Recruit/recruit" title="点击此处跳转至报名页" class="btn">
 					点击此处跳转至报名页 </a>
 			</div>
 		</div>
@@ -408,8 +409,14 @@
 <script type="text/javascript">
 		document.getElementById("menu1").className = "on";
 	
-		function atohistory(){
+		function tohistory(){
 			location.href = "<%=request.getContextPath() %>/index/history";
+		}
+		function toenvironment(){
+			location.href = "<%=request.getContextPath() %>/index/environment";
+		}
+		function tosecurity(){
+			location.href = "<%=request.getContextPath() %>/index/security";
 		}
 </script>
 </html>
