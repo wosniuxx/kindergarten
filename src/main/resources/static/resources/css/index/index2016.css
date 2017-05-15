@@ -27,10 +27,10 @@ a:active{color:#0093ff;text-decoration:none;}
 .header .logo_text{width:163px;margin-top:24px;padding-left:5px;}
 .top{text-align:right;color:#888888;padding-top:12px;*position:relative;*z-index:2;}
 .top a{color:#888888;margin-left: 8px;}
-.top .call{background: url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat 0 0;display:inline-block;width:20px;height:16px;vertical-align:bottom;margin-right:4px;}
+.top .call{background: url("../../img/index/images/sprite.png") no-repeat 0 0;display:inline-block;width:20px;height:16px;vertical-align:bottom;margin-right:4px;}
 .top .call_tel{color:#15909c;}
-.top .email{display:inline-block;width:18px;height:16px;background:url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -20px 0;vertical-align:bottom;margin-right:4px;}
-.top .weixin{display:inline-block;width:18px;height:16px;background:url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -60px 0;vertical-align:bottom;margin-right:4px;}
+.top .email{display:inline-block;width:18px;height:16px;background:url("../../img/index/images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -20px 0;vertical-align:bottom;margin-right:4px;}
+.top .weixin{display:inline-block;width:18px;height:16px;background:url("../../img/index/images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -60px 0;vertical-align:bottom;margin-right:4px;}
 .top .ewm{position:relative;z-index:10000;}
 .top .ewm img{position:absolute;right:0;top:30px;z-index:999;border:1px solid #ddd;padding:4px;background:#fff;display:none;z-index:10000;}
 
@@ -196,11 +196,11 @@ dl.solu_dl_3:hover dt a{background:url("/kindergarten/resources/img/index/images
 .home_contact{margin-left:40px;}
 .home_contact li{color: #ddd;margin-bottom: 14px;}
 .home_contact li i{display:inline-block;width:18px;height:18px;margin-right: 10px;vertical-align: middle;}
-.home_contact li .addres{background: url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat 0 -20px  ;}
-.home_contact li .weibo{background: url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -20px -20px  ;}
-.home_contact li .email{background: url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -40px -20px  ;}
-.home_contact li .weixin{background: url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -80px -20px  ;}
-.home_contact li .call{background: url("../images/sprite.png")/*tpa=#Public/Web/images/sprite.png*/ no-repeat -0px -0px  ;}
+.home_contact li .addres{background: url("../../img/index/images/sprite.png") no-repeat 0 -20px  ;}
+.home_contact li .weibo{background: url("../../img/index/images/sprite.png") no-repeat -20px -20px  ;}
+.home_contact li .email{background: url("../../img/index/images/sprite.png") no-repeat -40px -20px  ;}
+.home_contact li .weixin{background: url("../../img/index/images/sprite.png") no-repeat -80px -20px  ;}
+.home_contact li .call{background: url("../../img/index/images/sprite.png") no-repeat -0px -0px  ;}
 .home_contact li a{color: #ddd;}
 .blogroll{line-height: 28px;color: #999;text-align: center;padding: 30px 0;}
 .blogroll a{color: #999;display:inline-block;}

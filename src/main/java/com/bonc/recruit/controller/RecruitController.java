@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,9 +54,10 @@ public class RecruitController {
 	
 	@ResponseBody
 	@RequestMapping("/selectbytel")
-	public List<Recruit> selectbytel(String tel, Model model) {
+	public List<Recruit> selectbytel(String tel, Model model, HttpServletResponse response) {
+		response.setContentType("text/html;charset=UTF-8");
 		List<Recruit> list = recruitService.selectBytel(tel);
-		model.addAttribute("list", list);
+		model.addAttribute("lists", list);
 		return list;
 	}
 

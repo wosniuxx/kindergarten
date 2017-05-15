@@ -5,13 +5,18 @@
 %>
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.HashMap"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>幼儿园网站</title>
+<link
+	href="<%=webpath%>/resources/plugin/bootstrap-3.3.6/dist/css/bootstrap.css"
+	rel="stylesheet">
 <meta name="Keywords" content="123" />
 <meta name="Description" content="," />
 </script>
@@ -19,8 +24,8 @@
 <link href="<%=webpath%>/resources/css/index/index2016.css"
 	type="text/css" rel="stylesheet" />
 </script>
-
-
+<script type="text/javascript"
+	src="<%=webpath%>/resources/js/jquery-1.4.4.min.js"></script>
 </head>
 
 
@@ -48,23 +53,16 @@
 				</div>
 				<nav class="nav">
 				<ul class="fix">
-					<li id="menu1"><a href="index.html" tppabs="/"> 本院概况 </a></li>
-					<li id="menu2"><a href="about/index.html" tppabs="/about/">
-							园区公告 </a></li>
-					<li id="menu3"><a href="cases/index.html" tppabs="/cases/">
-							教学展示 </a></li>
-					<li id="menu4"><a href="service/index.html" tppabs="/service/">
-							班级展示 </a></li>
-					<li id="menu5"><a href="mobile/index.html" tppabs="/mobile/">
-							招生入口 </a></li>
+					<li id="menu1"><a href="<%=webpath%>/index/index"> 本院概况 </a></li>
+					<li id="menu2"><a href="">园区公告 </a></li>
+					<li id="menu3"><a href="">教学展示 </a></li>
+					<li id="menu4"><a href="">班级展示 </a></li>
+					<li id="menu5"><a href="">招生入口 </a></li>
 				</ul>
 				<span class="nav_icon"> </span> </nav>
 			</div>
 		</div>
 		</header>
-		<script type="text/javascript">
-			document.getElementById("menu1").className = "on";
-		</script>
 		<!--banner-->
 
 		<!--partner-->
@@ -82,21 +80,22 @@
 			</div>
 
 			<div>
-				<form class="form-inline" id="SearchForm" action="<%=webpath%>/Recruit/selectbytel">
-					<div class="form-group">
-						<label for="tel">手机号码:</label> <input type="text"
-							class="form-control inpu-sm" name="tel" />
-					</div>
-					<button type="submit" class="b-redBtn btn-i" id="searchBtn">
-						<i class="iconfont">&#xe67a;</i>查询
-					</button>
-					<button type="button" class="b-redBtn btn-i" id="resetBtn">
-						<i class="iconfont">&#xe647;</i>重置
-					</button>
-				</form>
-				<br> <br>
-				<table id="Table" align="center" border="1" style="width: 80%;font-family: '微软雅黑';">
-					<tr style="font-size: 15px;">
+				<div class="input-group" style="width: 400px">
+					<span class="input-group-addon" id="basic-addon1">手机号码:</span> <input
+						id="tel" name="tel" type="text" class="form-control"
+						 placeholder="请输入你报名时间填写的手机号">
+				</div>
+
+				<br>
+				<button type="button" id="searchBtn" class="btn btn-info btn-sm">查&nbsp;&nbsp;&nbsp;&nbsp;询</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button type="button" id="resetBtn" class="btn btn-danger btn-sm"
+					onclick="resetForm()">重&nbsp;&nbsp;&nbsp;&nbsp;置</button>
+
+				<br> <br> <br> <br>
+				<table id="Table" align="center" class="table table-bordered"
+					style="width: 85%; font-family: '微软雅黑'; text-align: center;">
+					<tr style="font-size: 15px; height: 40px;">
 						<td>学生姓名</td>
 						<td>学生年龄</td>
 						<td>学生血型</td>
@@ -108,7 +107,6 @@
 						<td>是否录取</td>
 						<td>是否缴费</td>
 					</tr>
-					
 				</table>
 			</div>
 			<br> <br> <br> <br> <br> <br> <br>
@@ -119,7 +117,7 @@
 					<div class="home_about fl">
 						<dl>
 							<dt>
-								<a href="index.html"> 关于本园 </a>
+								<a href=""> 关于本园 </a>
 							</dt>
 							<dd>
 								我们树立正确的幼教观与儿童观，遵循幼儿身心发展规律,保教合一，寓教于乐，促进幼儿健康成长。将大爱无声无息播撒在孩子们幼小的心灵中，让他们在爱的四季中度过多彩而宝贵的童年时光。也正因此，幼儿院形成了“以爱为本、以德为先”、“专心于爱、专注于教”的理念，成为孩子们快乐玩耍、健康成长的儿童乐园。
@@ -183,29 +181,9 @@
 		</div>
 		</footer>
 </body>
-<%@ include file="../common-js.jsp"%>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#searchBtn").click(function() {
-			var tel = $("[name=tel]").val();
-			$.ajax({
-				type : "POST",
-				url : webpath + "/Recruit/selectbytel",
-				data : {
-					"tel" : tel
-				},
-				dataType : "json",
-				success : function(data) {
-				}
-			});
-		});
-	});
-	
-	//重置查询条件
-	function resetForm(){
-		form.clear($("#SearchForm"));
-	}
-	
-	
+var webpath = "<%=request.getContextPath()%>";
 </script>
+<script type="text/javascript"
+	src="<%=webpath%>/resources/js/recruit/recruitResult.js"></script>
 </html>
