@@ -29,7 +29,7 @@
 		</if>
 	</select>
 
-	<select id="selectBytel" parameterType="map" resultMap="BaseResultMap">
+	<select id="selectBytel" parameterType="String" resultType="com.bonc.recruit.model.Recruit">
 		select
 		<include refid="Base_Column_List" />
 		from p_recruit

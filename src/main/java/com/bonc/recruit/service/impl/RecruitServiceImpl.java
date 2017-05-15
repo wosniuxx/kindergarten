@@ -1,5 +1,6 @@
 package com.bonc.recruit.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -53,8 +54,9 @@ public class RecruitServiceImpl implements RecruitService{
 	}
 
 	@Override
-	public Map selectBytel(String start, String length, Map<String, Object> paramMap) {
-		return daoHelper.queryForPageList("com.bonc.frame.web.mapper.recruit.RecruitMapper.selectBytel", paramMap, start, length);
+	public List<Recruit> selectBytel(String tel) {
+		List<Recruit> list = daoHelper.queryForList("com.bonc.frame.web.mapper.recruit.RecruitMapper.selectBytel", tel) ;
+		return list;
 	}
 
 }

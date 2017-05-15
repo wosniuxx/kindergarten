@@ -174,10 +174,9 @@
 					alt="成功案例" width="262" height="78" />
 				</a>
 			</div>
-			<div class="success_text">园区公告分类</div>
 		</div>
 
-		<form>
+		<%-- <form>
 			<table border="1" align="center" id="surtable">
 			<thead>
 				<tr bgcolor="#dddddd">
@@ -188,7 +187,7 @@
 			</thead>
 		 	<script src="<%=webpath%>/resources/js/index/index2017.js"></script>
 			</table>
-		</form>
+		</form> --%>
 
 		<div class="btn_cases_more">
 			<a href="javascript:void(0);" title="查看更多" class="btn"> 查看更多 </a>

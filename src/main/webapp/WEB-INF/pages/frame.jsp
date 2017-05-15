@@ -31,7 +31,7 @@
 <html>
 <head>
 	<jsp:include page="common-head.jsp"></jsp:include>
-	<title><%=SystemPropertiesUtils.getSystemTitle() %></title>
+	<title>幼儿园网站管理</title>
 	<meta name="description" content="BONC基础框架 2017版" />
 	<link rel="stylesheet" href="<%=webpath %>/resources/plugin/jquery-easyui-1.5.1/themes/default/easyui.css">
 	<link rel="stylesheet" href="<%=webpath %>/resources/plugin/jquery-easyui-1.5.1/themes/icon.css">

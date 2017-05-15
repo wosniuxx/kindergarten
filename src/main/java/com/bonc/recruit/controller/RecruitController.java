@@ -1,9 +1,12 @@
 package com.bonc.recruit.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,10 +53,10 @@ public class RecruitController {
 	
 	@ResponseBody
 	@RequestMapping("/selectbytel")
-	public Map selectbytel(String start, String length, String jsonStr) {
-		System.out.println(start + "   " + length + "   " + jsonStr);
-		Map<String, Object> paramMap = JsonUtils.stringToCollect(jsonStr);
-		return recruitService.selectBytel(start, length, paramMap);
+	public List<Recruit> selectbytel(String tel, Model model) {
+		List<Recruit> list = recruitService.selectBytel(tel);
+		model.addAttribute("list", list);
+		return list;
 	}
 
 	@ResponseBody

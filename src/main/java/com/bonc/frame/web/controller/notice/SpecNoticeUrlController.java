@@ -17,7 +17,7 @@ import com.bonc.frame.web.service.notice.NoticeService;
 
 /** 
  * 此controller里面的url是公告管理客户端和管理端通用的，不在拦截范围内
- * @author qxl
+ * @author 
  * @date 2017年2月10日 下午12:37:06 
  * @version 1.0.0
  */

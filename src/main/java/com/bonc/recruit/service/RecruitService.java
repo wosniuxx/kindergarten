@@ -1,5 +1,6 @@
 package com.bonc.recruit.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,8 +14,6 @@ public interface RecruitService {
 	 */
 	public Map selectAll(String start,String length,Map<String,Object>paramMap);
 	
-	public Map selectBytel(String start,String length,Map<String,Object>paramMap);
-	
 	public Recruit selectById(String id);
 	
 	public Recruit selectByName(String name);
@@ -26,5 +25,7 @@ public interface RecruitService {
 	public int insert(Recruit recruit);
 	
 	public int update(Recruit recruit);
+
+	public List<Recruit> selectBytel(String tel);
 	
 }
