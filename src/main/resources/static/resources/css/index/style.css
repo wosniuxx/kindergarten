@@ -40,7 +40,7 @@ a:active{color:#0093ff;text-decoration:none;}
 .header .logo_text{width:163px;margin-top:24px;padding-left:5px;}
 .top{text-align:right;color:#888888;padding-top:12px;*position:relative;*z-index:2;}
 .top a{color:#888888;margin-left: 8px;}
-.top .call{background: url("../images/sprite.png")/*tpa=http://www/Public/Web/images/sprite.png*/ no-repeat 0 0;display:inline-block;width:20px;height:16px;vertical-align:bottom;margin-right:4px;}
+.top .call{background: url("../images/sprite.png") no-repeat 0 0;display:inline-block;width:20px;height:16px;vertical-align:bottom;margin-right:4px;}
 .top .call_tel{color:#15909c;}
 .top .email{display:inline-block;width:18px;height:16px;background:url("../images/sprite.png")/*tpa=http://www/Public/Web/images/sprite.png*/ no-repeat -20px 0;vertical-align:bottom;margin-right:4px;}
 .top .weixin{display:inline-block;width:18px;height:16px;background:url("../images/sprite.png")/*tpa=http://www/Public/Web/images/sprite.png*/ no-repeat -60px 0;vertical-align:bottom;margin-right:4px;}
@@ -92,10 +92,10 @@ a:active{color:#0093ff;text-decoration:none;}
 
 /*inside*/
 .inside_banner{position: relative;}
-.inside_banner_service{background: url("../images/service_banner.jpg")/*tpa=http://www/Public/Web/images/service_banner.jpg*/ no-repeat center;height: 400px;}
-.inside_banner_mobile{background: url("../images/m_banner.jpg")/*tpa=http://www/Public/Web/images/m_banner.jpg*/ no-repeat center;height: 400px;}
-.inside_banner_solution{background: url("../images/sl_banner.jpg")/*tpa=http://www/Public/Web/images/sl_banner.jpg*/ no-repeat center;height: 400px;}
-.inside_banner_news{background: url("../images/n_banner.jpg")/*tpa=http://www/Public/Web/images/n_banner.jpg*/ no-repeat center;height: 400px;}
+.inside_banner_service{background: url("../images/service_banner.jpg") no-repeat center;height: 400px;}
+.inside_banner_mobile{background: url("../images/m_banner.jpg") no-repeat center;height: 400px;}
+.inside_banner_solution{background: url("../images/sl_banner.jpg") no-repeat center;height: 400px;}
+.inside_banner_news{background: url("../images/n_banner.jpg") no-repeat center;height: 400px;}
 .inside_banner .wrap{height: 100%;}
 .about{overflow: hidden;}
 .about_tab{width: 1200px;margin: 0 auto;position: relative;height: 100%;}

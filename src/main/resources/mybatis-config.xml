@@ -57,5 +57,6 @@
 		<mapper resource="mapper/person/ManageToTeacherMapper.xml" />
 		<mapper resource="mapper/person/ManageToChildMapper.xml" />
 		<mapper resource="mapper/recruit/RecruitMapper.xml" />
+		<mapper resource="mapper/notice/PublicNoticeMapper.xml" />
 	</mappers>
 </configuration>

@@ -5,7 +5,7 @@ import java.io.Serializable;
  * 	返回结果实体
  *  格式：{"status":0,"msg":"xxx","data":xxx}
  * 
- * @author qxl
+ * @author 
  * @date 2016年10月11日 下午6:44:38
  * @version 1.0.0
  */

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bonc.frame.web.mapper.notice.PublicNoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.bonc.frame.web.entity.notice.Notice" >
+    <id column="NOTICE_ID" property="noticeId" jdbcType="VARCHAR" />
+    <result column="NOTICE_TITLE" property="noticeTitle" jdbcType="VARCHAR" />
+    <result column="NOTICE_TYPE" property="noticeType" jdbcType="VARCHAR" />
+    <result column="NOTICE_CONTENT" property="noticeContent" jdbcType="LONGVARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="FROM_SIGN" property="fromSign" jdbcType="VARCHAR" />
+    <result column="PUBDATE" property="pubdate" jdbcType="TIMESTAMP" />
+    <result column="PUB_USER_ID" property="pubUserId" jdbcType="VARCHAR" />
+    <result column="REC_ORG_ID" property="recOrgId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    NOTICE_ID, NOTICE_TITLE, NOTICE_TYPE, NOTICE_CONTENT, STATE, FROM_SIGN, PUBDATE, 
+    PUB_USER_ID,REC_ORG_ID
+  </sql>
+  
+  <select id="publicNotice" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from PURE_NOTICE
+  where STATE = '1'
+  order by PUBDATE DESC
+  </select>
+  
+  
+</mapper>

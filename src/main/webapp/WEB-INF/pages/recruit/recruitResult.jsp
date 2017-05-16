@@ -3,11 +3,6 @@
 <%
 	String webpath = request.getContextPath();
 %>
-<%@ page import="java.util.Map"%>
-<%@ page import="java.util.HashMap"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -19,13 +14,9 @@
 	rel="stylesheet">
 <meta name="Keywords" content="123" />
 <meta name="Description" content="," />
-</script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <link href="<%=webpath%>/resources/css/index/index2016.css"
 	type="text/css" rel="stylesheet" />
-</script>
-<script type="text/javascript"
-	src="<%=webpath%>/resources/js/jquery-1.4.4.min.js"></script>
 </head>
 
 
@@ -34,7 +25,7 @@
 		<header class="header">
 		<div class="wrap">
 			<h1 class="fl">
-				<a href="index.html" class="fl logo"> <img
+				<a href="<%=webpath%>/index/index" class="fl logo"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-title.png"
 					alt="TI Alliance" width="154" height="49" />
 				</a>
@@ -53,7 +44,7 @@
 				</div>
 				<nav class="nav">
 				<ul class="fix">
-					<li id="menu1"><a href="<%=webpath%>/index/index"> 本院概况 </a></li>
+					<li id="menu1"><a href="<%=webpath%>/index/index"> 本园概况 </a></li>
 					<li id="menu2"><a href="">园区公告 </a></li>
 					<li id="menu3"><a href="">教学展示 </a></li>
 					<li id="menu4"><a href="">班级展示 </a></li>
