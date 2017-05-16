@@ -176,24 +176,60 @@
 			</div>
 		</div>
 
-		<%-- <form>
-			<table border="1" align="center" id="surtable">
-			<thead>
-				<tr bgcolor="#dddddd">
-					<th>公告主题</th>
-					<th>发布时间</th>
-					<th>发布人</th>
-				</tr>
-			</thead>
-		 	<script src="<%=webpath%>/resources/js/index/index2017.js"></script>
-			</table>
-		</form> --%>
+		<div class="">
+				<div class="wrap">
+					<div class="home_news_list_inner">
+
+						<div class="home_news_item">
+							<dl>
+								<dt>2016年12月31日</dt>
+								<dd class="t">
+									<a> 元旦活动 </a>
+								</dd>
+								<dd class="spec">
+									<a>
+										幼儿对自然界的一切都充满了好奇。于是我们便抓住这一幼儿感兴趣组织活动。让幼儿在玩耍的过程中通过观察、感知、比较、交流获取对失事物基本特征的了解…
+									</a>
+								</dd>
+							</dl>
+						</div>
+						<div class="home_news_item">
+							<dl>
+								<dt>2016年6月1日</dt>
+								<dd class="t">
+									<a> 欢度六一  </a>
+								</dd>
+								<dd class="spec">
+									<a>
+										我们追求太阳的温暖，却错过了月亮的温柔;我们追求新鲜的生活，却遗忘了最需要滋润的心灵!对我们的童年说声好久不见，允许我们再过上一个儿童节吧!
+									</a>
+								</dd>
+							</dl>
+						</div>
+						<div class="home_news_item">
+							<dl>
+								<dt>2017月4月25日</dt>
+								<dd class="t">
+									<a> 家长开放日 </a>
+								</dd>
+								<dd class="spec">
+									<a>
+										他们总是那样精力充沛、精神饱满；他们的想象力连安徒生都要嫉妒三分，他们的创造力令莱特兄弟都佩服。能够发挥自己的想象力，把不同的玩具彼此联系，创造出一个奇妙有趣的玩具世界…
+									</a>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
 
 		<div class="btn_cases_more">
 			<a href="javascript:void(0);" title="查看更多" class="btn"> 查看更多 </a>
 		</div>
 	</div>
 	
+	
+	<br><br><br><br><br><br>
 	
 	<!-- solutions -->
 	<div id="section4" init="false" class="section section4">
@@ -258,6 +294,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
 	<!--news-->
 	<div id="section5" init="false" class="section section5">
 		<div class="home_news">
