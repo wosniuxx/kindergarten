@@ -17,6 +17,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <link href="<%=webpath%>/resources/css/index/index2016.css"
 	type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="<%=webpath%>/resources/js/jquery-1.4.4.min.js"></script>
 </head>
 
 

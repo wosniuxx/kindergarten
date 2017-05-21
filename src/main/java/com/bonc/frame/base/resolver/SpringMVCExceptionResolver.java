@@ -10,7 +10,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 /** 
- * @author 作者: jxw 
+ * @author 作者: 
  * @date 创建时间: 2017年2月10日 下午3:35:17 
  * @version 版本: 1.0 
  * 统一异常处理

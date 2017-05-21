@@ -15,14 +15,14 @@ import com.bonc.frame.web.entity.resources.Resources;
 import com.bonc.frame.web.service.resources.ResourceService;
 
 /**
- * @author 作者: 吕一凡 
+ * @author 作者: 
  * @date 2017年1月11日 下午4:35:35 
  * @version 版本: 1.0
  */
 @Controller
 @RequestMapping("/resource")
 public class ResourcesController {
-
+	
 	/*@Resource
 	private SecurityRequestWrap securityRequestWrap;*/
 	

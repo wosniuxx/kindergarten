@@ -21,7 +21,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
         	.addPathPatterns("/**")  
         	.excludePathPatterns("/login/toLogin","/login/actionLogin","/resources/**",
         			"/index/index","/Recruit/recruit","/index/history","/index/environment",
-        			"/index/security","/Recruit/recruitResult","/publicNotice/index");
+        			"/index/security","/Recruit/recruitResult","/publicNotice/index",
+        			"/Recruit/selectbytel","/publicNotice/publicnotice");
         super.addInterceptors(registry);
     }
 }

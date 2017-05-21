@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$("#searchBtn").bind("click",findForm);
 	$("#resetBtn").bind("click",resetForm);
 });
+
 function findForm(){
 	var tel = $("[name=tel]").val();
 	$.ajax({

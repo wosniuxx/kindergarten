@@ -77,10 +77,10 @@
 				<p class="title">应用列表</p>
 				<hr>
 				<div class="applistWrap">
-					<a href="#" class="fl"><i class="list1 icon"></i><span>教师管理</span></a>
-					<a href="#" class="fl"><i class="list2 icon"></i><span>学生管理</span></a>
-					<a href="#" class="fl"><i class="list3 icon"></i><span>公告管理</span></a>
-					<a href="#" class="fl"><i class="list4 icon"></i><span>报名查询</span></a>
+					<a href="<%=webpath%>/Teacher/index" class="fl"><i class="list1 icon"></i><span>教师管理</span></a>
+					<a href="<%=webpath%>/Child/index" class="fl"><i class="list2 icon"></i><span>学生管理</span></a>
+					<a href="<%=webpath%>/notice/index" class="fl"><i class="list3 icon"></i><span>公告管理</span></a>
+					<a href="<%=webpath%>/Recruit/index" class="fl"><i class="list4 icon"></i><span>报名查询</span></a>
 					<a href="#" class="fl"><i class="list5 icon"></i><span>医院联系</span></a>
 					<a href="#" class="fl"><i class="list7 icon"></i><span>物业费</span></a>
 					<a href="#" class="fl"><i class="list8 icon"></i><span>园区制度</span></a>
@@ -117,7 +117,7 @@
 			<div class="part history">
 				<p class="title">来访登记</p>
 				<p>&nbsp;</p>
-				<table border="1">
+				<table border="1" style="width: 100%;height: 150px;text-align: center;">
 					<tr>
 						<td>来访人姓名</td>
 						<td>来访人证件</td>
@@ -128,19 +128,19 @@
 						<td>李四</td>
 						<td>身份证</td>
 						<td>李莲英（园长）</td>
-						<td>办理手续</td>
+						<td>教材预订</td>
 					</tr>
 					<tr>
 						<td>王四</td>
-						<td>身份证</td>
-						<td>李莲英（园长）</td>
+						<td>军人证</td>
+						<td>王爱民（副院长）</td>
 						<td>办理手续</td>
 					</tr>
 					<tr>
 						<td>张三</td>
-						<td>身份证</td>
-						<td>李莲英（园长）</td>
-						<td>办理手续</td>
+						<td>户口本</td>
+						<td>石春</td>
+						<td>缴费</td>
 					</tr>
 				</table>
 				

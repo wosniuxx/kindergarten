@@ -26,7 +26,7 @@
 		<header class="header">
 		<div class="wrap">
 			<h1 class="fl">
-				<a href="index.html" class="fl logo"> <img
+				<a href="<%=webpath%>/index/index"  target="_blank" class="fl logo"> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-title.png"
 					alt="TI Alliance" width="154" height="49" />
 				</a>
@@ -41,7 +41,7 @@
 						138-8888-8888 </span> <a> <span class="email"> </span>
 						kindergarten@tyut.net
 					</a>
-
+					<a href="<%=webpath%>/login/toLogin"  target="_blank">登录</a>
 				</div>
 				<nav class="nav">
 				<ul class="fix">
