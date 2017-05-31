@@ -28,6 +28,13 @@
 		AND tel LIKE '%${tel}%'
 		</if>
 	</select>
+	
+	<select id="selectByPrimaryKey" parameterType="String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from p_recruit
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
 
 	<select id="selectBytel" parameterType="String" resultType="com.bonc.recruit.model.Recruit">
 		select
@@ -148,23 +155,20 @@
 			<if test="parentname != null">
 				parentname = #{parentname,jdbcType=VARCHAR},
 			</if>
-			<if test="residence != null">
-				residence = #{residence,jdbcType=VARCHAR},
-			</if>
 			<if test="tel != null">
 				tel = #{tel,jdbcType=VARCHAR},
 			</if>
-			<if test="id_residence != null">
-				id_residence = #{id_residence,jdbcType=VARCHAR},
+			<if test="residence != null">
+				residence = #{residence,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=VARCHAR},
 			</if>
 			<if test="recruited != null">
 				recruited = #{recruited,jdbcType=VARCHAR},
 			</if>
 			<if test="money != null">
 				money = #{money,jdbcType=VARCHAR},
-			</if>
-			<if test="createtime != null">
-				createtime = #{createtime,jdbcType=VARCHAR},
 			</if>
 		</set>
 		where id = #{id,jdbcType=VARCHAR}

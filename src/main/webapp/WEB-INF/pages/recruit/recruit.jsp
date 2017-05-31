@@ -137,7 +137,7 @@
 								name="residence" />
 						</p>
 						<div class="btn_news_more">
-							<a href="#" title="点击此处跳转至报名页" class="btn" name="submit"
+							<a href="#" title="点击此处跳转至报名" class="btn" name="submit"
 								onclick="document.getElementById('subform').submit();return false">
 								提交 </a>
 						</div>

@@ -246,7 +246,7 @@ body {
 					<td>
 						<div class="form-group">
 							<label for="recruited">是否录取:</label> <input type="text"
-								class="form-control input-sm" name=""recruited""
+								class="form-control input-sm" name="recruited"
 								placeholder="请输入环境地址" />
 						</div>
 					</td>

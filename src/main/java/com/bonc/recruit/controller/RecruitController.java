@@ -109,6 +109,8 @@ public class RecruitController {
 		temp_str = sdf.format(dt);
 
 		recruit.setCreatetime(temp_str);
+		recruit.setRecruited("暂待处理");
+		recruit.setMoney("暂待处理");
 		recruitService.insert(recruit);
 		return "success!";
 	}

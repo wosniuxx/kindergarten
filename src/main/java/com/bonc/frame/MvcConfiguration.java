@@ -22,7 +22,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
         	.excludePathPatterns("/login/toLogin","/login/actionLogin","/resources/**",
         			"/index/index","/Recruit/recruit","/index/history","/index/environment",
         			"/index/security","/Recruit/recruitResult","/publicNotice/index",
-        			"/Recruit/selectbytel","/publicNotice/publicnotice");
+        			"/Recruit/selectbytel","/publicNotice/publicnotice","/Recruit/insert2");
         super.addInterceptors(registry);
     }
 }

@@ -133,6 +133,7 @@ function initTable(){
 		},{
 			"targets" : 7,//录入时间
 			"data" : null,
+			width: "12%",
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data == null || data == ""){
@@ -148,7 +149,7 @@ function initTable(){
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data == null || data == ""){
-					  html += '等待处理';
+					  html += '暂无信息';
 				  }else{
 					  html += data;
 				  }
@@ -160,7 +161,7 @@ function initTable(){
 			"render" : function(data, type,row) {
 				  var html = '';
 				  if(data == null || data == ""){
-					  html += '等待处理';
+					  html += '暂无信息';
 				  }else{
 					  html += data;
 				  }
@@ -257,6 +258,7 @@ function update(id){
 		    				dataType:"json",
 		    				data:form.serializeJson(formObj),
 		    				success:function(data){
+		    					console.log(data.recruited);
 		    					layer.close(index);
 		    					reloadTableData(true);
 		    				}
