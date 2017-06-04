@@ -21,6 +21,7 @@
 <script src="<%=webpath%>/resources/js/index/index2016.js"
 	type="text/javascript">
 </script>
+<script src="<%=webpath%>/resources/plugin/layer/layer.js"></script>
 </head>
 
 </head>
@@ -82,7 +83,6 @@
 					style="width: 85%; font-family: '微软雅黑'; text-align: center;">
 					<tr style="font-size: 15px; height: 40px;">
 						<td>公告标题</td>
-						<td>详细内容</td>
 						<td>发布时间</td>
 						<td>发布人</td>
 					</tr>
@@ -168,6 +168,21 @@
 	</footer>
 	</div>
 </body>
+
+<!-- 修改用户信息 -->
+	<div id="notice_context" style="height: 100%;width: 100%;">
+		<table class=".table-condensed" style="height: 100%;width: 100%;text-align: " border="0">
+			<tr style="font-family: '微软雅黑';font-size: 20px;">
+				<td><p class="text-center" id="td1"></p></td>
+			</tr>
+			<tr height="70%" style="font-family: '微软雅黑';font-size: 18px;background-color: #EFF0DC;">
+				<td><p class="text-center" id="td2"></p></td>
+			</tr>
+			<tr style="font-family: '微软雅黑';font-size: 20px;">
+				<td><p class="text-center" id="td3"></p></td>
+			</tr>
+		</table>
+	</div>
 <script type="text/javascript">
 var webpath = "<%=request.getContextPath()%>";
 var newDate = new Date();
@@ -179,13 +194,41 @@ function myfunction(){
 		success:function(data){
 			$("#Table  tr:not(:first)").empty();
 			for(var i=0;i<data.length;i++){
-				$("#Table").append("<tr style='font-size: 15px;'><td>"+data[i].noticeTitle+"</td>" +
-						"<td>"+data[i].noticeContent+"</td>"+
+				$("#Table").append("<tr style='font-size: 15px;'><td>"+
+						"<a href='javascript:void(0);' onclick='notice(\""+ data[i].noticeId +"\");'>"+ data[i].noticeTitle+"</a></td>"+
 						"<td>"+newDate.toLocaleString(data[i].pubdate)+"</td>"+
 						"<td>"+data[i].pubUserId+"</td></tr>");
 			}
 		}
 	}); 
+};
+
+function notice(noticeId){
+	$.ajax({
+		"url":webpath + "/publicNotice/publicNoticeById",
+		"type":"POST",
+		dataType: "json",
+		data:{
+			noticeId:noticeId
+		},
+		success:function(data){
+			console.log(data);
+			$("#td1").html("公告标题："+data.noticeTitle);
+			$("#td2").html(data.noticeContent);
+			$("#td3").html("发起人："+data.pubUserId);
+			
+			layer.open({
+				skin: 'layui-layer-molv',
+				type: 1,
+				title: '详细信息',
+				maxmin: true,
+				shadeClose: true, //点击遮罩关闭层
+				area : ['650px' , '600px'],
+				content : $("#notice_context"), 
+			});
+			
+		}
+	});
 };
 </script>
 </html>

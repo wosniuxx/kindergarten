@@ -131,9 +131,9 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="teachernum">学生编号:</label> <input type="text"
-								class="form-control input-sm" name="teachernum"
-								placeholder="请输入租户名称"/>
+							<label for="studentnum">学生编号:</label> <input type="text"
+								class="form-control input-sm" name="studentnum"
+								placeholder="请输入学生编号"/>
 						</div>
 					</td>
 				</tr>
@@ -158,9 +158,9 @@ body {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="classes">班级:</label> <input type="text"
-								class="form-control input-sm" name="classes"
-								placeholder="请输入环境地址" />
+							<label for="classed">班级:</label> <input type="text"
+								class="form-control input-sm" name="classed"
+								placeholder="请输入班级" />
 						</div>
 					</td>
 				</tr>

@@ -9,4 +9,5 @@ public interface PublicNoticeService {
 
 	public List<Notice> selectToPeople();
 	
+	public Notice publicNoticeById(String noticeId);
 }

@@ -22,4 +22,9 @@ public class PublicNoticeServiceImpl implements PublicNoticeService{
 		return list;
 	}
 
+	@Override
+	public Notice publicNoticeById(String noticeId) {
+		return (Notice) daoHelper.queryOne("com.bonc.frame.web.mapper.notice.PublicNoticeMapper.publicNoticeById", noticeId);
+	}
+
 }

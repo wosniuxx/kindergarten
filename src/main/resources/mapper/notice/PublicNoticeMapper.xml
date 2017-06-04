@@ -25,5 +25,11 @@
   order by PUBDATE DESC
   </select>
   
+  <select id="publicNoticeById" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from PURE_NOTICE
+  where NOTICE_ID = #{noticeId}
+  </select>
   
 </mapper>

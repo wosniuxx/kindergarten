@@ -61,15 +61,15 @@
 			<ul class="pic" id="pic">
 				<li
 					style="background-image:url(<%=webpath%>/resources/img/index/images/kinder/banner-5.png)">
-					<a title="品牌官网设计" href=""> </a>
+					<a title="幼儿画报墙" href="javascript:void(0);"> </a>
 				</li>
 				<li
 					style="background-image:url(<%=webpath%>/resources/img/index/images/kinder/banner-7.png)">
-					<a title="TI Alliance" href=""> </a>
+					<a title="运动场的绿色" href="javascript:void(0);"> </a>
 				</li>
 				<li
 					style="background-image:url(<%=webpath%>/resources/img/index/images/kinder/banner-2.png)">
-					<a title="成功案例" href=""> </a>
+					<a title="爱在四季" href="javascript:void(0);"> </a>
 				</li>
 			</ul>
 			<ul class="list" id="list_pic">
@@ -383,13 +383,13 @@
 				<div class="home_about fl">
 					<dl>
 						<dt>
-							<a href="index.html"> 关于本园 </a>
+							<a href="#situation"> 关于本园 </a>
 						</dt>
 						<dd>
 							我们树立正确的幼教观与儿童观，遵循幼儿身心发展规律,保教合一，寓教于乐，促进幼儿健康成长。将大爱无声无息播撒在孩子们幼小的心灵中，让他们在爱的四季中度过多彩而宝贵的童年时光。也正因此，幼儿院形成了“以爱为本、以德为先”、“专心于爱、专注于教”的理念，成为孩子们快乐玩耍、健康成长的儿童乐园。
 						</dd>
 						<dd>
-							<a href="index.html" class="more"> 查看更多 >> </a>
+							<a href="javascript:void(0);" class="more"> 查看更多 >> </a>
 						</dd>
 					</dl>
 				</div>

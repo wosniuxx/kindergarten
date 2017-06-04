@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bonc.frame.web.entity.notice.Notice;
@@ -32,4 +33,10 @@ public class PublicNoticeController {
 		return list;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/publicNoticeById",method=RequestMethod.POST)
+	public Notice publicNoticeById(String noticeId) {
+		Notice notice = publicNoticeService.publicNoticeById(noticeId);
+		return notice;
+	}
 }

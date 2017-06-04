@@ -43,14 +43,14 @@
 				</div>
 				<nav class="nav">
 				<ul class="fix">
-					<li id="menu1"><a href="index.html" tppabs="/"> 本园概况 </a></li>
-					<li id="menu2"><a href="about/index.html" tppabs="/about/">
+					<li id="menu1"><a href="<%=webpath%>/index/index"> 本园概况 </a></li>
+					<li id="menu2"><a href="<%=webpath%>/publicNotice/index">
 							园区公告 </a></li>
-					<li id="menu3"><a href="cases/index.html" tppabs="/cases/">
+					<li id="menu3"><a href="<%=webpath%>/index/index/#teach">
 							教学展示 </a></li>
-					<li id="menu4"><a href="service/index.html" tppabs="/service/">
+					<li id="menu4"><a href="<%=webpath%>/index/index/#classes">
 							班级展示 </a></li>
-					<li id="menu5"><a href="mobile/index.html" tppabs="/mobile/">
+					<li id="menu5"><a href="<%=webpath%>/Recruit/recruit">
 							招生入口 </a></li>
 				</ul>
 				<span class="nav_icon"> </span> </nav>
@@ -102,13 +102,13 @@
 					<div class="home_about fl">
 						<dl>
 							<dt>
-								<a href="index.html"> 关于本园 </a>
+								<a href="<%=webpath%>/index/index"> 关于本园 </a>
 							</dt>
 							<dd>
 								我们树立正确的幼教观与儿童观，遵循幼儿身心发展规律,保教合一，寓教于乐，促进幼儿健康成长。将大爱无声无息播撒在孩子们幼小的心灵中，让他们在爱的四季中度过多彩而宝贵的童年时光。也正因此，幼儿院形成了“以爱为本、以德为先”、“专心于爱、专注于教”的理念，成为孩子们快乐玩耍、健康成长的儿童乐园。
 							</dd>
 							<dd>
-								<a href="index.html" class="more"> 查看更多 >> </a>
+								<a href="javascript:void(0);" class="more"> 查看更多 >> </a>
 							</dd>
 						</dl>
 					</div>

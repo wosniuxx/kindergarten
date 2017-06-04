@@ -43,14 +43,14 @@
 				</div>
 				<nav class="nav">
 				<ul class="fix">
-					<li id="menu1"><a href="index.html" tppabs="/"> 本园概况 </a></li>
-					<li id="menu2"><a href="about/index.html" tppabs="/about/">
+					<li id="menu1"><a href="<%=webpath%>/index/index"> 本园概况 </a></li>
+					<li id="menu2"><a href="<%=webpath%>/publicNotice/index" >
 							园区公告 </a></li>
-					<li id="menu3"><a href="cases/index.html" tppabs="/cases/">
+					<li id="menu3"><a href="<%=webpath%>/index/index/#teach">
 							教学展示 </a></li>
-					<li id="menu4"><a href="service/index.html" tppabs="/service/">
+					<li id="menu4"><a href="<%=webpath%>/index/index/#classes">
 							班级展示 </a></li>
-					<li id="menu5"><a href="mobile/index.html" tppabs="/mobile/">
+					<li id="menu5"><a href="<%=webpath%>/Recruit/recruit">
 							招生入口 </a></li>
 				</ul>
 				<span class="nav_icon"> </span> </nav>
