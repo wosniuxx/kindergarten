@@ -169,14 +169,13 @@
 	<div id="section3" init="false" class="section section3">
 		<div class="succeed">
 			<div class="succeed_title" id="notice">
-				<a href="cases/index.html"> <img
+				<a href=""> <img
 					src="<%=webpath%>/resources/img/index/images/kinder/p-notice.png"
 					alt="成功案例" width="262" height="78" />
 				</a>
 			</div>
 		</div>
-
-		<div class="">
+		<div class="home_news_list" style="background-color: #ffffff;">
 				<div class="wrap">
 					<div class="home_news_list_inner">
 

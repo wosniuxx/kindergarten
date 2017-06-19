@@ -1,7 +1,6 @@
 package com.bonc.person.model;
 
 public class Child {
-
 	private String id;
 	private String studentnum;
 	private String name;

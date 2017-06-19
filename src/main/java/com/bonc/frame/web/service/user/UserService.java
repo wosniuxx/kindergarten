@@ -10,8 +10,7 @@ import com.bonc.frame.web.entity.user.User;
 
 /**
  * 用户管理service接口，此接口内包含对用户信息的一些常用操作的封装
- * @author 作者: 吕一凡 
- * @date 2017年1月11日 上午11:23:58 
+ * @author 
  * @version 版本: 1.0
  */
 public interface UserService {

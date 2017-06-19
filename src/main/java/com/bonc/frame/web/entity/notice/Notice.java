@@ -4,25 +4,15 @@ import java.util.Date;
 
 public class Notice {
     private String noticeId;
-
     private String noticeTitle;
-
     private String noticeType;
-
     private String noticeContent;
-
     private String state;
-
     private String fromSign;
-
     private Date pubdate;
-
     private String pubTime;
-    
     private String pubUserId;
-    
     private String recOrgId;
-
     private String pubPerson;
     
     public String getPubPerson() {

@@ -7,37 +7,21 @@ import com.bonc.frame.web.entity.orgnization.Orgnization;
 
 public class User implements Cloneable{
     private String userId;
-
     private String loginId;
-
     private String password;
-
     private String userName;
-
     private String sex;
-
     private String emall;
-
     private String mobile;
-
     private String telephone;
-
     private String state;
-
     private String pwdState;
-
     private String memo;
-
     private Date regDate;
-
     private Date updateDate;
-
     private String createrId;
-
     private String orgId;
-    
     private String dataAuth;
-    
     private Date lockDate;
     
     private long lockLoginTimes;

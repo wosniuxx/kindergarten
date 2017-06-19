@@ -4,16 +4,14 @@ import java.util.List;
 
 /**
  * 组织架构节点实体
- * @author "YanS"
- * @date 2017年1月12日 上午11:00:00 
- * @version 1.0.0
  */
 public class Orgnization {
 	private String orgId;
 	private String orgName;
 	private String parentId;
 	private Long ord;
-	private String path;
+	
+	private String path; 	
 	private String tenantId;
 	private List<Orgnization> children;
 	private String text;
